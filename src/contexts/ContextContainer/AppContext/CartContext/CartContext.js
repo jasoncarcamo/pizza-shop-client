@@ -1,4 +1,5 @@
 import React from "react";
+import CartService from "../../../../services/CartService/CartService";
 
 const CartContext = React.createContext({
     cart: {}
@@ -16,6 +17,13 @@ export class CartContextProvider extends React.Component{
 
     componentDidMount(){
         console.log("Mounted");
+        const cart = CartService.getCart();
+
+        if(!cart){
+            return;
+        };
+
+        this.setCart(cart);
     }
 
     getCart = ()=>{

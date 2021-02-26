@@ -47,10 +47,14 @@ export class MenuItemsProvider extends React.Component{
     setMenuItem = (menuItem)=>{
         const menuItems = this.state.menuItems;
 
+        //check if menu items has the category as a propert
         if(!menuItems.hasOwnProperty(menuItem.category)){
+            //if not add property and assign empty object to avoid error
             menuItems[menuItem.category] = {};
         };
 
+        // menu items should have the category as a property, now we add id as category property
+        // and assign value
         menuItems[menuItem.category][menuItem.id] = menuItem;
 
         this.setState({
@@ -75,6 +79,6 @@ export class MenuItemsProvider extends React.Component{
             <MenuItemsContext.Provider value={value}>
                 {this.props.children}
             </MenuItemsContext.Provider>
-        )
-    }
+        );
+    };
 }

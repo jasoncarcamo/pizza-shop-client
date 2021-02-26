@@ -5,6 +5,7 @@ import MenuItemsContext, {MenuItemsProvider} from "./AppContext/MenuItemsContext
 import OrdersContext, {OrdersContextProvider} from "./AppContext/OrdersContext/OrdersContext";
 import CartContext, {CartContextProvider} from "./AppContext/CartContext/CartContext";
 
+// made to consume all contexts and then passed them down to app context, to act as the context container
 export default class ContextContainer extends React.Component{
     render(){
         return (
