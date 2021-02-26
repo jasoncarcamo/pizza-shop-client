@@ -55,8 +55,7 @@ const OrderRequest = {
             headers: {
                 'content-type': "application/json",
                 'authorization': `bearer ${token}`
-            },
-            body: JSON.stringify(updatedOrder)
+            }
         })
             .then( res => {
                 if(!res){

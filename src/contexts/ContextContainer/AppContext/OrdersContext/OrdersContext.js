@@ -1,5 +1,5 @@
 import React from "react";
-import OrderRequest from "../../services/FetchRequests/OrderRequest";
+import OrderRequest from "../../../../services/FetchRequests/OrderRequest";
 
 const OrderContext = React.createContext({
     orders: {}
@@ -13,6 +13,10 @@ export class OrdersContextProvider extends React.Component{
         this.state = {
             orders: {}
         };
+    }
+
+    componentDidMount(){
+        console.log("Mounted");
     }
 
     getOrders = ()=>{

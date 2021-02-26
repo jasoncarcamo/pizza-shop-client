@@ -4,12 +4,18 @@ const CartContext = React.createContext({
     cart: {}
 });
 
+export default CartContext;
+
 export class CartContextProvider extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            cart: {},
+            cart: {}
         }
+    }
+
+    componentDidMount(){
+        console.log("Mounted");
     }
 
     getCart = ()=>{

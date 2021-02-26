@@ -1,11 +1,17 @@
 import React from "react";
+import CustomerTokenService from "../../../services/CustomerTokenService/CustomerTokenService";
 
 export default class cart extends React.Component{
-    render(){
+
+    renderCart = ()=>{
         return (
-            <section>
+            <section id="cart-container">
                 Cart
             </section>
         );
+    }
+
+    render(){
+        return CustomerTokenService.hasToken() ? this.renderCart() : "";
     };
 }

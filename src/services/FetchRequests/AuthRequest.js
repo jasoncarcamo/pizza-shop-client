@@ -1,6 +1,6 @@
 const AuthRequest = {
     registerCustomer(newCustomer){
-        return fetch(`https://localhost:8000/api/register`, {
+        return fetch(`http://localhost:8000/api/register`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",
@@ -16,7 +16,7 @@ const AuthRequest = {
             })
     },
     logInCustomer(customer){
-        return fetch(`https://localhost:8000/api/login`, {
+        return fetch(`http://localhost:8000/api/login`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",

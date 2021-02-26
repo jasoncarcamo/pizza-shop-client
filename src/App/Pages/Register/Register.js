@@ -5,7 +5,7 @@ export default class Register extends React.Component{
     render(){
         return (
             <section>
-                <RegisterForm/>
+                <RegisterForm history={this.props.history}/>
             </section>
         );
     };
