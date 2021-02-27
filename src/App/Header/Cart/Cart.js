@@ -1,17 +1,16 @@
 import React from "react";
 import CustomerTokenService from "../../../services/CustomerTokenService/CustomerTokenService";
+import AppContext from "../../../contexts/ContextContainer/AppContext/AppContext";
 
 export default class cart extends React.Component{
 
-    renderCart = ()=>{
-        return (
-            <section id="cart-container">
-                Cart
-            </section>
-        );
-    }
+    static contextType = AppContext;
 
     render(){
-        return CustomerTokenService.hasToken() ? this.renderCart() : "";
+        return (
+            <section id="cart-container">
+                Cart {this.context.cartContext.cart.length || ""}
+            </section>
+        );
     };
 }

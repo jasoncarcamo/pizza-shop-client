@@ -2,7 +2,8 @@ import React from "react";
 import SizeOptions from "./SizeOptions/SizeOptions";
 import SpecialRequestOption from "./SpecialRequestOption/SpecialRequestOption";
 import QuatityOption from "./QuatityOption/QuatityOption";
-
+import AddItemButton from "./AddItemButton/AddItemButton";
+import CancelItemBtn from "./CancelItemBtn/CancelItemBtn";
 
 // serves as container for order item data
 export default class MenuItemCustomizer extends React.Component{
@@ -18,7 +19,8 @@ export default class MenuItemCustomizer extends React.Component{
                 ingredients: {
 
                 },
-                special_request: ""
+                special_request: "",
+                quantity: ""
             }
         }
     }
@@ -27,10 +29,12 @@ export default class MenuItemCustomizer extends React.Component{
         const orderItem = {
             id: this.props.menuItem.id,
             category: this.props.menuItem.category,
+            name: this.props.menuItem.name,
             price: this.props.menuItem.price_small,
             size: "size_small",
             ingredients: {},
-            special_request: ""
+            special_request: "",
+            quantity: 1
         };
 
         this.setState({
@@ -47,8 +51,9 @@ export default class MenuItemCustomizer extends React.Component{
             orderItem
         });
     }
-
+    
     render(){
+        console.log(this.state.orderItem)
         return (
             <section>
                 <h2>{this.state.menuItem.name}</h2>
@@ -67,6 +72,15 @@ export default class MenuItemCustomizer extends React.Component{
                 <QuatityOption 
                     orderItem={this.state.orderItem}
                     updateOrderItem={this.updateOrderItem}
+                />
+
+                <AddItemButton
+                    toggleOptions={this.toggleOptions}
+                    orderItem={this.state.orderItem} 
+                />
+                <CancelItemBtn
+                    updateOrderItem={this.updateOrderItem}
+                    toggleOptions={this.toggleOptions}
                 />
             </section>
         );

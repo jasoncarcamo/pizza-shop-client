@@ -2,7 +2,11 @@ import React from "react";
 import CartService from "../../../../services/CartService/CartService";
 
 const CartContext = React.createContext({
-    cart: {}
+    cart: [],
+    getCart: ()=>{},
+    setCart: ()=>{},
+    updateCart: ()=>{},
+    deleteCart: ()=>{}
 });
 
 export default CartContext;
@@ -11,7 +15,7 @@ export class CartContextProvider extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            cart: {}
+            cart: []
         }
     }
 
@@ -30,7 +34,16 @@ export class CartContextProvider extends React.Component{
 
     };
 
-    setCart = (cart)=>{
+    setCart = (orderItem)=>{
+        const cart = this.state.cart;
+        let orderItemIndex = cart.indexOf(orderItem);
+        
+        if(orderItemIndex === -1){
+            cart.push(orderItem);
+        } else{
+            cart[orderItemIndex] = orderItem;
+        };
+        
         this.setState({
             cart
         });
@@ -48,9 +61,13 @@ export class CartContextProvider extends React.Component{
     
     render(){
         const value = {
-
+            cart: this.state.cart,
+            getCart: this.getCart,
+            setCart: this.setCart,
+            updateCart: this.updateCart,
+            deleteCart: this.deleteCart
         };
-
+        console.log(value);
         return (
             <CartContext.Provider value={value}>
                 {this.props.children}
