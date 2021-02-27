@@ -7,6 +7,7 @@ import Footer from "./Footer/Footer";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import Register from "./Pages/Register/Register";
 import LogIn from "./Pages/LogIn/LogIn";
+import Menu from "./Pages/Menu/Menu";
 
 export default class App extends React.Component{
     render(){
@@ -18,6 +19,7 @@ export default class App extends React.Component{
                     <Route exact path="/" component={LandingPage}></Route>
                     <Route exact path="/register" component={Register}></Route>
                     <Route exact path="/login" component={LogIn}></Route>
+                    <Route path="/menu" component={Menu}></Route>
                 </main>
 
                 <Route path="/" component={Footer}></Route>
