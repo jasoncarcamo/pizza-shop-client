@@ -46,7 +46,7 @@ export default class MenuCategories extends React.Component{
 
             newLabels.push((
                 <li key={index}>
-                    <MenuItemLabel menuItem={menuItems[key]}/>
+                    <MenuItemLabel index={this.props.index} menuItem={menuItems[key]}/>
                 </li>
             ));
         };

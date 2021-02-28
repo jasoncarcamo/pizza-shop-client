@@ -29,7 +29,7 @@ export default class MenuItemLabel extends React.Component{
 
                 <button onClick={this.toggleOptions}>Customize Order</button>
 
-                {this.state.toggleOptions ? <MenuItemCustomizer toggleOptions={this.toggleOptions} menuItem={this.props.menuItem}/> : ""}
+                {this.state.toggleOptions ? <MenuItemCustomizer index={this.props.index} toggleOptions={this.toggleOptions} menuItem={this.props.menuItem}/> : ""}
             </section>
         );
     };

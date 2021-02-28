@@ -1,5 +1,5 @@
 import React from "react";
-import MenuItemCustomizer from "../../../../Menu/MenuCategories/MenuItemLabel/MenuItemCustomizer/MenuItemCustomizer";
+import EditItemCustomizer from "./EditItemCustomizer/EditItemCustomizer";
 
 export default class CartItemOptions extends React.Component{
     constructor(props){
@@ -21,7 +21,7 @@ export default class CartItemOptions extends React.Component{
                 <button onClick={this.toggleOptions}>Edit</button>
                 <button>Remove</button>
 
-                {this.state.toggleOptions ? <MenuItemCustomizer toggleOptions={this.toggleOptions} menuItem={this.props.menuItem}/> : ""}
+                {this.state.toggleOptions ? <EditItemCustomizer index={this.props.index} toggleOptions={this.toggleOptions} menuItem={this.props.menuItem}/> : ""}
             </section>
         );
     }

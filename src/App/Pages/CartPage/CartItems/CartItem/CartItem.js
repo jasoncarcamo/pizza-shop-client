@@ -9,8 +9,9 @@ export default class CartItem extends React.Component{
             <section>
                 <h3>{this.props.cartItem.name}</h3>
                 <p>${this.props.cartItem.price}</p>
+                <p>Quantity: {this.props.cartItem.quantity}</p>
 
-                <CartItemOptions menuItem={this.props.cartItem}/>
+                <CartItemOptions index={this.props.index} menuItem={this.props.cartItem}/>
             </section>
         );
     }

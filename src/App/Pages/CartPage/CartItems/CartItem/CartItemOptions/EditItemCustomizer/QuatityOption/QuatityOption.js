@@ -1,15 +1,18 @@
 import React from "react";
+import AppContext from "../../../../../../../../contexts/ContextContainer/AppContext/AppContext";
 
 export default class QuatityOption extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            quantity: 1
+            quantity: this.props.orderItem.quantity
         };
     }
 
+    static contextType = AppContext;
+
     addQuantity = ()=>{
-        let quantity = this.state.quantity;
+        let quantity = this.props.orderItem.quantity;
 
         quantity++;
 
@@ -21,7 +24,7 @@ export default class QuatityOption extends React.Component{
     }
 
     decreaseQuantity = ()=>{
-        let quantity = this.state.quantity;
+        let quantity = this.props.orderItem.quantity;
 
         quantity = --quantity;
 
@@ -38,9 +41,11 @@ export default class QuatityOption extends React.Component{
 
     updateOrderItem = (quantity)=>{
         const orderItem = this.props.orderItem;
-        const menuItem = this.props.menuItem;
+        const menuItem = this.context.menuItemsContext.menuItems[orderItem.category][orderItem.id];
         let sizeType;
         let priceType;
+
+        console.log(menuItem);
 
         orderItem.quantity = quantity;
 
@@ -54,18 +59,18 @@ export default class QuatityOption extends React.Component{
         priceType = `price_${sizeType.split("_")[1]}`;
 
         orderItem.price = Math.round(Number((menuItem[priceType]) * quantity) * 100 + Number.EPSILON) / 100;
-        
         this.props.updateOrderItem(orderItem);
     }
 
     render(){
+        console.log(this.props.orderItem.quantity)
         return (
             <section>
                 <p>Quantity</p>
 
                 <div>
                     <button onClick={this.decreaseQuantity}>-</button>
-                    <p>{this.state.quantity}</p>
+                    <p>{this.props.orderItem.quantity}</p>
                     <button onClick={this.addQuantity}>+</button>
                 </div>
             </section>

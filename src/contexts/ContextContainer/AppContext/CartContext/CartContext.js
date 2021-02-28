@@ -34,10 +34,10 @@ export class CartContextProvider extends React.Component{
 
     };
 
-    setCart = (orderItem)=>{
+    setCart = (orderItem, index)=>{
         const cart = this.state.cart;
         let orderItemIndex = cart.indexOf(orderItem);
-        
+
         if(orderItemIndex === -1){
             cart.push(orderItem);
         } else{
@@ -49,8 +49,14 @@ export class CartContextProvider extends React.Component{
         });
     };
 
-    updateCart = (cart)=>{
-        this.setCart(cart);
+    updateCart = (orderItem, index)=>{
+        const cart = this.state.cart;
+
+        cart[index] = orderItem;
+
+        this.setState({
+            cart
+        });
     };
 
     deleteCart = ()=>{

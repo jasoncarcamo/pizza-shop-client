@@ -2,44 +2,32 @@ import React from "react";
 import SizeOptions from "./SizeOptions/SizeOptions";
 import SpecialRequestOption from "./SpecialRequestOption/SpecialRequestOption";
 import QuatityOption from "./QuatityOption/QuatityOption";
-import AddItemButton from "./AddItemButton/AddItemButton";
+import EditItemButton from "./EditItemButton/EditItemButton";
 import CancelItemBtn from "./CancelItemBtn/CancelItemBtn";
 
 // serves as container for order item data
-export default class MenuItemCustomizer extends React.Component{
+export default class EditItemCustomizer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             menuItem: this.props.menuItem,
             orderItem: {
-                id: "",
-                category: "",
-                price: "",
-                size: "",
-                ingredients: {
-
-                },
-                special_request: "",
-                quantity: ""
+                id: this.props.menuItem.id,
+                category: this.props.menuItem.category,
+                name: this.props.menuItem.name,
+                price: this.props.menuItem.price,
+                size: this.props.menuItem.size,
+                ingredients: {},
+                special_request: this.props.menuItem.special_request,
+                quantity: this.props.menuItem.quantity
             }
         }
     }
 
     componentDidMount(){
-        const orderItem = {
-            id: this.props.menuItem.id,
-            category: this.props.menuItem.category,
-            name: this.props.menuItem.name,
-            price: this.props.menuItem.price_small,
-            size: "size_small",
-            ingredients: {},
-            special_request: "",
-            quantity: 1
-        };
+        const originalOrderItem = this.props.menuItem;
 
-        this.setState({
-            orderItem
-        });
+        console.log(originalOrderItem);
     }
 
     toggleOptions = ()=>{
@@ -70,17 +58,17 @@ export default class MenuItemCustomizer extends React.Component{
                     updateOrderItem={this.updateOrderItem}
                 />
                 <QuatityOption 
-                    menuItem={this.state.menuItem}
                     orderItem={this.state.orderItem}
                     updateOrderItem={this.updateOrderItem}
                 />
 
-                <AddItemButton
+                <EditItemButton
                     index={this.props.index}
                     toggleOptions={this.toggleOptions}
                     orderItem={this.state.orderItem} 
                 />
                 <CancelItemBtn
+                    index={this.props.index}
                     updateOrderItem={this.updateOrderItem}
                     toggleOptions={this.toggleOptions}
                 />

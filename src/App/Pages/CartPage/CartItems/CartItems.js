@@ -10,7 +10,7 @@ export default class CartItems extends React.Component{
         let cart = cartContext.cart;
 
         cart = cart.map((cartItem, i)=>{
-            return <CartItem key={i} cartItem={cartItem}/>
+            return <CartItem key={i} index={i} cartItem={cartItem}/>
         });
 
         return cart;

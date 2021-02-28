@@ -13,19 +13,18 @@ export default class SizeOptions extends React.Component{
     }
 
     setDefaultPrice = ()=>{
-        console.log(this.props)
         this.setState({
             price: this.props.menuItem.price_small
         });
     }
 
-    handlePrice = (e)=>{
+    handleSize = (e)=>{
         const orderItem = this.props.orderItem;
 
-        orderItem.price = e.target.value;
+        orderItem.price = Math.round((e.target.value * orderItem.quantity) * 100 + Number.EPSILON) / 100;
 
         this.setState({
-            price: orderItem.price
+            size: orderItem.size
         });
 
         this.setSize(e);
@@ -37,11 +36,9 @@ export default class SizeOptions extends React.Component{
 
         for(const key of Object.keys(menuItem)){
             if(menuItem[key] === e.target.value){
-                orderItem.size = key;
+                orderItem.size = `size_${key.split("_")[1]}`;
             };
         };
-
-        console.log(orderItem);
 
         this.updateOrderItem(orderItem);
     }
@@ -58,17 +55,17 @@ export default class SizeOptions extends React.Component{
 
                 <ul>
                     <li>
-                        <input type="radio" name="price" value={this.props.menuItem.price_small} className="size-option-input" checked={this.state.price === this.props.menuItem.price_small} onChange={this.handlePrice}/>
+                        <input type="radio" name="price" value={this.props.menuItem.price_small} className="size-option-input" checked={this.props.orderItem.size === "size_small"} onChange={this.handleSize}/>
                         <label htmlFor="" className="size-option-label"> Small {this.props.menuItem.size_small}</label>
                     </li>
 
                     <li>
-                        <input type="radio" name="price" value={this.props.menuItem.price_medium} className="size-option-input" checked={this.state.price === this.props.menuItem.price_medium} onChange={this.handlePrice}/>
+                        <input type="radio" name="price" value={this.props.menuItem.price_medium} className="size-option-input" checked={this.props.orderItem.size === "size_medium"} onChange={this.handleSize}/>
                         <label htmlFor="" className="size-option-label"> Medium {this.props.menuItem.size_medium}</label>
                     </li>
 
                     <li>
-                        <input type="radio" name="price" value={this.props.menuItem.price_large} className="size-option-input" checked={this.state.price === this.props.menuItem.price_large} onChange={this.handlePrice}/>
+                        <input type="radio" name="price" value={this.props.menuItem.price_large} className="size-option-input" checked={this.props.orderItem.size === "size_large"} onChange={this.handleSize}/>
                         <label htmlFor="" className="size-option-label"> Large {this.props.menuItem.size_large}</label>
                     </li>
                 </ul>
