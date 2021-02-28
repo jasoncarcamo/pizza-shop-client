@@ -29,7 +29,7 @@ export default class Header extends React.Component{
                         <AuthOptions history={this.props.history}/>
                     </ul>
 
-                    <Cart/>
+                    <Cart history={this.props.history}/>
                 </nav>
             </header>
         );

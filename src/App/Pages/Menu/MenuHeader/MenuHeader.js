@@ -18,7 +18,7 @@ export default class MenuHeader extends React.Component{
         
         menuItems = menuItems.map((menuItem, i)=>{
             return (
-                <li>
+                <li key={i}>
                     <Link to={`/menu/${menuItem.toLowerCase()}`}>{Pluralize.plural(menuItem)}</Link>
                 </li>
             );

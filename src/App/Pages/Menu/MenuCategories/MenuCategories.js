@@ -33,6 +33,7 @@ export default class MenuCategories extends React.Component{
         let category = this.getCategory();
         let menuItems = menuItemsContext.menuItems[category];
         let newLabels = [];
+        let index = 0;
 
         console.log(menuItems);
         if(menuItems === undefined){
@@ -40,8 +41,11 @@ export default class MenuCategories extends React.Component{
         }
 
         for(const key of Object.keys(menuItems)){
+
+            index++;
+
             newLabels.push((
-                <li>
+                <li key={index}>
                     <MenuItemLabel menuItem={menuItems[key]}/>
                 </li>
             ));

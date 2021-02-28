@@ -8,6 +8,7 @@ import LandingPage from "./Pages/LandingPage/LandingPage";
 import Register from "./Pages/Register/Register";
 import LogIn from "./Pages/LogIn/LogIn";
 import Menu from "./Pages/Menu/Menu";
+import CartPage from './Pages/CartPage/CartPage';
 
 export default class App extends React.Component{
     render(){
@@ -20,6 +21,7 @@ export default class App extends React.Component{
                     <Route exact path="/register" component={Register}></Route>
                     <Route exact path="/login" component={LogIn}></Route>
                     <Route path="/menu" component={Menu}></Route>
+                    <Route path="/cart" component={CartPage}/>
                 </main>
 
                 <Route path="/" component={Footer}></Route>
