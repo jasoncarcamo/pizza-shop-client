@@ -59,10 +59,16 @@ export class CartContextProvider extends React.Component{
         });
     };
 
-    deleteCart = ()=>{
-        const cart = {};
+    deleteCart = (index)=>{
+        const cart = this.state.cart;
 
-        this.setCart(cart);
+        cart.splice(index, 1);
+
+        console.log(cart);
+
+        this.setState({
+            cart
+        });
     }
     
     render(){
