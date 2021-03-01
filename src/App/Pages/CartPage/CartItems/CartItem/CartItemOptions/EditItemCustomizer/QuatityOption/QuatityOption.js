@@ -56,6 +56,7 @@ export default class QuatityOption extends React.Component{
         priceType = `price_${sizeType.split("_")[1]}`;
 
         orderItem.price = Math.round(Number((menuItem[priceType]) * quantity) * 100 + Number.EPSILON) / 100;
+        
         this.props.updateOrderItem(orderItem);
     }
 

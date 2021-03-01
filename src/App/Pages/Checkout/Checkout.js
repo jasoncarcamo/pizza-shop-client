@@ -54,7 +54,7 @@ export default class Checkout extends React.Component{
 
                 <OrderItems/>
 
-                <CheckOutOptions history={this.props.history}/>
+                <CheckOutOptions history={this.props.history} order={this.state.order}/>
             </section>
         );
     };
