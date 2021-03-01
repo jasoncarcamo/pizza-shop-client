@@ -24,10 +24,8 @@ export default class Checkout extends React.Component{
         };  
 
         for(let i = 0; i < cart.length; i++){
-            console.log(cart[i], order)
             order.subtotal = (Number(order.subtotal) + Number(cart[i].price));
         };
-        console.log(cart, order);
         
         this.setState({
             cart,

@@ -1,4 +1,5 @@
 import React from "react";
+import "./AddConfirmation.css";
 
 export default class AddConfirmation extends React.Component{
 
@@ -8,7 +9,7 @@ export default class AddConfirmation extends React.Component{
 
     render(){
         return (
-            <section>
+            <section className="add-confirmed-section">
                 <p>Your {this.props.orderItem.category} has been added!</p>
 
                 <button onClick={this.toggleOptions}>Thanks!</button>

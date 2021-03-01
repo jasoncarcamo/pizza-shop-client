@@ -15,11 +15,15 @@ export default class Header extends React.Component{
         linkContainer.classList.toggle("show-links-container");
     }
 
+    goHome = ()=>{
+        this.props.history.push("/");
+    }
+
     render(){
         return (
             <header id="nav-header">
                 <nav id="nav-container">
-                    <h2 id="nav-logo">Pizza Shop Logo</h2>
+                    <h2 id="nav-logo" onClick={this.goHome}>Pizza Shop Logo</h2>
 
                     <MenuBurger toggleMobileMenu={this.toggleMobileMenu}/>
 

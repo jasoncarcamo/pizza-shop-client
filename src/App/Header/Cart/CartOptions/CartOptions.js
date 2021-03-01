@@ -1,4 +1,5 @@
 import React from "react";
+import "./CartOptions.css";
 
 export default class CartOptions extends React.Component{
 
@@ -12,7 +13,7 @@ export default class CartOptions extends React.Component{
 
     render(){
         return (
-            <section id="cart-options-section">
+            <section id="cart-options-section" onMouseLeave={this.props.closeOptions}>
                 <button onClick={this.editCart}>Edit</button>
                 <button onClick={this.checkOutCart}>Checkout</button>
             </section>

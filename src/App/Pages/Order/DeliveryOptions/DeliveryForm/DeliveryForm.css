@@ -1,39 +1,25 @@
-#log-in-form{
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#delivery-form{
+    width: 100%;
+    margin: 5em 0 0 0;
+    padding: 0;
 }
 
-#log-in-fieldset{
+#delivery-fieldset{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    margin: 0;
+    padding: 0;
     border: none;
 }
 
-#log-in-legend{
-    text-align: center;
-    margin: 0 0 2em 0;
-    padding: 0;
-}
-
-#log-in-legend h2{
-    font-size: 2.25em;
-}
-
-.log-in-label{
+.delivery-label{
     display: block;
     width: 18rem;
-    margin: 0;
-    padding: 0;
-    font-size: .9em;
-    color: rgb(117, 117, 117)
 }
 
-.log-in-input{
+.delivery-input{
     display: block;
     width: 18rem;
     height: 2.5em;
@@ -43,17 +29,17 @@
     border-bottom: .05em solid rgb(117, 117, 117)
     ;
     border-left: none;
-    outline: none;
 }
 
-.log-in-input:hover{
+.delivery-input:hover{
     border-bottom: .05em solid rgb(166, 43, 0) !important;
 }
 
-#log-in-submit-btn{
+.delivery-btn{
     display: block;
     width: 18rem;
     height: 2.3em;
+    margin: 0 0 .75em 0;
     background-color: rgb(166, 43, 0);
     font-size: 1em;
     border: none;
@@ -61,12 +47,6 @@
     transition: background-color .3s linear;
 }
 
-#log-in-submit-btn:hover{
+.delivery-btn:hover{
     background-color: rgb(139, 37, 0) !important;
-}
-
-@media screen and (max-width: 1300px){
-    #log-in-form{
-        width: 100%;
-    }
 }

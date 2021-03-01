@@ -43,7 +43,6 @@ export class OrdersContextProvider extends React.Component{
         const order = OrderService.getOrder();
 
         if(order){
-            console.log(order);
             this.setOrder(order);
         }
     }
@@ -117,7 +116,7 @@ export class OrdersContextProvider extends React.Component{
             deleteOrder: this.deleteOrder,
             cancelOrder: this.cancelOrder
         };
-        console.log(value);
+        
         return (
             <OrderContext.Provider value={value}>
                 {this.props.children}

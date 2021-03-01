@@ -1,5 +1,6 @@
 import React from "react";
 import MenuItemCustomizer from "./MenuItemCustomizer/MenuItemCustomizer";
+import "./MenuItemLabel.css";
 
 export default class MenuItemLabel extends React.Component{
     constructor(props){
@@ -17,16 +18,12 @@ export default class MenuItemLabel extends React.Component{
 
     render(){
         return (
-            <section>
+            <section className="menu-item-label-section">
                 <h2>{this.props.menuItem.name}</h2>
-                <p>
-                    <strong>
-                        Starting price: ${this.props.menuItem.price_small}
-                    </strong>
-                </p>
+                <p><strong>Starting price: </strong>${this.props.menuItem.price_small}</p>
                 <p>{this.props.menuItem.description}</p>
 
-                <button onClick={this.toggleOptions}>Customize Order</button>
+                <button className="menu-item-label-btn" onClick={this.toggleOptions}>Customize Order</button>
 
                 {this.state.toggleOptions ? <MenuItemCustomizer index={this.props.index} toggleOptions={this.toggleOptions} menuItem={this.props.menuItem}/> : ""}
             </section>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./SizeOptions.css";
 
 export default class SizeOptions extends React.Component{
     constructor(props){
@@ -74,10 +75,9 @@ export default class SizeOptions extends React.Component{
     }
 
     renderMediumSizeOption = ()=>{
-        console.log(this.props.menuItem.price_medium);
         if(Math.round(this.props.menuItem.price_medium) !== 0){
             return (
-                <li>
+                <li className="size-option-section-list-item">
                     <input type="radio" name="price" value={this.props.menuItem.price_medium} className="size-option-input" checked={this.props.orderItem.size === "size_medium"} onChange={this.handleSize}/>
                     <label htmlFor="" className="size-option-label"> Medium {this.props.menuItem.size_medium}</label>
                 </li>
@@ -87,18 +87,18 @@ export default class SizeOptions extends React.Component{
 
     render(){
 ;        return (
-            <section>
-                <p>Choose a size:</p>
+            <section className="size-option-section">
+                <p><strong>Choose a size:</strong></p>
 
-                <ul>
-                    <li>
+                <ul className="size-option-section-list">
+                    <li className="size-option-section-list-item">
                         <input type="radio" name="price" value={this.props.menuItem.price_small} className="size-option-input" checked={this.props.orderItem.size === "size_small"} onChange={this.handleSize}/>
                         <label htmlFor="" className="size-option-label"> Small {this.props.menuItem.size_small}</label>
                     </li>
 
                     {this.renderMediumSizeOption()}
 
-                    <li>
+                    <li className="size-option-section-list-item">
                         <input type="radio" name="price" value={this.props.menuItem.price_large} className="size-option-input" checked={this.props.orderItem.size === "size_large"} onChange={this.handleSize}/>
                         <label htmlFor="" className="size-option-label"> Large {this.props.menuItem.size_large}</label>
                     </li>

@@ -3,6 +3,7 @@ import {Route} from "react-router-dom";
 import MenuHeader from "./MenuHeader/MenuHeader";
 import MenuCategories from "./MenuCategories/MenuCategories";
 import AppContext from "../../../contexts/ContextContainer/AppContext/AppContext";
+import "./Menu.css";
 
 export default class Menu extends React.Component{
 
@@ -11,6 +12,8 @@ export default class Menu extends React.Component{
     componentDidMount(){
         if(!this.context.ordersContext.order.order_started){
             this.props.history.push("/order");
+        } else{
+            
         }
     }
 

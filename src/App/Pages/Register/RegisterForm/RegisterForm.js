@@ -29,7 +29,7 @@ export default class RegisterForm extends React.Component{
 
     setOrderContext = (customer)=>{
         const order = this.context.ordersContext.order;
-        console.log(customer)
+        
         order.customer_first_name = customer.first_name;
         order.customer_last_name = customer.last_name;
         order.customer_mobile_number = customer.mobile_number;

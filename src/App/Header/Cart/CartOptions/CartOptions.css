@@ -1,0 +1,14 @@
+#cart-options-section{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+}
+
+#cart-options-section button{
+    margin: 0 .5em;
+    background-color: rgb(166, 43, 0);
+    border: none;
+    color: white;
+    padding: .5em 1em;
+    outline: none;
+}

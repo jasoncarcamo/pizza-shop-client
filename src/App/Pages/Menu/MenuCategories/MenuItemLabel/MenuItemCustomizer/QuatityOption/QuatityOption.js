@@ -1,4 +1,5 @@
 import React from "react";
+import "./QuatityOption.css";
 
 export default class QuatityOption extends React.Component{
     constructor(props){
@@ -59,10 +60,10 @@ export default class QuatityOption extends React.Component{
 
     render(){
         return (
-            <section>
-                <p>Quantity</p>
+            <section className="quatity-option-section">
+                <p><strong>Quantity:</strong></p>
 
-                <div>
+                <div className="quatity-options-container">
                     <button onClick={this.decreaseQuantity}>-</button>
                     <p>{this.state.quantity}</p>
                     <button onClick={this.addQuantity}>+</button>

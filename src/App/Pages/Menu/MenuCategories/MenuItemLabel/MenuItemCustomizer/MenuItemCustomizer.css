@@ -1,0 +1,53 @@
+.menu-item-customizer-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid black;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, .7)
+      )
+}
+
+.menu-item-customizer{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    padding: 2.5em 4.5em 5em 4.5em;
+    min-height: 75vh;
+    background-color: white;
+}
+
+.menu-item-customizer h2{
+    text-align: center;
+}
+
+.menu-item-custom-btn-container{
+    position: absolute;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.menu-item-custom-btn-container button{
+    display: block;
+    width: 12.5em;
+    height: 2.5em;
+    background-color: rgb(166, 43, 0);
+    color: white;
+    border: none;
+    margin: 0 1.5em;
+    font-size: 1em;
+}
+
+.menu-item-custom-btn-container button:hover{
+    background-color: rgb(139, 37, 0) !important;
+}

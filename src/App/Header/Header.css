@@ -7,6 +7,7 @@
     top: 0;
     left: 0;
     z-index: 5;
+    background-color: white;
 }
 
 #nav-container{
@@ -19,6 +20,7 @@
 #nav-logo{
     flex: 1 1;
     text-align: center;
+    cursor: pointer;
 }
 
 #nav-links-container{

@@ -2,7 +2,6 @@ import React from "react";
 
 export default class OrderItem extends React.Component{
     render(){
-        console.log(this.props)
         return (
             <section>
                 <h3>{this.props.orderItem.name}</h3>

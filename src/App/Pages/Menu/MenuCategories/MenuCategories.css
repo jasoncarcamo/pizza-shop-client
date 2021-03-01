@@ -1,0 +1,23 @@
+#menu-categories-section{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#menu-categories-section h1{
+    font-size: 3em;
+    padding-left: 3em;
+}
+
+#menu-categories-list{
+    display: grid;
+    grid-template: 20em 20em 20em 20em/ 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0 5.5em;
+}
+
+.menu-categories-list-item{
+    list-style: none;
+    margin: 0 1em;
+    height: 100%;
+}

@@ -33,12 +33,11 @@ export class CustomerContextProvider extends React.Component{
         CustomerRequest.getCustomer(token)
             .then( resData => {
                 const customer = resData.customer;
-                console.log(resData);
+                
                 this.setCustomer(customer);
                 this.setOrderContext(customer);
             })
             .catch( err => {
-                console.log(err);
             })
     }
 

@@ -3,13 +3,13 @@ import MenuItemLabel from "./MenuItemLabel/MenuItemLabel";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
 import {Link} from "react-router-dom";
 import Pluralize from "pluralize";
+import "./MenuCategories.css";
 
 export default class MenuCategories extends React.Component{
 
     static contextType = AppContext;
 
     componentDidMount(){
-        
     }
 
     getCategory = ()=>{
@@ -20,7 +20,7 @@ export default class MenuCategories extends React.Component{
 
         category[0] = category[0].toUpperCase();
 
-        category = category.join("");
+        category = category.join("")
 
         return category;
     }
@@ -44,7 +44,7 @@ export default class MenuCategories extends React.Component{
             index++;
 
             newLabels.push((
-                <li key={index}>
+                <li key={index} className="menu-categories-list-item">
                     <MenuItemLabel index={index} menuItem={menuItems[key]}/>
                 </li>
             ));
@@ -56,7 +56,8 @@ export default class MenuCategories extends React.Component{
     render(){
         return (
             <section id="menu-categories-section">
-                <ul>
+                <h1>{Pluralize.plural(this.getCategory())}</h1>
+                <ul id="menu-categories-list">
                     {this.renderMenuItemLabels(this.context)}
                 </ul>
             </section>

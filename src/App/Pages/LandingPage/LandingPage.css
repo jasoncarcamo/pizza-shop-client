@@ -1,0 +1,74 @@
+#landing-page-section{
+    width: 100%;
+    min-height: 100vh;
+}
+
+#first-section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid black;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, .7)
+    ), url("./firstimage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#first-section > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#first-section > div h2{
+    color: white;
+    font-size: 3.5em;
+}
+
+#first-section button{
+    display: block;
+    width: 15em;
+    height: 2.8em;
+    background-color: rgb(166, 43, 0);
+    border: none;
+    color: white;
+    margin: 0 auto;
+    font-size: 1em;
+}
+
+#first-section button:hover{
+    background-color: transparent;
+    border: .1em solid rgb(166, 43, 0);
+}
+
+#second-section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid black;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, .7)
+    ), url("./secondimage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#second-section > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#second-section > div p{
+    color: white;
+    font-size: 3.5em;
+}

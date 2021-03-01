@@ -1,0 +1,25 @@
+.menu-item-label-section{
+    position: relative;
+    min-height: 20em;
+    margin: 0;
+    padding: 1.5em 0 4em 0;
+    border-bottom: .05em solid rgb(0, 0, 0);
+}
+
+.menu-item-label-btn{
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 15em;
+    height: 2.8em;
+    font-size: 1em;
+    background-color: rgb(166, 43, 0);
+    border: none;
+    color: white
+}
+
+.menu-item-label-btn:hover{
+    background-color: rgb(139, 37, 0) !important;
+}

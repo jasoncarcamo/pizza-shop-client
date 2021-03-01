@@ -1,0 +1,16 @@
+.size-option-section{
+    margin: 1em 0;
+}
+
+.size-option-section-list{
+    padding: 0;
+    margin: 0;
+}
+
+.size-option-section-list-item{
+    list-style: none;
+}
+
+.size-option-section-list-item:hover{
+    color: skyblue;
+}

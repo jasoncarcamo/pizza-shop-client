@@ -1,0 +1,13 @@
+.add-confirmed-section{
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    width: 30em;
+    height: 10em;
+    bottom: -.5em;
+    text-align: center;
+}
+
+.add-confirmed-section button{
+    margin: 0 auto !important;
+}

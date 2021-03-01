@@ -38,8 +38,6 @@ export default class ConfirmPlace extends React.Component{
         order.time_placed = new Date();
         order.time_ready = new Date();
         order.date_created = new Date();
-
-        console.log(order);
         
         this.setState({
             error: "",
@@ -54,7 +52,6 @@ export default class ConfirmPlace extends React.Component{
                 });
             })
             .catch( err => {
-                console.log(err);
                 this.setState({
                     error: err.error,
                     loading: false
@@ -64,7 +61,6 @@ export default class ConfirmPlace extends React.Component{
     }
 
     render(){
-        console.log(this.context)
         return (
             <section>
                 <p>Place order?</p>

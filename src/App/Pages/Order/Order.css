@@ -1,0 +1,36 @@
+#order-type-section{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 95vh;
+}
+
+#order-type-options{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    width: 18em;
+    transition: background-color .3s linear;
+}
+
+#order-type-options button{
+    font-size: 1em;
+    height: 2.3em;
+    background-color: rgb(166, 43, 0);
+    border: none;
+    color: white;
+}
+
+#order-type-options button:hover{
+    background-color: rgb(139, 37, 0) !important;
+}
+
+#order-type-options p{
+    text-align: center;
+}
