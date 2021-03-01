@@ -2,9 +2,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 1px solid black;
     width: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+#no-items-section button{
+    width: 15em;
+    height: 2.8em;
+    background-color: rgb(166, 43, 0);
+    border: none;
+    color: white;
 }
 

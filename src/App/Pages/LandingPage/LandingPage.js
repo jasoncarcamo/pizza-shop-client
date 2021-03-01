@@ -23,6 +23,12 @@ export default class LandingPage extends React.Component{
                         <p>Sharing is always fun!</p>
                     </div>
                 </section>
+
+                <section id="third-section">
+                    <div>
+                        <button onClick={this.seeMenu}>Order Now</button>
+                    </div>
+                </section>
             </section>
         );
     };  

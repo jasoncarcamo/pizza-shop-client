@@ -3,7 +3,7 @@ const MenuItemsRequest = {
         return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/menu-items`, {
             method: "GET",
             headers: {
-                'content-type': "application/json"
+                'content-type': "application/json",
             }
         })
             .then( res => {
