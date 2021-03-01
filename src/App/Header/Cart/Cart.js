@@ -1,6 +1,7 @@
 import React from "react";
 import AppContext from "../../../contexts/ContextContainer/AppContext/AppContext";
 import CartOptions from "./CartOptions/CartOptions";
+import "./Cart.css";
 
 export default class cart extends React.Component{
     constructor(props){

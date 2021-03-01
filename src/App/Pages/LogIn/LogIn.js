@@ -1,4 +1,5 @@
 import React from "react";
+import "./LogIn.css";
 import LogInForm from "./LogInForm/LogInForm";
 
 export default class LogIn extends React.Component{

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import CustomerTokenService from "../../../services/CustomerTokenService/CustomerTokenService";
 import AppContext from "../../../contexts/ContextContainer/AppContext/AppContext";
 
@@ -22,8 +22,8 @@ export default class AuthOptions extends React.Component{
     loggedInOptions = ()=>{
         return (
             <>
-                <li>
-                    <Link to="/customer/account">Account</Link>
+                <li className="nav-link-list">
+                    <NavLink exact to="/customer/account" activeClassName="active-link">Account</NavLink>
                 </li>
 
                 <li>
@@ -37,11 +37,11 @@ export default class AuthOptions extends React.Component{
         return (
             <>
                 <li>
-                    <Link to="/login">Log In</Link>
+                    <NavLink exact to="/login" activeClassName="active-link">Log In</NavLink>
                 </li>
 
                 <li>
-                    <Link to="/register">Register</Link>
+                    <NavLink exact to="/register" activeClassName="active-link">Register</NavLink>
                 </li>
             </>
         );
