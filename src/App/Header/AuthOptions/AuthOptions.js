@@ -16,14 +16,19 @@ export default class AuthOptions extends React.Component{
 
         this.removeCustomerContext();
 
+        this.toggleMobileMenu();
         this.props.history.push("/");
+    }
+
+    toggleMobileMenu = ()=>{
+        this.props.toggleMobileMenu();
     }
 
     loggedInOptions = ()=>{
         return (
             <>
                 <li className="nav-link-list">
-                    <NavLink exact to="/customer/account" activeClassName="active-link">Account</NavLink>
+                    <NavLink exact to="/customer/account" onClick={this.toggleMobileMenu} activeClassName="active-link">Account</NavLink>
                 </li>
 
                 <li>
@@ -37,11 +42,11 @@ export default class AuthOptions extends React.Component{
         return (
             <>
                 <li>
-                    <NavLink exact to="/login" activeClassName="active-link">Log In</NavLink>
+                    <NavLink exact to="/login" onClick={this.toggleMobileMenu} activeClassName="active-link">Log In</NavLink>
                 </li>
 
                 <li>
-                    <NavLink exact to="/register" activeClassName="active-link">Register</NavLink>
+                    <NavLink exact to="/register" onClick={this.toggleMobileMenu} activeClassName="active-link">Register</NavLink>
                 </li>
             </>
         );

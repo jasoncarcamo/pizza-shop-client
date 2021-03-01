@@ -2,6 +2,8 @@ import React from "react";
 import CustomerTokenService from "../../../../services/CustomerTokenService/CustomerTokenService";
 import AuthRequest from "../../../../services/FetchRequests/AuthRequest";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
+import "./RegisterForm.css";
+import {Link} from "react-router-dom";
 
 export default class RegisterForm extends React.Component{
     constructor(props){
@@ -86,43 +88,46 @@ export default class RegisterForm extends React.Component{
         return (
             <form id="register-form" onSubmit={this.handleRegister}>
                 <fieldset id="register-fieldset">
-                    <legend></legend>
+                    <legend id="register-legend">
+                        <h2>Register</h2>
+                        <p>Already have an account? <Link to="/login">Log in</Link></p>
+                    </legend>
 
-                    <label htmlFor="register-first-name" className="register-label">
+                    <label htmlFor="" className="register-label">
                         First name:
                     </label>
-                    <input id="register-first-name" type="text" name="first_name" value={this.state.first_name} onChange={this.handleInput}/>
+                    <input id="register-first-name" className="register-input" type="text" name="first_name" value={this.state.first_name} onChange={this.handleInput}/>
 
                     <label htmlFor="register-last-name" className="register-label">
                         Last name:
                     </label>
-                    <input id="register-last-name" type="text" name="last_name" value={this.state.last_name} onChange={this.handleInput}/>
+                    <input id="register-last-name" className="register-input" type="text" name="last_name" value={this.state.last_name} onChange={this.handleInput}/>
 
                     <label htmlFor="register-mobile-number" className="register-label">
                         Mobile number:
                     </label>
-                    <input id="register-mobile-number" type="text" name="mobile_number" value={this.state.mobile_number} onChange={this.handleInput}/>
+                    <input id="register-mobile-number" className="register-input" type="text" name="mobile_number" value={this.state.mobile_number} onChange={this.handleInput}/>
 
                     <label htmlFor="register-email" className="register-label">
                         Email:
                     </label>
-                    <input id="register-email" type="email" name="email" value={this.state.email} onChange={this.handleInput}/>
+                    <input id="register-email" className="register-input" type="email" name="email" value={this.state.email} onChange={this.handleInput}/>
 
                     <label htmlFor="register-password" className="register-label">
                         Password:
                     </label>
-                    <input id="register-password" type="password" name="password" value={this.state.password} onChange={this.handleInput}/>
+                    <input id="register-password" className="register-input" type="password" name="password" value={this.state.password} onChange={this.handleInput}/>
 
                     <label htmlFor="register-confirm-password" className="register-label">
                         Confirm password:
                     </label>
-                    <input id="register-confirm-password" type="password" name="confirm_password" value={this.state.confirm_password} onChange={this.handleInput}/>
+                    <input id="register-confirm-password" className="register-input" type="password" name="confirm_password" value={this.state.confirm_password} onChange={this.handleInput}/>
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 
-                    <button type="submit">Register</button>
+                    <button id="register-submit-btn" type="submit">Register</button>
                 </fieldset>
             </form>
         );
     };
-}
+} 

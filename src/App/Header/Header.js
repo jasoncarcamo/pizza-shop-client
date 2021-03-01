@@ -7,30 +7,38 @@ import MenuBurger from "./MenuBurger/MenuBurger";
 
 export default class Header extends React.Component{
 
+    toggleMobileMenu = ()=>{
+        const menuBurger = document.getElementById("nav-burger");
+        const linkContainer = document.getElementById("nav-links-container");
+
+        menuBurger.classList.toggle("is-active");
+        linkContainer.classList.toggle("show-links-container");
+    }
+
     render(){
         return (
             <header id="nav-header">
                 <nav id="nav-container">
                     <h2 id="nav-logo">Pizza Shop Logo</h2>
 
-                    <MenuBurger/>
+                    <MenuBurger toggleMobileMenu={this.toggleMobileMenu}/>
 
                     <ul id="nav-links-container">
                         <li className="nav-link-list">
-                            <NavLink exact to="/" activeClassName="active-link" className="nav-link">Home</NavLink>
+                            <NavLink exact to="/" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">Home</NavLink>
                         </li>
 
                         <li className="nav-link-list">
-                            <NavLink to="/menu" activeClassName="active-link" className="nav-link">Menu</NavLink>
+                            <NavLink to="/menu" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">Menu</NavLink>
                         </li>
 
                         <li className="nav-link-list">
-                            <NavLink to ="/about" activeClassName="active-link" className="nav-link">About Us</NavLink>
+                            <NavLink to ="/about" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">About Us</NavLink>
                         </li>
 
-                        <AuthOptions history={this.props.history}/>
+                        <AuthOptions toggleMobileMenu={this.toggleMobileMenu} history={this.props.history}/>
 
-                        <li className="nav-link-list">
+                        <li className="nav-link-list nav-link-cart">
                             <Cart history={this.props.history}/>
                         </li>
                     </ul>

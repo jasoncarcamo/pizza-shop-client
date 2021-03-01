@@ -5,11 +5,7 @@ import "./MenuBurger.css";
 export default class MenuBurger extends React.Component{
 
     toggleMobileMenu = ()=>{
-        const menuBurger = document.getElementById("nav-burger");
-        const linkContainer = document.getElementById("nav-links-container");
-
-        menuBurger.classList.toggle("is-active");
-        linkContainer.classList.toggle("show-links-container");
+        this.props.toggleMobileMenu();
     }
 
     render(){

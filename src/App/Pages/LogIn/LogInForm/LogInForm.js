@@ -2,6 +2,8 @@ import React from "react";
 import AuthRequest from "../../../../services/FetchRequests/AuthRequest";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
 import CustomerTokenService from "../../../../services/CustomerTokenService/CustomerTokenService";
+import "./LogInForm.css";
+import {Link} from "react-router-dom";
 
 export default class LogInForm extends React.Component{
     constructor(props){
@@ -79,15 +81,18 @@ export default class LogInForm extends React.Component{
         return (
             <form id="log-in-form" onSubmit={this.handleLogIn}>
                 <fieldset id="log-in-fieldset">
-                    <legend></legend>
+                    <legend id="log-in-legend">
+                        <h2>Log In</h2>
+                        <p>New to pizza shop? <Link to="/register">Register</Link></p>
+                    </legend>
 
                     <label htmlFor="log-in-email" className="log-in-label">
-                        Email:
+                        Email
                     </label>
                     <input id="log-in-email" className="log-in-input" type="email" name="email" value={this.state.email} onChange={this.handleInput}/>
 
                     <label htmlFor="log-in-password" className="log-in-label">
-                        Password:
+                        Password
                     </label>
                     <input id="log-in-password" className="log-in-input" type="password" name="password" value={this.state.password} onChange={this.handleInput}/>
 
