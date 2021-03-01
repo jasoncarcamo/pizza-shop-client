@@ -17,7 +17,6 @@ export default class SizeOptions extends React.Component{
     }
 
     setDefaultPrice = ()=>{
-        console.log(this.props)
         this.setState({
             price: this.props.menuItem.price
         });
@@ -67,7 +66,6 @@ export default class SizeOptions extends React.Component{
     }
 
     render(){
-        console.log(this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id], this.props.orderItem);
 ;        return (
             <section>
                 <p>Choose a size:</p>

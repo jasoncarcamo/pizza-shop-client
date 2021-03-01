@@ -53,7 +53,7 @@ export default class MenuItemCustomizer extends React.Component{
     }
     
     render(){
-        console.log(this.state)
+        console.log(this.props)
         return (
             <section>
                 <h2>{this.state.orderItem.name}</h2>

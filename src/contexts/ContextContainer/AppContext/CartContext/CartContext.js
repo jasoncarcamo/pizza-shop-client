@@ -20,7 +20,6 @@ export class CartContextProvider extends React.Component{
     }
 
     componentDidMount(){
-        console.log("Mounted");
         const cart = CartService.getCart();
 
         if(!cart){
@@ -64,8 +63,6 @@ export class CartContextProvider extends React.Component{
 
         cart.splice(index, 1);
 
-        console.log(cart);
-
         this.setState({
             cart
         });
@@ -79,7 +76,7 @@ export class CartContextProvider extends React.Component{
             updateCart: this.updateCart,
             deleteCart: this.deleteCart
         };
-        console.log(value);
+        
         return (
             <CartContext.Provider value={value}>
                 {this.props.children}

@@ -16,7 +16,6 @@ export default class MenuItemLabel extends React.Component{
     }
 
     render(){
-        console.log(this.props.menuItem);
         return (
             <section>
                 <h2>{this.props.menuItem.name}</h2>

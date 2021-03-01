@@ -19,7 +19,6 @@ export class MenuItemsProvider extends React.Component{
     };
 
     componentDidMount(){
-        console.log("Mounted");
         this.getMenuItems();
     }
 
@@ -61,8 +60,6 @@ export class MenuItemsProvider extends React.Component{
             menuItems[menuItem.category] = {};
         };
 
-        console.log(Pluralize.plural(menuItem.category));
-
         // menu items should have the category as a property, now we add id as category property
         // and assign value
         menuItems[menuItem.category][menuItem.id] = menuItem;
@@ -90,7 +87,7 @@ export class MenuItemsProvider extends React.Component{
         const value = {
             menuItems: this.state.menuItems
         };
-        console.log(value.menuItems);
+        
         return (
             <MenuItemsContext.Provider value={value}>
                 {this.props.children}

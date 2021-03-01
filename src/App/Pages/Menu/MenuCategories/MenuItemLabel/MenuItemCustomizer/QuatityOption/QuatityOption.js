@@ -45,7 +45,6 @@ export default class QuatityOption extends React.Component{
         orderItem.quantity = quantity;
 
         for(const key of Object.keys(menuItem)){
-            console.log()
             if(orderItem.size === key){
                 sizeType = key;
             }

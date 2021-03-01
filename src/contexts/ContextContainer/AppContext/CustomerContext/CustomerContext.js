@@ -20,7 +20,6 @@ export class CustomerContextProvider extends React.Component{
     }
 
     componentDidMount(){
-        console.log("Mounted");
     }
 
     getCustomer = ()=>{
@@ -53,7 +52,7 @@ export class CustomerContextProvider extends React.Component{
             updateCustomer: this.updateCustomer,
             deleteCustomer: this.deleteCustomer
         };
-        console.log(value.customer);
+        
         return (
             <CustomerContext.Provider value={value}>
                 {this.props.children}

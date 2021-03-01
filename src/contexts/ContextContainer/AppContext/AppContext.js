@@ -14,11 +14,11 @@ export class AppContextProvider extends React.Component{
     render(){
         const value = {
             customerContext: this.props.customerContext,
-            orderContext: this.props.orderContext,
+            ordersContext: this.props.ordersContext,
             menuItemsContext: this.props.menuItemsContext,
             cartContext: this.props.cartContext
         };
-        console.log(value);
+        
         return (
             <AppContext.Provider value={value}>
                 {this.props.children}

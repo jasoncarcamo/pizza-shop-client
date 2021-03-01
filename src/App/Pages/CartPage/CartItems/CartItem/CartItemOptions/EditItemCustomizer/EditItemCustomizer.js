@@ -25,9 +25,6 @@ export default class EditItemCustomizer extends React.Component{
     }
 
     componentDidMount(){
-        const originalOrderItem = this.props.menuItem;
-
-        console.log(originalOrderItem);
     }
 
     toggleOptions = ()=>{
@@ -41,7 +38,6 @@ export default class EditItemCustomizer extends React.Component{
     }
     
     render(){
-        console.log(this.state)
         return (
             <section>
                 <h2>{this.state.orderItem.name}</h2>

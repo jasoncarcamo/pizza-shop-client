@@ -45,12 +45,9 @@ export default class QuatityOption extends React.Component{
         let sizeType;
         let priceType;
 
-        console.log(menuItem);
-
         orderItem.quantity = quantity;
 
         for(const key of Object.keys(menuItem)){
-            console.log()
             if(orderItem.size === key){
                 sizeType = key;
             }
@@ -63,7 +60,6 @@ export default class QuatityOption extends React.Component{
     }
 
     render(){
-        console.log(this.props.orderItem.quantity)
         return (
             <section>
                 <p>Quantity</p>
