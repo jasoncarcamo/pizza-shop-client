@@ -1,6 +1,6 @@
 const MenuItemsRequest = {
     getAllMenuItems(){
-        return fetch(`http://localhost:8000/api/menu-items`, {
+        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/menu-items`, {
             method: "GET",
             headers: {
                 'content-type': "application/json"
@@ -15,7 +15,7 @@ const MenuItemsRequest = {
             });
     },
     getMenuItemById(token, id){
-        return fetch(`http://localhost:8000/api/menu-item/${id}`, {
+        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/menu-item/${id}`, {
             method: "GET",
             headers: {
                 'content-type': "application/json",
@@ -31,7 +31,7 @@ const MenuItemsRequest = {
             });
     },
     createMenuItem(token, newMenuItem){
-        return fetch(`http://localhost:8000/api/menu-items`, {
+        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/menu-items`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",
@@ -48,7 +48,7 @@ const MenuItemsRequest = {
             });
     },
     updateMenuItemById(token, updateMenuItem, id){
-        return fetch(`http://localhost:8000/api/menu-item/${id}`, {
+        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/menu-item/${id}`, {
             method: "PATCH",
             headers: {
                 'content-type': "application/json",
@@ -65,7 +65,7 @@ const MenuItemsRequest = {
             });
     },
     deleteMenuItemById(token, id){
-        return fetch(`http://localhost:8000/api/menu-item/${id}`, {
+        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/menu-item/${id}`, {
             method: "DELETE",
             headers: {
                 'content-type': "application/json",

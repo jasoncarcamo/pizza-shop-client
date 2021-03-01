@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import AppContext from "../../../contexts/ContextContainer/AppContext/AppContext";
 import CheckOutOptions from "./CheckOutOptions/CheckOutOptions";

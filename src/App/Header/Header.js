@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import Cart from "./Cart/Cart";
 import AuthOptions from "./AuthOptions/AuthOptions";
 import MenuBurger from "./MenuBurger/MenuBurger";

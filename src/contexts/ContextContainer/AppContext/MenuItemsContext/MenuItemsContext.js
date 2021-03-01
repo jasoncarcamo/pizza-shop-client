@@ -1,6 +1,5 @@
 import React from "react";
 import MenuItemsRequest from "../../../../services/FetchRequests/MenuItemsRequest";
-import Pluralize from "pluralize";
 
 const MenuItemsContext = React.createContext({
     menuItems: {},
@@ -87,7 +86,7 @@ export class MenuItemsProvider extends React.Component{
         const value = {
             menuItems: this.state.menuItems
         };
-        
+
         return (
             <MenuItemsContext.Provider value={value}>
                 {this.props.children}

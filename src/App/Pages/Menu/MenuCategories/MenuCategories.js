@@ -1,7 +1,6 @@
 import React from "react";
 import MenuItemLabel from "./MenuItemLabel/MenuItemLabel";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
-import {Link} from "react-router-dom";
 import Pluralize from "pluralize";
 import "./MenuCategories.css";
 

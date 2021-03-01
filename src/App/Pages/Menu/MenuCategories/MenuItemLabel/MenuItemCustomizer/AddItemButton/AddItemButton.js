@@ -14,7 +14,6 @@ export default class AddItemButton extends React.Component{
 
     setCartContext = ()=>{
         const orderItem = this.props.orderItem;
-        const index = this.props.index;
 
         this.context.cartContext.setCart(orderItem);
 

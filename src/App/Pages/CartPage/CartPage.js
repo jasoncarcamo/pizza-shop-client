@@ -1,5 +1,4 @@
 import React from "react";
-import {Route} from "react-router-dom";
 import CartItems from "./CartItems/CartItems";
 
 export default class CartPage extends React.Component{
