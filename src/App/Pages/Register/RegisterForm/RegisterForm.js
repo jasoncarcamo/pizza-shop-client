@@ -39,7 +39,7 @@ export default class RegisterForm extends React.Component{
         for(const key of Object.keys(newCustomer)){
             if(!newCustomer[key]){
                 return this.setState({
-                    error: `Missing ${key}`
+                    error: `Missing ${key.split("_").join(" ")}`
                 });
             };
         };

@@ -6,7 +6,7 @@ export default class CartPage extends React.Component{
     render(){
         return (
             <section id="cart-page-section">
-                <CartItems/>
+                <CartItems history={this.props.history}/>
             </section>
         );
     };
