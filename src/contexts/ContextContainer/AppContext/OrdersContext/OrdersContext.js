@@ -7,7 +7,8 @@ const OrderContext = React.createContext({
     startOrder: ()=>{},
     setOrder: ()=>{},
     updateOrder: ()=>{},
-    deleteOrder: ()=>{}
+    deleteOrder: ()=>{},
+    cancelOrder: ()=>{}
 });
 
 export default OrderContext;
@@ -30,6 +31,7 @@ export class OrdersContextProvider extends React.Component{
                 time_placed: "",
                 time_ready: "",
                 order_items: "",
+                customer_id: 0,
                 date_created: "",
             },
             orders: {}
@@ -66,10 +68,11 @@ export class OrdersContextProvider extends React.Component{
                 customer_city: "",
                 customer_state: "",
                 customer_zip_code: "",
-                subtotal: "",
+                subtotal: 0,
                 time_placed: "",
                 time_ready: "",
                 order_items: "",
+                customer_id: 0,
                 date_created: "",
             }
         });
@@ -97,6 +100,19 @@ export class OrdersContextProvider extends React.Component{
         this.setDefaultOrder();
     }
 
+    cancelOrder = ()=>{
+        const order = this.state.order;
+
+        order.order_started = false;
+        order.order_type = "default";
+
+        OrderService.deleteOrder();
+
+        this.setState({
+            order
+        });
+    }
+
     render(){
         const value = {
             order: this.state.order,
@@ -104,7 +120,8 @@ export class OrdersContextProvider extends React.Component{
             startOrder: this.startOrder,
             setOrder: this.setOrder,
             updateOrder: this.updateOrder,
-            deleteOrder: this.deleteOrder
+            deleteOrder: this.deleteOrder,
+            cancelOrder: this.cancelOrder
         };
         console.log(value);
         return (

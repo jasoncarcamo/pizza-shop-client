@@ -68,6 +68,7 @@ export class CustomerContextProvider extends React.Component{
         order.customer_city = customer.city;
         order.customer_state = customer.state;
         order.customer_zip_code = customer.zip_code;
+        order.customer_id = customer.id;
 
         this.props.ordersContext.updateOrder(order);
     }

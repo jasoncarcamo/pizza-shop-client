@@ -10,6 +10,7 @@ import LogIn from "./Pages/LogIn/LogIn";
 import Menu from "./Pages/Menu/Menu";
 import Order from "./Pages/Order/Order";
 import CartPage from './Pages/CartPage/CartPage';
+import CheckOut from "./Pages/Checkout/Checkout";
 
 export default class App extends React.Component{
     render(){
@@ -24,6 +25,7 @@ export default class App extends React.Component{
                     <Route path="/menu" component={Menu}></Route>
                     <Route exact path="/order" component={Order}></Route>
                     <Route exact path="/cart/edit" component={CartPage}/>
+                    <Route exact path="/cart/checkout" component={CheckOut}/>
                 </main>
 
                 <Route path="/" component={Footer}></Route>

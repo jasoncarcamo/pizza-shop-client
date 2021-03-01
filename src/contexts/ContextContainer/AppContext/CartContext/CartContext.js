@@ -3,6 +3,7 @@ import CartService from "../../../../services/CartService/CartService";
 
 const CartContext = React.createContext({
     cart: [],
+    setDefault: ()=>{},
     getCart: ()=>{},
     setCart: ()=>{},
     updateCart: ()=>{},
@@ -27,6 +28,14 @@ export class CartContextProvider extends React.Component{
         };
 
         this.setCart(cart);
+    }
+
+    setDefault = ()=>{
+        CartService.deleteCart();
+        
+        this.setState({
+            cart: []
+        });
     }
 
     getCart = ()=>{
@@ -71,12 +80,13 @@ export class CartContextProvider extends React.Component{
     render(){
         const value = {
             cart: this.state.cart,
+            setDefault: this.setDefault,
             getCart: this.getCart,
             setCart: this.setCart,
             updateCart: this.updateCart,
             deleteCart: this.deleteCart
         };
-        
+
         return (
             <CartContext.Provider value={value}>
                 {this.props.children}
