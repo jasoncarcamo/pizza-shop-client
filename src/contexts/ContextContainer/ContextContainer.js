@@ -18,7 +18,9 @@ export default class ContextContainer extends React.Component{
                                     <OrdersContextProvider>
                                         <OrdersContext.Consumer>
                                             { ordersContext => (
-                                                <CustomerContextProvider>
+                                                <CustomerContextProvider
+                                                    ordersContext={ordersContext}
+                                                >
                                                     <CustomerContext.Consumer>
                                                         { customerContext => (
                                                             <AppContextProvider

@@ -21,11 +21,17 @@ export default class CartItems extends React.Component{
         return cart;
     }
 
+    toCheckout = ()=>{
+        this.props.history.push("/cart/checkout")
+    }
+
     render(){
         return (
-            <section>
+            <>
                 {this.renderCartItems(this.context)}
-            </section>
+
+                {this.context.cartContext.cart.length > 0 ? <button onClick={this.toCheckout}>Checkout</button> : ""}
+            </>
         );
     };
 }

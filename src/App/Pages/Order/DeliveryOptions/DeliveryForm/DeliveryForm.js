@@ -17,6 +17,20 @@ export default class DeliveryForm extends React.Component{
 
     static contextType = AppContext;
 
+    componentDidMount(){
+        const order = this.context.ordersContext.order;
+
+        this.setState({
+            customer_first_name: order.customer_first_name,
+            customer_last_name: order.customer_last_name,
+            customer_mobile_number: order.customer_mobile_number,
+            customer_address: order.customer_address,
+            customer_city: order.customer_city,
+            customer_state: order.customer_state,
+            customer_zip_code: order.customer_zip_code
+        });
+    }
+
     handleInput = (e)=>{
         this.setState({
             [e.target.name]: e.target.value,
@@ -98,12 +112,12 @@ export default class DeliveryForm extends React.Component{
                     <label htmlFor="delivery-address" className="delivery-label">
                         Address:
                     </label>
-                    <input id="delivery-address" type="text" name="customer_address" value={this.state.customer_address} onChange={this.handleInput}/>
+                    <input id="delivery-address" type="text" name="customer_address" value={this.state.customer_address || ""} onChange={this.handleInput}/>
 
                     <label htmlFor="delivery-city" className="delivery-label">
                         City:
                     </label>
-                    <input id="delivery-city" type="text" name="customer_city" value={this.state.customer_city} onChange={this.handleInput}/>
+                    <input id="delivery-city" type="text" name="customer_city" value={this.state.customer_city || ""} onChange={this.handleInput}/>
 
                     <label htmlFor="delivery-state" className="delivery-label">
                         State:
@@ -113,7 +127,7 @@ export default class DeliveryForm extends React.Component{
                     <label htmlFor="delivery-zip-code" className="delivery-label">
                         Zip code:
                     </label>
-                    <input id="delivery-zip-code" type="text" name="customer_zip_code" value={this.state.customer_zip_code} onChange={this.handleInput}/>
+                    <input id="delivery-zip-code" type="text" name="customer_zip_code" value={this.state.customer_zip_code || ""} onChange={this.handleInput}/>
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 

@@ -14,6 +14,16 @@ export default class PickUpForm extends React.Component{
 
     static contextType = AppContext;
 
+    componentDidMount(){
+        const order = this.context.ordersContext.order;
+
+        this.setState({
+            customer_first_name: order.customer_first_name,
+            customer_last_name: order.customer_last_name,
+            customer_mobile_number: order.customer_mobile_number
+        });
+    }
+
     handleInput = (e)=>{
         this.setState({
             [e.target.name]: e.target.value,

@@ -23,7 +23,7 @@ export default class App extends React.Component{
                     <Route exact path="/login" component={LogIn}></Route>
                     <Route path="/menu" component={Menu}></Route>
                     <Route exact path="/order" component={Order}></Route>
-                    <Route path="/cart" component={CartPage}/>
+                    <Route exact path="/cart/edit" component={CartPage}/>
                 </main>
 
                 <Route path="/" component={Footer}></Route>

@@ -21,6 +21,20 @@ export default class LogInForm extends React.Component{
         });
     }
 
+    setOrderContext = (customer)=>{
+        const order = this.context.ordersContext.order;
+        console.log(customer)
+        order.customer_first_name = customer.first_name;
+        order.customer_last_name = customer.last_name;
+        order.customer_mobile_number = customer.mobile_number;
+        order.customer_address = customer.address;
+        order.customer_city = customer.city;
+        order.customer_state = customer.state;
+        order.customer_zip_code = customer.zip_code;
+
+        this.context.ordersContext.updateOrder(order);
+    }
+
     handleLogIn = (e)=>{
         e.preventDefault();
 
@@ -39,12 +53,15 @@ export default class LogInForm extends React.Component{
 
         AuthRequest.logInCustomer(customer)
             .then( resData => {
+                const customer = resData.customer;
 
                 CustomerTokenService.setToken(resData.token);
                 
-                this.setCustomerContext(resData.customer);
+                this.setCustomerContext(customer);
 
-                this.props.history.push("/customer");
+                this.setOrderContext(customer);
+
+                this.props.history.push("/menu");
             })
             .catch( err => {
                 return this.setState({

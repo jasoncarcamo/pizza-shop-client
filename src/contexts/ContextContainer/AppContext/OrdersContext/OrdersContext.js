@@ -93,10 +93,8 @@ export class OrdersContextProvider extends React.Component{
     }
 
     deleteOrder = ()=>{
-
-        this.setDefaultOrder();
-
         OrderService.deleteOrder();
+        this.setDefaultOrder();
     }
 
     render(){
