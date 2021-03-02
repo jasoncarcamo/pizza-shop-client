@@ -19,7 +19,7 @@ export default class MenuCategories extends React.Component{
 
         category[0] = category[0].toUpperCase();
 
-        category = category.join("")
+        category = category.join("");
 
         return category;
     }

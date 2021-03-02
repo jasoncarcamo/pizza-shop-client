@@ -10,7 +10,8 @@ export default class cart extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            openOptions: false
+            openOptions: false,
+            screenWidth: window.innerWidth
         }
     }
 
@@ -28,17 +29,28 @@ export default class cart extends React.Component{
         });
     }
 
+    toggleOptions = ()=>{
+        this.setState({
+            openOptions: !this.state.openOptions
+        });
+    }
+
+    toggleMobileMenu = ()=>{
+        this.props.toggleMobileMenu();
+    }
+
     render(){
         return (
             <section 
                 id="cart-container"
-                onMouseEnter={this.openOptions} 
+                onMouseEnter={this.openOptions}
+                onClick={this.toggleOptions} 
             >
                 <p>
-                    <FontAwesomeIcon icon={faShoppingCart}/> {this.context.cartContext.cart.length || ""}
+                    <FontAwesomeIcon onClick={this.toggleOptions} icon={faShoppingCart}/> {this.context.cartContext.cart.length || ""}
                 </p>
 
-                {this.state.openOptions ? <CartOptions closeOptions={this.closeOptions} history={this.props.history}/> : ""}
+                {this.state.openOptions ? <CartOptions toggleMobileMenu={this.toggleMobileMenu} toggleOptions={this.toggleOptions} closeOptions={this.closeOptions} history={this.props.history}/> : ""}
             </section>
         );
     };

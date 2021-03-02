@@ -2,6 +2,7 @@ import React from "react";
 import AppContext from "../../../contexts/ContextContainer/AppContext/AppContext";
 import CheckOutOptions from "./CheckOutOptions/CheckOutOptions";
 import OrderItems from './OrderItems/OrderItems';
+import "./Checkout.css";
 
 export default class Checkout extends React.Component{
     constructor(props){
@@ -42,7 +43,7 @@ export default class Checkout extends React.Component{
 
     render(){
         return (
-            <section>
+            <section id="checkout-section">
                 <h2>Check Out</h2>
 
                 <p><strong>Name: </strong>{this.state.order.customer_first_name} {this.state.order.customer_last_name}</p>

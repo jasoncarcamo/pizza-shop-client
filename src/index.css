@@ -18,6 +18,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     border: 1px solid black;
+    font-family: 'Italiana', "sans sarif";
 }
 
 button{

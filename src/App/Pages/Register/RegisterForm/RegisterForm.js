@@ -4,6 +4,7 @@ import AuthRequest from "../../../../services/FetchRequests/AuthRequest";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
 import "./RegisterForm.css";
 import {Link} from "react-router-dom";
+import {BounceLoader} from "react-spinners";
 
 export default class RegisterForm extends React.Component{
     constructor(props){
@@ -15,7 +16,8 @@ export default class RegisterForm extends React.Component{
             email: "",
             password: "",
             confirm_password: "",
-            error: ""
+            error: "",
+            loading: false
         }
     }
 
@@ -45,6 +47,11 @@ export default class RegisterForm extends React.Component{
     handleRegister = (e)=>{
         e.preventDefault();
 
+        this.setState({
+            error: "",
+            loading: true
+        });
+
         const newCustomer = {
             first_name: this.state.first_name,
             last_name: this.state.last_name,
@@ -56,7 +63,8 @@ export default class RegisterForm extends React.Component{
         for(const key of Object.keys(newCustomer)){
             if(!newCustomer[key]){
                 return this.setState({
-                    error: `Missing ${key.split("_").join(" ")}`
+                    error: `Missing ${key.split("_").join(" ")}`,
+                    loading: false
                 });
             };
         };
@@ -70,12 +78,15 @@ export default class RegisterForm extends React.Component{
                 this.setCustomerContext(customer);
 
                 this.setOrderContext(customer)
-
+                this.setState({
+                    loading: false
+                });
                 this.props.history.push("/menu");
             })
             .catch( err => {
                 return this.setState({
-                    error: err.error
+                    error: err.error,
+                    loading: false
                 });
             });
     }
@@ -83,6 +94,14 @@ export default class RegisterForm extends React.Component{
     setCustomerContext = (customer)=>{
         this.context.customerContext.setCustomer(customer);
     } 
+
+    loadingHandler = ()=>{
+        if(this.state.loading){
+            return <BounceLoader loading={this.state.loading} color="red" size={60}/>
+        } else{
+            return <button id="register-submit-btn" type="submit">Register</button>
+        }
+    }
 
     render(){
         return (
@@ -125,7 +144,7 @@ export default class RegisterForm extends React.Component{
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 
-                    <button id="register-submit-btn" type="submit">Register</button>
+                    {this.loadingHandler()}
                 </fieldset>
             </form>
         );

@@ -8,6 +8,10 @@
     font-size: 1em;
 }
 
+.quatity-options-container p{
+    font-size: 1.1em;
+}
+
 .quatity-options-container button{
     width: 2em;
     height: 2em;

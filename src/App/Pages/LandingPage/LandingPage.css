@@ -7,10 +7,9 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    border: 1px solid black;
     background: linear-gradient(
         rgba(0, 0, 0, 0.3), 
-        rgba(0, 0, 0, .7)
+        rgba(0, 0, 0, .2)
     ), url("./firstimage.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,30 +26,31 @@
 
 #first-section > div h2{
     color: white;
-    font-size: 3.5em;
+    font-size: 4.5em;
+    letter-spacing: .1em;
 }
 
 #first-section button{
     display: block;
-    width: 15em;
+    width: 10em;
     height: 2.8em;
-    background-color: rgb(166, 43, 0);
-    border: none;
+    background-color: transparent;
+    border: .1em solid white;
     color: white;
-    margin: 0 auto;
-    font-size: 1em;
+    margin: 5em auto 0 auto;
+    font-size: .9em;
+    transition: background-color .3s linear;
 }
 
 #first-section button:hover{
-    background-color: transparent;
-    border: .1em solid rgb(166, 43, 0);
+    background-color: black;
+    border: .1em solid black;
 }
 
 #second-section{
     position: relative;
     width: 100vw;
     height: 100vh;
-    border: 1px solid black;
     background: linear-gradient(
         rgba(0, 0, 0, 0.3), 
         rgba(0, 0, 0, .7)
@@ -77,10 +77,9 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    border: 1px solid black;
     background: linear-gradient(
-        rgba(0, 0, 0, 0.3), 
-        rgba(0, 0, 0, .7)
+        rgba(0, 0, 0, 0.1), 
+        rgba(0, 0, 0, .1)
     ), url("./thirdimage.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -97,16 +96,17 @@
 
 #third-section button{
     display: block;
-    width: 15em;
+    width: 10em;
     height: 2.8em;
-    background-color: rgb(166, 43, 0);
-    border: none;
+    background-color: transparent;
+    border: .1em solid white;
     color: white;
     margin: 0 auto;
     font-size: 1em;
+    transition: background-color .3s linear;
 }
 
 #third-section button:hover{
-    background-color: transparent;
-    border: .1em solid rgb(166, 43, 0);
+    background-color: black;
+    border: .1em solid black;
 }

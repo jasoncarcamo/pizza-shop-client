@@ -65,7 +65,7 @@ export default class QuatityOption extends React.Component{
 
                 <div className="quatity-options-container">
                     <button onClick={this.decreaseQuantity}>-</button>
-                    <p>{this.state.quantity}</p>
+                    <p><strong>{this.state.quantity}</strong></p>
                     <button onClick={this.addQuantity}>+</button>
                 </div>
             </section>

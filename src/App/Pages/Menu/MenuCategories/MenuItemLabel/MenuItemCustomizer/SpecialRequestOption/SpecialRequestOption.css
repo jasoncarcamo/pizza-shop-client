@@ -10,7 +10,13 @@
 
 .special-request-input{
     display: block;
-    width: 35em;
+    width: 70%;
     min-height: 20em;
     padding: 1em;
+}
+
+@media screen and (max-width: 1300px){
+    .special-request-input{
+        width: 100%;
+    }
 }

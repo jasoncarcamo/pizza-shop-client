@@ -3,6 +3,7 @@ import OrderRequest from "../../../../../services/FetchRequests/OrderRequest";
 import AppContext from "../../../../../contexts/ContextContainer/AppContext/AppContext";
 import CustomerTokenService from "../../../../../services/CustomerTokenService/CustomerTokenService";
 import OrderPlacedMessage from "./OrderPlacedMessage/OrderPlacedMessage";
+import "./ConfirmPlace.css";
 
 export default class ConfirmPlace extends React.Component{
     constructor(props){
@@ -21,7 +22,7 @@ export default class ConfirmPlace extends React.Component{
 
     renderOptions = ()=>{
         return (
-            <div>
+            <div id="confirm-order-options">
                 <button onClick={this.placeOrder}>Yes</button>
                 <button onClick={this.togglePlaceOrder}>No</button>
             </div>
@@ -62,7 +63,7 @@ export default class ConfirmPlace extends React.Component{
 
     render(){
         return (
-            <section>
+            <section id="confirm-order-section">
                 <p>Place order?</p>
 
                 {!this.state.loading ? this.renderOptions() : <p>Loading...</p>}

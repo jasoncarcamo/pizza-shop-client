@@ -27,12 +27,18 @@ export class CartContextProvider extends React.Component{
             return;
         };
 
-        this.setCart(cart);
+        this.setState({
+            cart
+        });
+    }
+
+    saveCart = (cart)=>{
+        CartService.setCart(cart);
     }
 
     setDefault = ()=>{
         CartService.deleteCart();
-        
+
         this.setState({
             cart: []
         });
@@ -51,6 +57,8 @@ export class CartContextProvider extends React.Component{
         } else{
             cart[orderItemIndex] = orderItem;
         };
+
+        this.saveCart(cart)
         
         this.setState({
             cart
@@ -61,6 +69,8 @@ export class CartContextProvider extends React.Component{
         const cart = this.state.cart;
 
         cart[index] = orderItem;
+
+        this.saveCart(cart);
 
         this.setState({
             cart

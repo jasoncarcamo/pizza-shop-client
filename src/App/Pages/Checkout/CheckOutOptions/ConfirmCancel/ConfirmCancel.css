@@ -1,0 +1,25 @@
+#confirm-cancel-order-section{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 320px;
+    background-color: white;
+}
+
+#confirm-cancel-order-section > p{
+    font-size: 2em;
+    text-align: center;
+}
+
+#confirm-cancel-order-options{
+    display: flex;
+    justify-content: center;
+}
+
+#confirm-cancel-order-options button{
+    display: block;
+    width: 10em;
+    height: 2.8em;
+    margin: .5em;
+}

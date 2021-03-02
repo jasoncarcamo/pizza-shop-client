@@ -47,12 +47,14 @@
 
 #nav-links-container li{
     color: black;
+    padding: 0;
+    margin: 0;
     list-style: none;
     transition: font-size .2s linear;
 }
 
 #nav-links-container li:hover{
-    font-size: 1.15em !important;
+    font-size: 1.5em !important;
     color: grey;
 }
 

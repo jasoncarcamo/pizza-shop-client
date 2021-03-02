@@ -1,5 +1,6 @@
 import React from "react";
 import AppContext from "../../../../../../contexts/ContextContainer/AppContext/AppContext";
+import "./OrderPlacedMessage.css";
 
 export default class OrderPlacedMessage extends React.Component{
 
@@ -8,7 +9,7 @@ export default class OrderPlacedMessage extends React.Component{
     setOrderDefault = ()=>{
         this.context.ordersContext.setDefaultOrder();
         this.removeCartItems();
-        this.props.history.push("/customer/orders");
+        this.props.history.push("/customer/menu");
     }
 
     removeCartItems = ()=>{
@@ -17,7 +18,7 @@ export default class OrderPlacedMessage extends React.Component{
 
     render(){
         return (
-            <section>
+            <section id="order-placed-section">
                 <p>Your order has been placed!</p>
 
                 <button onClick={this.setOrderDefault}>Ok thanks!</button>

@@ -1,0 +1,29 @@
+.checkout-options{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+}
+
+.checkout-options-place-order{
+    display: block;
+    width: 10em;
+    height: 2.8em;
+    margin: .5em auto;
+}
+
+.checkout-options-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.checkout-options-container button{
+    display: block;
+    width: 10em;
+    height: 2.8em;
+    margin: 0 .5em;
+    border: 1px solid red;
+}

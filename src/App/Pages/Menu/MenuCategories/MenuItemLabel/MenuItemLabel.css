@@ -6,20 +6,31 @@
     border-bottom: .05em solid rgb(0, 0, 0);
 }
 
+.menu-item-label-section img{
+    width: 100%;
+}
+
 .menu-item-label-btn{
     position: absolute;
     bottom: 1em;
     left: 50%;
     transform: translateX(-50%);
     display: block;
-    width: 15em;
+    width: 10em;
     height: 2.8em;
-    font-size: 1em;
-    background-color: rgb(166, 43, 0);
-    border: none;
-    color: white
+    font-size: .9em;
+    background-color: transparent;
+    border: .05em solid black;
+    color: black;
+    transition: background-color .2s linear;
 }
 
 .menu-item-label-btn:hover{
-    background-color: rgb(139, 37, 0) !important;
+    background-color: black;
+    color: white;
+    border: .05em solid black;
+}
+
+@media screen and (max-width: 1300px){
+    
 }

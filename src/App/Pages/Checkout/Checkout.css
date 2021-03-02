@@ -1,0 +1,27 @@
+#checkout-section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 5em;
+}
+
+#checkout-section > h2{
+    font-size: 2.8em;
+    text-align: center;
+}
+
+#checkout-section > p{
+    text-align: center;
+    text-align: 1.15em;
+}
+
+.order-item-list-item{
+    list-style: none;
+}
+
+@media screen and (max-width: 1300px){
+    #checkout-section{
+        padding: 1.5em;
+    }
+}

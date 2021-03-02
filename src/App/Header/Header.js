@@ -37,13 +37,13 @@ export default class Header extends React.Component{
                         </li>
 
                         <li className="nav-link-list">
-                            <NavLink to ="/about" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">About Us</NavLink>
+                            <NavLink to ="/order" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">Order</NavLink>
                         </li>
 
                         <AuthOptions toggleMobileMenu={this.toggleMobileMenu} history={this.props.history}/>
 
                         <li className="nav-link-list nav-link-cart">
-                            <Cart history={this.props.history}/>
+                            <Cart history={this.props.history} toggleMobileMenu={this.toggleMobileMenu}/>
                         </li>
                     </ul>
                 </nav>

@@ -2,6 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import CustomerTokenService from "../../../services/CustomerTokenService/CustomerTokenService";
 import AppContext from "../../../contexts/ContextContainer/AppContext/AppContext";
+import "./AuthOptions.css";
 
 export default class AuthOptions extends React.Component{
 
@@ -31,8 +32,8 @@ export default class AuthOptions extends React.Component{
                     <NavLink exact to="/customer/account" onClick={this.toggleMobileMenu} activeClassName="active-link">Account</NavLink>
                 </li>
 
-                <li>
-                    <button type="button" onClick={this.handleSignOut}>Sign Out</button>
+                <li className="signout-link">
+                    <button className="signout-btn" type="button" onClick={this.handleSignOut}>Sign Out</button>
                 </li>
             </>
         );

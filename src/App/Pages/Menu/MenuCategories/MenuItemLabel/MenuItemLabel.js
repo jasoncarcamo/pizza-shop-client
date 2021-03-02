@@ -1,6 +1,7 @@
 import React from "react";
 import MenuItemCustomizer from "./MenuItemCustomizer/MenuItemCustomizer";
 import "./MenuItemLabel.css";
+import FoodPlaceHolder from "./foodplaceholder.jpg";
 
 export default class MenuItemLabel extends React.Component{
     constructor(props){
@@ -17,8 +18,10 @@ export default class MenuItemLabel extends React.Component{
     }
 
     render(){
+        console.log(`./${this.props.menuItem.name.split(" ").join("").toLowerCase()}.jpeg`)
         return (
             <section className="menu-item-label-section">
+                <img src={FoodPlaceHolder} alt=""/>
                 <h2>{this.props.menuItem.name}</h2>
                 <p><strong>Starting price: </strong>${this.props.menuItem.price_small}</p>
                 <p>{this.props.menuItem.description}</p>

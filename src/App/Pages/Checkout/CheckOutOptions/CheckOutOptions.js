@@ -2,6 +2,7 @@ import React from "react";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
 import ConfirmCancel from "./ConfirmCancel/ConfirmCancel";
 import ConfirmPlace from "./ConfirmPlace/ConfirmPlace";
+import "./CheckOutOptions.css";
 
 export default class CheckOutOptions extends React.Component{
     constructor(props){
@@ -36,10 +37,10 @@ export default class CheckOutOptions extends React.Component{
 
     render(){
         return (
-           <section>
-               <button onClick={this.togglePlaceOrder}>Place order</button>
+           <section className="checkout-options">
+               <button className="checkout-options-place-order" onClick={this.togglePlaceOrder}>Place order</button>
                
-               <div>
+               <div class="checkout-options-container">
                     <button onClick={this.toEditCart}>Edit cart</button>
                     <button onClick={this.toggleCancelOrder}>Cancel order</button>
                </div>

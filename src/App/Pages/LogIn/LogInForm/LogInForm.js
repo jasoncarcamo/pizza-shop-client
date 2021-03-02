@@ -4,6 +4,7 @@ import AppContext from "../../../../contexts/ContextContainer/AppContext/AppCont
 import CustomerTokenService from "../../../../services/CustomerTokenService/CustomerTokenService";
 import "./LogInForm.css";
 import {Link} from "react-router-dom";
+import {BounceLoader} from "react-spinners";
 
 export default class LogInForm extends React.Component{
     constructor(props){
@@ -11,7 +12,8 @@ export default class LogInForm extends React.Component{
         this.state = {
             email: "",
             password: "",
-            error: ""
+            error: "",
+            loading : false
         }
     }
 
@@ -41,6 +43,11 @@ export default class LogInForm extends React.Component{
     handleLogIn = (e)=>{
         e.preventDefault();
 
+        this.setState({
+            loading: true,
+            error: ""
+        });
+
         const customer = {
             email: this.state.email,
             password: this.state.password
@@ -49,7 +56,8 @@ export default class LogInForm extends React.Component{
         for(const key of Object.keys(customer)){
             if(!customer[key]){
                 return this.setState({
-                    error: `Missing ${key}`
+                    error: `Missing ${key}`,
+                    loading: false
                 });
             };
         };
@@ -64,18 +72,30 @@ export default class LogInForm extends React.Component{
 
                 this.setOrderContext(customer);
 
+                this.setState({
+                    loading: false
+                });
+
                 this.props.history.push("/menu");
             })
             .catch( err => {
                 console.log(err);
                 return this.setState({
-                    error: err.error
+                    error: err.error,
                 });
             });
     }
 
     setCustomerContext = (customer)=>{
         this.context.customerContext.setCustomer(customer);
+    }
+
+    loadingHandler = ()=>{
+        if(this.state.loading){
+            return <BounceLoader loading={this.state.loading} color="red" size={60}/>
+        } else{
+            return <button id="log-in-submit-btn">Log In</button>;
+        }
     }
 
     render(){
@@ -99,7 +119,7 @@ export default class LogInForm extends React.Component{
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 
-                    <button id="log-in-submit-btn">Log In</button>
+                    {this.loadingHandler()}
                 </fieldset>
             </form>
         );
