@@ -20,14 +20,13 @@ export default class Checkout extends React.Component{
     componentDidMount(){
         const cart = CartService.getCart();
         const order = OrderService.getOrder();
-        let subtotal = order.subtotal;
-        console.group(order)
+        console.log(order)
         if(cart.length === 0){
             this.props.history.push("/order");
         };  
 
-        if(subtotal === undefined){
-            subtotal = 0;
+        if(!order.subtotal){
+            order.subtotal = 0;
         };
 
         for(let i = 0; i < cart.length; i++){
@@ -50,7 +49,6 @@ export default class Checkout extends React.Component{
     }
 
     render(){
-        console.log(this.state)
         return (
             <section id="checkout-section">
                 <h2>Check Out</h2>

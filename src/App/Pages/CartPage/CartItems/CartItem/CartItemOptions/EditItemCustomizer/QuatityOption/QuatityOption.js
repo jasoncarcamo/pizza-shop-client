@@ -62,10 +62,10 @@ export default class QuatityOption extends React.Component{
 
     render(){
         return (
-            <section>
-                <p>Quantity</p>
+            <section className="quatity-option-section">
+                <p><strong>Quantity:</strong></p>
 
-                <div>
+                <div className="quatity-options-container">
                     <button onClick={this.decreaseQuantity}>-</button>
                     <p>{this.props.orderItem.quantity}</p>
                     <button onClick={this.addQuantity}>+</button>

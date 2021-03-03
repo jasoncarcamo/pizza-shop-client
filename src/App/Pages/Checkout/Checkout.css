@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 100vh;
     margin: 0;
-    padding: 0 5em;
+    padding: 0 5em 4em 5em;
 }
 
 #checkout-section > h2{
@@ -22,6 +22,6 @@
 
 @media screen and (max-width: 1300px){
     #checkout-section{
-        padding: 1.5em;
+        padding: 1.5em 1.5em 5em 1.5em;
     }
 }

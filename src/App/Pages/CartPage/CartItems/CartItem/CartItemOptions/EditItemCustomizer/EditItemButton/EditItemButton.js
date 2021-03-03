@@ -17,7 +17,6 @@ export default class EditItemButton extends React.Component{
         const index = this.props.index;
 
         this.context.cartContext.updateCart(orderItem, index);
-        this.context.ordersContext.setOrder(orderItem);
 
         this.setState({
             addedItem: true

@@ -1,5 +1,6 @@
 import React from "react";
 import AppContext from "../../../../../../../../contexts/ContextContainer/AppContext/AppContext";
+import "./SizeOptions.css";
 
 export default class SizeOptions extends React.Component{
     constructor(props){
@@ -65,23 +66,31 @@ export default class SizeOptions extends React.Component{
 
     }
 
+    renderMediumSizeOption = ()=>{
+        if(Math.round(this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].price_medium) !== 0){
+            return (
+                <li className="size-option-section-list-item">
+                    <input type="radio" name="price" value={this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].price_medium} className="size-option-input" checked={this.props.orderItem.size === "size_medium"} onChange={this.handleSize}/>
+                    <label htmlFor="" className="size-option-label"> Medium {this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].size_medium}</label>
+                </li>
+            );
+        };
+    }
+
     render(){
 ;        return (
-            <section>
-                <p>Choose a size:</p>
+            <section className="size-option-section">
+                <p><strong>Choose a size:</strong></p>
 
-                <ul>
-                    <li>
-                        <input type="radio" name="price" value={this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].price_small} className="size-option-input" checked={this.props.orderItem.size === "size_small"} onChange={this.handleSize}/>
+                <ul className="size-option-section-list">
+                    <li className="size-option-section-list-item">
+                        <input type="radio"  name="price" value={this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].price_small} className="size-option-input" checked={this.props.orderItem.size === "size_small"} onChange={this.handleSize}/>
                         <label htmlFor="" className="size-option-label"> Small {this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].size_small}</label>
                     </li>
 
-                    <li>
-                        <input type="radio" name="price" value={this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].price_medium} className="size-option-input" checked={this.props.orderItem.size === "size_medium"} onChange={this.handleSize}/>
-                        <label htmlFor="" className="size-option-label"> Medium {this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].size_medium}</label>
-                    </li>
+                    {this.renderMediumSizeOption()}
 
-                    <li>
+                    <li className="size-option-section-list-item">
                         <input type="radio" name="price" value={this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].price_large} className="size-option-input" checked={this.props.orderItem.size === "size_large"} onChange={this.handleSize}/>
                         <label htmlFor="" className="size-option-label"> Large {this.context.menuItemsContext.menuItems[this.props.orderItem.category][this.props.orderItem.id].size_large}</label>
                     </li>

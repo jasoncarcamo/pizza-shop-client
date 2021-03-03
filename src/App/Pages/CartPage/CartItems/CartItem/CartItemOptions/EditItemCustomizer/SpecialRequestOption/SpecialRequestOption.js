@@ -26,9 +26,9 @@ export default class SpecialRequestOption extends React.Component{
 
     render(){
         return (
-            <section>
-                <label htmlFor="special-request-label">Special requests?</label>
-                <input type="textarea" id="" value={this.props.orderItem.special_request} onChange={this.handleSpecialRequest}/>
+            <section className="special-request-section">
+                <label className="special-request-label" htmlFor="special-request-input"><strong>Special requests?</strong></label>
+                <textarea className="special-request-input" type="textarea" id="special-request-input" value={this.state.special_request} onChange={this.handleSpecialRequest} placeholder="Comments?"></textarea>
             </section>
         );
     };
