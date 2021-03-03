@@ -4,6 +4,7 @@ import SpecialRequestOption from "./SpecialRequestOption/SpecialRequestOption";
 import QuatityOption from "./QuatityOption/QuatityOption";
 import EditItemButton from "./EditItemButton/EditItemButton";
 import CancelItemBtn from "./CancelItemBtn/CancelItemBtn";
+import "./EditItemCustomizer.css";
 
 // serves as container for order item data
 export default class EditItemCustomizer extends React.Component{
@@ -39,35 +40,39 @@ export default class EditItemCustomizer extends React.Component{
     
     render(){
         return (
-            <section>
-                <h2>{this.state.orderItem.name}</h2>
-                <p>${this.state.orderItem.price}</p>
-                <p>{this.state.orderItem.description}</p>
+            <section className="menu-item-customizer-container">
+                <section className="menu-item-customizer">
+                    <h2>{this.state.orderItem.name}</h2>
+                    <p><strong>Price: </strong>${this.state.orderItem.price}</p>
+                    <p>{this.state.orderItem.description}</p>
 
-                <SizeOptions 
-                    menuItem={this.state.menuItem}
-                    orderItem={this.state.orderItem}
-                    updateOrderItem={this.updateOrderItem}
-                />
-                <SpecialRequestOption 
-                    orderItem={this.state.orderItem}
-                    updateOrderItem={this.updateOrderItem}
-                />
-                <QuatityOption 
-                    orderItem={this.state.orderItem}
-                    updateOrderItem={this.updateOrderItem}
-                />
+                    <SizeOptions 
+                        menuItem={this.state.menuItem}
+                        orderItem={this.state.orderItem}
+                        updateOrderItem={this.updateOrderItem}
+                    />
+                    <SpecialRequestOption 
+                        orderItem={this.state.orderItem}
+                        updateOrderItem={this.updateOrderItem}
+                    />
+                    <QuatityOption 
+                        menuItem={this.state.menuItem}
+                        orderItem={this.state.orderItem}
+                        updateOrderItem={this.updateOrderItem}
+                    />
 
-                <EditItemButton
-                    index={this.props.index}
-                    toggleOptions={this.toggleOptions}
-                    orderItem={this.state.orderItem} 
-                />
-                <CancelItemBtn
-                    index={this.props.index}
-                    updateOrderItem={this.updateOrderItem}
-                    toggleOptions={this.toggleOptions}
-                />
+                    <div className="menu-item-custom-btn-container">
+                        <EditItemButton
+                            index={this.props.index}
+                            toggleOptions={this.toggleOptions}
+                            orderItem={this.state.orderItem} 
+                        />
+                        <CancelItemBtn
+                            updateOrderItem={this.updateOrderItem}
+                            toggleOptions={this.toggleOptions}
+                        />
+                    </div>
+                </section>
             </section>
         );
     };
