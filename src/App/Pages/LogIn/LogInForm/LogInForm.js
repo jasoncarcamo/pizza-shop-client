@@ -79,7 +79,6 @@ export default class LogInForm extends React.Component{
                 this.props.history.push("/menu");
             })
             .catch( err => {
-                console.log(err);
                 return this.setState({
                     error: err.error,
                 });

@@ -1,5 +1,6 @@
 import React from "react";
 import CartItems from "./CartItems/CartItems";
+import "./CartPage.css";
 
 export default class CartPage extends React.Component{
     render(){

@@ -30,7 +30,7 @@ export default class CartItems extends React.Component{
             <>
                 {this.renderCartItems(this.context)}
 
-                {this.context.cartContext.cart.length > 0 ? <button onClick={this.toCheckout}>Checkout</button> : ""}
+                {this.context.cartContext.cart.length > 0 ? <button onClick={this.toCheckout} className="checkout-btn">Checkout</button> : ""}
             </>
         );
     };

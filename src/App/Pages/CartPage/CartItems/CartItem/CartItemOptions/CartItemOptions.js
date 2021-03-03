@@ -1,6 +1,7 @@
 import React from "react";
 import EditItemCustomizer from "./EditItemCustomizer/EditItemCustomizer";
 import RemoveItemBtn from "./RemoveItemBtn/RemoveItemBtn";
+import "./CartItemOptions.css";
 
 export default class CartItemOptions extends React.Component{
     constructor(props){
@@ -25,7 +26,7 @@ export default class CartItemOptions extends React.Component{
     
     render(){
         return (
-            <section>
+            <section className="cart-item-options">
                 <button onClick={this.toggleOptions}>Edit</button>
                 <button onClick={this.toggleRemoveItem}>Remove</button>
 

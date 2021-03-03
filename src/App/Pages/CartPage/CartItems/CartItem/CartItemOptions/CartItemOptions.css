@@ -1,0 +1,5 @@
+.cart-item-options{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}

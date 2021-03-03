@@ -1,0 +1,23 @@
+#cart-options-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+#cart-options-section button{
+    width: 50%;
+    margin: 0 .1em;
+    background-color: black;
+    border: none;
+    color: white;
+    padding: .5em 0;
+    outline: none;
+}
+
+#cart-options-section button:hover{
+    background-color: transparent;
+    border: .05em solid black;
+    color: black;
+}

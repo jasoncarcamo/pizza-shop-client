@@ -18,7 +18,6 @@ export default class MenuItemLabel extends React.Component{
     }
 
     render(){
-        console.log(`./${this.props.menuItem.name.split(" ").join("").toLowerCase()}.jpeg`)
         return (
             <section className="menu-item-label-section">
                 <img src={FoodPlaceHolder} alt=""/>
