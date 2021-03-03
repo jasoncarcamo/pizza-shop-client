@@ -22,7 +22,7 @@ export class CartContextProvider extends React.Component{
 
     componentDidMount(){
         const cart = CartService.getCart();
-
+        console.log(cart);
         if(!cart){
             return;
         };

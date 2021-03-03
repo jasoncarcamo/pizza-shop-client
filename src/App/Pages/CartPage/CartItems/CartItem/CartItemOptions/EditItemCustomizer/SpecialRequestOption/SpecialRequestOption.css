@@ -1,0 +1,22 @@
+.special-request-section{
+    padding: 0;
+    margin: 1em 0;
+}
+
+.special-request-label{
+    display: block;
+    margin: 0 0 .5em 0;
+}
+
+.special-request-input{
+    display: block;
+    width: 70%;
+    min-height: 20em;
+    padding: 1em;
+}
+
+@media screen and (max-width: 1300px){
+    .special-request-input{
+        width: 100%;
+    }
+}

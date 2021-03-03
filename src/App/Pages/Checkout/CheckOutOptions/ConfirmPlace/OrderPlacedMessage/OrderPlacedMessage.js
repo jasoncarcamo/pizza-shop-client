@@ -9,7 +9,7 @@ export default class OrderPlacedMessage extends React.Component{
     setOrderDefault = ()=>{
         this.context.ordersContext.setDefaultOrder();
         this.removeCartItems();
-        this.props.history.push("/customer/menu");
+        this.props.history.push("/menu/pizza");
     }
 
     removeCartItems = ()=>{

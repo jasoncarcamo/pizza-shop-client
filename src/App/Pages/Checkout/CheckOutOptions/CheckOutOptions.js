@@ -40,7 +40,7 @@ export default class CheckOutOptions extends React.Component{
            <section className="checkout-options">
                <button className="checkout-options-place-order" onClick={this.togglePlaceOrder}>Place order</button>
                
-               <div class="checkout-options-container">
+               <div className="checkout-options-container">
                     <button onClick={this.toEditCart}>Edit cart</button>
                     <button onClick={this.toggleCancelOrder}>Cancel order</button>
                </div>

@@ -29,6 +29,11 @@
         margin: 0;
         padding: 0 2.5em;
     }
+
+    #menu-categories-section h1{
+        padding-left: 0;
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px){
@@ -37,5 +42,10 @@
         grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
         margin: 0;
         padding: 0 2.5em;
+    }
+
+    #menu-categories-section h1{
+        padding-left: 0;
+        text-align: center;
     }
 }
