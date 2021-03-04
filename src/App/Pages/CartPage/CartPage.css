@@ -38,6 +38,11 @@
     font-size: 1em;
     margin: 8em auto 0 auto !important;
     background-color: rgb(166, 43, 0) !important;
+    color: white;
+}
+
+.checkout-btn:hover{
+    color: white !important;
 }
 
 .order-item-list-item{
@@ -47,5 +52,10 @@
 @media screen and (max-width: 1300px){
     #cart-page-section{
         padding: 1.5em 1.5em 7em 1.5em;
+    }
+
+    #cart-page-section button{
+        width: 8em;
+        margin: 0 0.5em;
     }
 }
