@@ -65,12 +65,18 @@
 
 @media screen and (max-width: 1300px){
     #nav-links-container{
+        justify-content: center;
         position: absolute;
         top: 0;
         left: -100%;
         flex-direction: column;
         width: 100%;
         height: 100vh;
+    }
+
+    #nav-links-container li{
+        margin: .4em 0;
+        font-size: 1.25em;
     }
 
     .show-links-container{
