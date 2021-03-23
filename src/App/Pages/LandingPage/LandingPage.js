@@ -1,5 +1,8 @@
 import React from "react";
 import "./LandingPage.css";
+import FirstSection from './FirstSection/FirstSection';
+import SecondSection from "./SecondSection/SecondSection";
+import ThirdSection from "./ThirdSection/ThirdSection";
 
 export default class LandingPage extends React.Component{
 
@@ -10,25 +13,11 @@ export default class LandingPage extends React.Component{
     render(){
         return (
             <section id="landing-page-section">
-                <section id="first-section">
-                    <div>
-                        <h2>Pizza Shop</h2>
+                <FirstSection/>
 
-                        <button onClick={this.seeMenu}>View menu</button>
-                    </div>
-                </section>
+                <SecondSection/>
 
-                <section id="second-section">
-                    <div>
-                        <p>Sharing is always fun!</p>
-                    </div>
-                </section>
-
-                <section id="third-section">
-                    <div>
-                        <button onClick={this.seeMenu}>Order Now</button>
-                    </div>
-                </section>
+                <ThirdSection/>
             </section>
         );
     };  

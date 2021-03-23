@@ -1,0 +1,43 @@
+#first-section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, .2)
+    ), url("../firstimage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#first-section > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#first-section > div h2{
+    color: white;
+    font-size: 4.5em;
+    letter-spacing: .1em;
+}
+
+#first-section button{
+    display: block;
+    width: 10em;
+    height: 2.8em;
+    background-color: transparent;
+    border: .1em solid white;
+    color: white;
+    margin: 5em auto 0 auto;
+    font-size: .9em;
+    transition: background-color .3s linear;
+}
+
+#first-section button:hover{
+    background-color: black;
+    border: .1em solid black;
+}

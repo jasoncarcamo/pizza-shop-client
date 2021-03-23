@@ -1,0 +1,37 @@
+#third-section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.1), 
+        rgba(0, 0, 0, .1)
+    ), url("../thirdimage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#third-section > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#third-section button{
+    display: block;
+    width: 10em;
+    height: 2.8em;
+    background-color: transparent;
+    border: .1em solid white;
+    color: white;
+    margin: 0 auto;
+    font-size: 1em;
+    transition: background-color .3s linear;
+}
+
+#third-section button:hover{
+    background-color: black;
+    border: .1em solid black;
+}
