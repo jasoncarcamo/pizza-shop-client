@@ -81,7 +81,7 @@ export default class RegisterForm extends React.Component{
                 this.setState({
                     loading: false
                 });
-                this.props.history.push("/menu");
+                this.props.history.push("/menu/pizza");
             })
             .catch( err => {
                 return this.setState({
@@ -100,7 +100,7 @@ export default class RegisterForm extends React.Component{
             return <BounceLoader loading={this.state.loading} color="red" size={60}/>
         } else{
             return <button id="register-submit-btn" type="submit">Register</button>
-        }
+        };
     }
 
     render(){

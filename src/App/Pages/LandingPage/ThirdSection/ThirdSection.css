@@ -1,7 +1,7 @@
 #third-section{
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: 1138px;
     background: linear-gradient(
         rgba(0, 0, 0, 0.1), 
         rgba(0, 0, 0, .1)
@@ -12,26 +12,53 @@
     background-attachment: fixed;
 }
 
-#third-section > div{
+#third-section-box-container{
+    display: flex;
+    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 150%;
     transform: translate(-50%, -50%);
 }
 
-#third-section button{
-    display: block;
-    width: 10em;
-    height: 2.8em;
-    background-color: transparent;
-    border: .1em solid white;
-    color: white;
-    margin: 0 auto;
-    font-size: 1em;
-    transition: background-color .3s linear;
+.third-section-box{
+    width: 342px;
+    height: 342px;
+    margin: 0 .5em;
+    border: .5em solid white;
+    transform: rotateZ(45deg);
+    cursor: pointer;
 }
 
-#third-section button:hover{
-    background-color: black;
-    border: .1em solid black;
+.third-section-box:hover{
+    backdrop-filter: blur(1em);
+}
+
+.third-section-box:nth-child(1){
+    margin-top: 15em;
+}
+
+.third-section-box:nth-child(2){
+    margin-bottom: 15em;
+}
+
+.third-section-box div{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%) rotateZ(-45deg);
+    text-align: center;
+    color: white;
+}
+
+.third-section-box div h2{
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+}
+
+.third-section-box div p{
+    font-size: 1.25em;
 }

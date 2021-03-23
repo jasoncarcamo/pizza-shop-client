@@ -6,18 +6,14 @@ import ThirdSection from "./ThirdSection/ThirdSection";
 
 export default class LandingPage extends React.Component{
 
-    seeMenu = ()=>{
-        this.props.history.push("/menu");
-    }
-
     render(){
         return (
             <section id="landing-page-section">
-                <FirstSection/>
+                <FirstSection history={this.props.history}/>
 
                 <SecondSection/>
 
-                <ThirdSection/>
+                <ThirdSection history={this.props.history}/>
             </section>
         );
     };  

@@ -60,7 +60,7 @@ export default class PickUpForm extends React.Component{
             return;
         };
 
-        this.props.history.push("/menu");
+        this.props.history.push("/menu/pizza");
     }
 
     checkRequirements = ()=>{

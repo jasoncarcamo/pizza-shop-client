@@ -16,7 +16,7 @@ export default class Order extends React.Component{
 
     componentDidMount(){
         if(this.context.ordersContext.order.order_started){
-            this.props.history.push("/menu")
+            this.props.history.push("/menu/pizza")
         }
     }
 

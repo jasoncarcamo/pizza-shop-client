@@ -76,11 +76,12 @@ export default class LogInForm extends React.Component{
                     loading: false
                 });
 
-                this.props.history.push("/menu");
+                this.props.history.push("/menu/pizza");
             })
             .catch( err => {
                 return this.setState({
                     error: err.error,
+                    loading: false
                 });
             });
     }

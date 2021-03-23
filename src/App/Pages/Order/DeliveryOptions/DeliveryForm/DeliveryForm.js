@@ -69,7 +69,7 @@ export default class DeliveryForm extends React.Component{
             return;
         };
 
-        this.props.history.push("/menu");
+        this.props.history.push("/menu/pizza");
     }
 
     checkRequirements = ()=>{
