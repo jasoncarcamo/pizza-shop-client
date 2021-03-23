@@ -1,6 +1,8 @@
+const {url} = require("../../config");
+
 const OrderRequest = {
     getOrderById(id){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/order/${id}`, {
+        return fetch(`${url}/api/order/${id}`, {
             method: "GET",
             headers: {
                 'content-type': "application/json",
@@ -16,7 +18,7 @@ const OrderRequest = {
             });
     },
     createOrder(token, newOrder){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/orders`, {
+        return fetch(`${url}/api/orders`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",
@@ -33,7 +35,7 @@ const OrderRequest = {
             });
     },
     updateOrderById(token, updatedOrder, id){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/order/${id}`, {
+        return fetch(`${url}/api/order/${id}`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",
@@ -50,7 +52,7 @@ const OrderRequest = {
             });
     },
     deleteOrder(token, id){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/order/${id}`, {
+        return fetch(`${url}/api/order/${id}`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",

@@ -20,8 +20,8 @@ export default class Checkout extends React.Component{
     componentDidMount(){
         const cart = CartService.getCart();
         const order = OrderService.getOrder();
-        
-        if(cart.length === 0){
+        console.log(cart)
+        if(!cart){
             this.props.history.push("/order");
         };  
 

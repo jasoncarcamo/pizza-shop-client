@@ -1,6 +1,8 @@
+const {url} = require("../../config");
+console.log(process.env.REACT_APP_TEST_URL, url);
 const AuthRequest = {
     registerCustomer(newCustomer){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/register`, {
+        return fetch(`${url}/api/register`, {
             method: "POST",
             
             headers: {
@@ -17,7 +19,7 @@ const AuthRequest = {
             })
     },
     logInCustomer(customer){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/login`, {
+        return fetch(`${url}/api/login`, {
             method: "POST",
             headers: {
                 'content-type': "application/json",

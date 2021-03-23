@@ -1,6 +1,8 @@
+const {url} = require("../../config");
+
 const CustomerRequest = {
     getCustomer(token){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/customer`, {
+        return fetch(`${url}/api/customer`, {
             method: "GET",
             headers: {
                 'content-type': "application/json",
@@ -16,7 +18,7 @@ const CustomerRequest = {
             })
     },
     updateCustomer(token, updatedCustomer){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/customer`, {
+        return fetch(`${url}/api/customer`, {
             method: "PATCH",
             headers: {
                 'content-type': "application/json",
@@ -33,7 +35,7 @@ const CustomerRequest = {
             })
     },
     deleteCustomer(token, customer_id){
-        return fetch(`https://mighty-hamlet-99491.herokuapp.com/api/customer/${customer_id}`, {
+        return fetch(`${url}/api/customer/${customer_id}`, {
             method: "DELETE",
             headers: {
                 'content-type': "application/json",
