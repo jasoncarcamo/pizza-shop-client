@@ -65,10 +65,10 @@
 }
 
 @media screen and (max-width: 900px){
-    #thrid-section{
+    #third-section{
         min-height: 1000px;
     }
-    
+
     #third-section-box-container{
         display: flex;
         flex-direction: column;
