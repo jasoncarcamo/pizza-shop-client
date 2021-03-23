@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 #third-section-box-container{
@@ -18,7 +19,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 150%;
+    width: 100%;
     transform: translate(-50%, -50%);
 }
 
@@ -61,4 +62,30 @@
 
 .third-section-box div p{
     font-size: 1.25em;
+}
+
+@media screen and (max-width: 900px){
+    #thrid-section{
+        min-height: 1000px;
+    }
+    
+    #third-section-box-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .third-section-box{
+        width: 215px;
+        height: 215px;
+    }
+
+    .third-section-box:nth-child(1){
+        margin: 4em auto; 
+    }
+    
+    .third-section-box:nth-child(2){
+        margin: 4em auto;
+    }
 }
