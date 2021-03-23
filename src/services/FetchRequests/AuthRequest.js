@@ -1,5 +1,5 @@
 const {url} = require("../../config");
-console.log(process.env.REACT_APP_TEST_URL, url);
+
 const AuthRequest = {
     registerCustomer(newCustomer){
         return fetch(`${url}/api/register`, {
