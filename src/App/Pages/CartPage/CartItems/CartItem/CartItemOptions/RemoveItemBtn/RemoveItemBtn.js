@@ -1,5 +1,6 @@
 import React from "react";
 import AppContext from "../../../../../../../contexts/ContextContainer/AppContext/AppContext";
+import "./RemoveItemBtn.css";
 
 export default class RemoveItemBtn extends React.Component{
 
@@ -19,10 +20,10 @@ export default class RemoveItemBtn extends React.Component{
 
     render(){
         return (
-            <section>
+            <section className="remove-item-section">
                 <p>Are you sure you want to remove this item from your cart?</p>
 
-                <div>
+                <div className="remove-item-options">
                     <button onClick={this.removeOrderItem}>Yes</button>
                     <button onClick={this.toggleRemoveItem}>Nevermind</button>
                 </div>

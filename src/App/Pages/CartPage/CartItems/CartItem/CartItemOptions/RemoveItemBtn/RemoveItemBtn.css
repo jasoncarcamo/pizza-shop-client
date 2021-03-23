@@ -1,0 +1,11 @@
+.remove-item-section{
+    position: absolute;
+    bottom: 0;
+    left: 51%;
+    transform: translate(-50%, 0);
+    background-color: white;
+}
+
+.remove-item-options{
+    display: flex;
+}

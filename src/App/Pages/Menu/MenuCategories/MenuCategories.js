@@ -3,6 +3,7 @@ import MenuItemLabel from "./MenuItemLabel/MenuItemLabel";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
 import Pluralize from "pluralize";
 import "./MenuCategories.css";
+import MenuLoading from "./MenuLoading/MenuLoading";
 
 export default class MenuCategories extends React.Component{
 
@@ -11,6 +12,7 @@ export default class MenuCategories extends React.Component{
     componentDidMount(){
     }
 
+    // gets category from params and turns it plural
     getCategory = ()=>{
         let category = Pluralize.singular(this.props.match.url.split("/")[2]);
         
@@ -35,8 +37,8 @@ export default class MenuCategories extends React.Component{
         let index = 0;
 
         if(menuItems === undefined){
-            return "";
-        }
+            return <MenuLoading/>;
+        };
 
         for(const key of Object.keys(menuItems)){
 
@@ -56,6 +58,7 @@ export default class MenuCategories extends React.Component{
         return (
             <section id="menu-categories-section">
                 <h1>{Pluralize.plural(this.getCategory())}</h1>
+            
                 <ul id="menu-categories-list">
                     {this.renderMenuItemLabels(this.context)}
                 </ul>
