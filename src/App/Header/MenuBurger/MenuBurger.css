@@ -6,9 +6,11 @@
 @media screen and (max-width: 1300px){
     #nav-burger{
         display: block;
-        position: relative;
-        top: 0;
+        position: absolute;
+        top: 50%;
         right: 1em;
+        margin: 0;
+        transform: translateY(-50%);
         z-index: 5;
     }
 }

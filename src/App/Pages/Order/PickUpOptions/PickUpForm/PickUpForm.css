@@ -17,17 +17,17 @@
 .pickup-label{
     display: block;
     width: 18rem;
+    margin: 0 auto;
 }
 
 .pickup-input{
     display: block;
     width: 18rem;
     height: 2.5em;
-    margin-bottom: 1.5em;
+    margin: 0 auto 1.5em auto;
     border-top: none;
     border-right: none;
-    border-bottom: .05em solid rgb(117, 117, 117)
-    ;
+    border-bottom: .05em solid rgb(117, 117, 117);
     border-left: none;
 }
 
@@ -39,7 +39,7 @@
     display: block;
     width: 18rem;
     height: 2.3em;
-    margin: 0 0 .75em 0;
+    margin: 0 auto .75em auto;
     background-color: rgb(166, 43, 0);
     font-size: 1em;
     border: none;

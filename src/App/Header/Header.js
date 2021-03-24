@@ -7,6 +7,12 @@ import MenuBurger from "./MenuBurger/MenuBurger";
 
 export default class Header extends React.Component{
 
+    componentDidUpdate(prevProps){
+        if(prevProps.location.pathname !== this.props.location.pathname){
+            window.scrollTo(0, 0);
+        };
+    }
+
     toggleMobileMenu = ()=>{
         const menuBurger = document.getElementById("nav-burger");
         const linkContainer = document.getElementById("nav-links-container");

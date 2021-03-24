@@ -5,13 +5,11 @@ export default class CartOptions extends React.Component{
 
     editCart = ()=>{
         this.toggleOptions();
-        this.toggleMobileMenu();
         this.props.history.push("/cart/edit");
     }
 
     checkOutCart = ()=>{
         this.toggleOptions();
-        this.toggleMobileMenu();
         this.props.history.push("/cart/checkout");
     }
 

@@ -18,7 +18,7 @@
 
 #cart-page-section button{
     display: block;
-    margin: 0 2em;
+    margin: 0 auto;
     width: 10em;
     height: 2.8em;
     background-color: black;
@@ -52,10 +52,5 @@
 @media screen and (max-width: 1300px){
     #cart-page-section{
         padding: 1.5em 1.5em 7em 1.5em;
-    }
-
-    #cart-page-section button{
-        width: 8em;
-        margin: 0 0.5em;
     }
 }

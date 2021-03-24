@@ -12,6 +12,7 @@ import CartPage from './Pages/CartPage/CartPage';
 import CheckOut from "./Pages/Checkout/Checkout";
 
 export default class App extends React.Component{
+
     render(){
         return (
             <>
