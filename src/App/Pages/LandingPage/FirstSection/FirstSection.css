@@ -38,7 +38,7 @@
     background-color: transparent;
     border: .1em solid white;
     color: white;
-    margin: 5em auto 0 auto;
+    margin: 5em auto;
     font-size: .9em;
     transition: background-color .3s linear;
 }

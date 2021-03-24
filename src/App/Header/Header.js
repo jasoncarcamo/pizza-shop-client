@@ -25,6 +25,8 @@ export default class Header extends React.Component{
                 <nav id="nav-container">
                     <h2 id="nav-logo" onClick={this.goHome}>Pizza Shop Logo</h2>
 
+                    <Cart history={this.props.history} toggleMobileMenu={this.toggleMobileMenu}/>
+
                     <MenuBurger toggleMobileMenu={this.toggleMobileMenu}/>
 
                     <ul id="nav-links-container">
@@ -41,10 +43,6 @@ export default class Header extends React.Component{
                         </li>
 
                         <AuthOptions toggleMobileMenu={this.toggleMobileMenu} history={this.props.history}/>
-
-                        <li className="nav-link-list nav-link-cart">
-                            <Cart history={this.props.history} toggleMobileMenu={this.toggleMobileMenu}/>
-                        </li>
                     </ul>
                 </nav>
             </header>
