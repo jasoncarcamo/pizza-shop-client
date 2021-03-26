@@ -49,7 +49,7 @@ export default class PickUpForm extends React.Component{
         this.context.ordersContext.updateOrder(order);
     }
 
-    handleStartOrdering = ()=>{
+    handleStartOrdering = (e)=>{
         const error = this.checkRequirements();
 
         if(error){
@@ -59,6 +59,8 @@ export default class PickUpForm extends React.Component{
 
             return;
         };
+
+        this.context.ordersContext.startOrder(e.target.name);
 
         this.props.history.push("/menu/pizza");
     }
@@ -105,7 +107,7 @@ export default class PickUpForm extends React.Component{
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 
-                    <button type="button" className="pickup-btn" onClick={this.handleStartOrdering}>Start ordering</button>
+                    <button type="button" className="pickup-btn" name="Pick up" onClick={this.handleStartOrdering}>Start ordering</button>
 
                     <button className="pickup-btn"  type="button" name="default" onClick={this.handleCancel}>Cancel</button>
                 </fieldset>

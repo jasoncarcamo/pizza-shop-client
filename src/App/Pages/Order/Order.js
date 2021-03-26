@@ -25,8 +25,6 @@ export default class Order extends React.Component{
         this.setState({
             order_type: e.target.name
         });
-
-        this.context.ordersContext.startOrder(e.target.name);
     }
 
     setDefaultOrderType = ()=>{

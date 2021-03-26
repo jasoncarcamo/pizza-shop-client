@@ -58,7 +58,7 @@ export default class DeliveryForm extends React.Component{
         this.context.ordersContext.updateOrder(order);
     }
 
-    handleStartOrdering = ()=>{
+    handleStartOrdering = (e)=>{
         const error = this.checkRequirements();
 
         if(error){
@@ -68,6 +68,8 @@ export default class DeliveryForm extends React.Component{
 
             return;
         };
+
+        this.context.ordersContext.startOrder(e.target.name);
 
         this.props.history.push("/menu/pizza");
     }
@@ -130,7 +132,7 @@ export default class DeliveryForm extends React.Component{
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 
-                    <button className="delivery-btn" type="button" onClick={this.handleStartOrdering}>Start ordering</button>
+                    <button className="delivery-btn" type="button" name="Delivery" onClick={this.handleStartOrdering}>Start ordering</button>
 
                     <button className="delivery-btn"  type="button" name="default" onClick={this.handleCancel}>Cancel</button>
                 </fieldset>
