@@ -116,7 +116,7 @@ export class OrdersContextProvider extends React.Component{
             deleteOrder: this.deleteOrder,
             cancelOrder: this.cancelOrder
         };
-        
+        console.log(value.order)
         return (
             <OrderContext.Provider value={value}>
                 {this.props.children}

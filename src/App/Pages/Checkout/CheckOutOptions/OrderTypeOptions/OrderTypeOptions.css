@@ -1,0 +1,24 @@
+#checkout-order-type-container{
+    margin: 0;
+    padding: 0;
+}
+
+#checkout-order-type-fieldset{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+#checkout-order-time-form{
+    margin: 0;
+    padding: 0;
+}
+
+#checkout-order-time-fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}

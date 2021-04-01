@@ -52,13 +52,11 @@ export default class Checkout extends React.Component{
             <section id="checkout-section">
                 <h2>Check Out</h2>
 
-                <p><strong>Name: </strong>{this.state.order.customer_first_name} {this.state.order.customer_last_name}</p>
-                <p><strong>Order type: </strong>{this.state.order.order_type}</p>
-                <p><strong>Price: </strong>${this.state.order.subtotal}</p>
+                <section id="checkout-info-container">
+                    <OrderItems/>
 
-                <OrderItems/>
-
-                <CheckOutOptions history={this.props.history} order={this.state.order}/>
+                    <CheckOutOptions history={this.props.history} order={this.state.order}/>
+                </section>
             </section>
         );
     };

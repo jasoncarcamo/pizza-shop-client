@@ -3,6 +3,7 @@ import AppContext from "../../../../contexts/ContextContainer/AppContext/AppCont
 import ConfirmCancel from "./ConfirmCancel/ConfirmCancel";
 import ConfirmPlace from "./ConfirmPlace/ConfirmPlace";
 import "./CheckOutOptions.css";
+import OrderTypeOptions from "./OrderTypeOptions/OrderTypeOptions";
 
 export default class CheckOutOptions extends React.Component{
     constructor(props){
@@ -38,15 +39,19 @@ export default class CheckOutOptions extends React.Component{
     render(){
         return (
            <section className="checkout-options">
-               <button className="checkout-options-place-order" onClick={this.togglePlaceOrder}>Place order</button>
+
+                <p><strong>Name: </strong>{this.props.order.customer_first_name} {this.props.order.customer_last_name}</p>
+                <p><strong>Price: </strong>${this.props.order.subtotal}</p>
+                <OrderTypeOptions order={this.props.order}/>
                
-               <div className="checkout-options-container">
+                <div className="checkout-options-container">
+                    <button className="checkout-options-place-order" onClick={this.togglePlaceOrder}>Place order</button>
                     <button onClick={this.toEditCart}>Edit cart</button>
                     <button onClick={this.toggleCancelOrder}>Cancel order</button>
-               </div>
+                </div>
 
-               {this.state.cancelOrder ? <ConfirmCancel toggleCancelOrder={this.toggleCancelOrder}/> : ""}
-               {this.state.placeOrder ? <ConfirmPlace order={this.props.order} togglePlaceOrder={this.togglePlaceOrder} history={this.props.history}/> : ""}
+                {this.state.cancelOrder ? <ConfirmCancel toggleCancelOrder={this.toggleCancelOrder}/> : ""}
+                {this.state.placeOrder ? <ConfirmPlace order={this.props.order} togglePlaceOrder={this.togglePlaceOrder} history={this.props.history}/> : ""}
            </section> 
         );
     };

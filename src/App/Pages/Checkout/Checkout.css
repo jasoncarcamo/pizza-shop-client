@@ -4,16 +4,23 @@
     min-height: 100vh;
     margin: 0;
     padding: 0 5em 4em 5em;
+    border: 1px solid red;
+}
+
+#checkout-info-container{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: .5em;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid black;
 }
 
 #checkout-section > h2{
     font-size: 2.8em;
     text-align: center;
-}
-
-#checkout-section > p{
-    text-align: center;
-    text-align: 1.15em;
 }
 
 .order-item-list-item{
