@@ -1,6 +1,6 @@
 #confirm-order-section{
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 4em;
     left: 50%;
     transform: translate(-50%, 0);
     width: 320px;

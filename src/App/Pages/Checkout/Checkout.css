@@ -31,4 +31,9 @@
     #checkout-section{
         padding: 1.5em 1.5em 5em 1.5em;
     }
+
+    #checkout-info-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr 1fr;
+    }
 }

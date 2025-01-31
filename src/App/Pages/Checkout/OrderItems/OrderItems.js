@@ -26,6 +26,6 @@ export default class OrderItems extends React.Component{
             <ul id="order-item-list">
                 {this.renderOrderItems(this.context)}
             </ul>
-        )
+        );
     }
 }

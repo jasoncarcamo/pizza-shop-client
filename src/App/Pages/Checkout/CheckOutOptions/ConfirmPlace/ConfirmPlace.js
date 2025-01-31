@@ -37,11 +37,7 @@ export default class ConfirmPlace extends React.Component{
         order.order_items = cart;
         order.subtotal = this.props.order.subtotal;
         order.customer_id = this.context.customerContext.customer.id || 0;
-
-        if(order.time_placed === "ASAP"){
-            order.time_placed = new Date();
-        };
-
+        order.time_placed = new Date();
         order.time_ready = new Date();
         order.date_created = new Date();
 
@@ -54,7 +50,6 @@ export default class ConfirmPlace extends React.Component{
 
         OrderRequest.createOrder(token, order)
             .then( resData => {
-                console.log(resData);
                 this.setState({
                     loading: false,
                     orderPlaced: true
