@@ -91,6 +91,7 @@ export default class DeliveryForm extends React.Component{
     }
 
     render(){
+        console.log(this.context, this.state)
         return (
             <form id="delivery-form">
                 <fieldset id="delivery-fieldset">
@@ -123,7 +124,7 @@ export default class DeliveryForm extends React.Component{
                     <label htmlFor="delivery-state" className="delivery-label">
                         State:
                     </label>
-                    <input id="delivery-state" className="delivery-input" type="text" name="customer_state" defaultValue={this.state.customer_state}/>
+                    <input id="delivery-state" className="delivery-input" type="text" name="customer_state" onChange={this.handleInput} defaultValue={this.state.customer_state}/>
 
                     <label htmlFor="delivery-zip-code" className="delivery-label">
                         Zip code:
