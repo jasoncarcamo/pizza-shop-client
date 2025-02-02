@@ -4,7 +4,7 @@ import "./NoItemsMessage.css";
 export default class NoItemsMessage extends React.Component{
 
     handleStartOrder = ()=>{
-        this.props.history.push("/order");
+        this.props.history.push("/menu/pizza");
     }
 
     render(){

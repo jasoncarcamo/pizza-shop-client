@@ -43,13 +43,8 @@ export default class cart extends React.Component{
         return (
             <section 
                 id="cart-container"
-                onMouseEnter={this.openOptions}
-                onClick={this.toggleOptions} 
             >
-                <p>
-                    <FontAwesomeIcon onClick={this.toggleOptions} icon={faShoppingCart}/> {this.context.cartContext.cart.length || ""}
-                </p>
-
+                <FontAwesomeIcon onMouseEnter={this.openOptions}  onClick={this.toggleOptions} icon={faShoppingCart} className="cart-icon"/> {this.context.cartContext.cart.length || ""}
                 {this.state.openOptions ? <CartOptions toggleMobileMenu={this.toggleMobileMenu} toggleOptions={this.toggleOptions} closeOptions={this.closeOptions} history={this.props.history}/> : ""}
             </section>
         );

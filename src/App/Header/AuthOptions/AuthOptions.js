@@ -42,12 +42,12 @@ export default class AuthOptions extends React.Component{
     loggedOffOptions = ()=>{
         return (
             <>
-                <li>
-                    <NavLink exact to="/login" onClick={this.toggleMobileMenu} activeClassName="active-link">Log In</NavLink>
+                <li className="nav-link-list">
+                    <NavLink exact to="/login" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">Log In</NavLink>
                 </li>
 
-                <li>
-                    <NavLink exact to="/register" onClick={this.toggleMobileMenu} activeClassName="active-link">Register</NavLink>
+                <li className="nav-link-list"> 
+                    <NavLink exact to="/register" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">Register</NavLink>
                 </li>
             </>
         );

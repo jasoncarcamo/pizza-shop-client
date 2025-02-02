@@ -42,6 +42,7 @@ export default class CheckOutOptions extends React.Component{
 
                 <p><strong>Name: </strong>{this.props.order.customer_first_name} {this.props.order.customer_last_name}</p>
                 <p><strong>Price: </strong>${this.props.order.subtotal}</p>
+                
                 <OrderTypeOptions order={this.props.order}/>
                
                 <div className="checkout-options-container">

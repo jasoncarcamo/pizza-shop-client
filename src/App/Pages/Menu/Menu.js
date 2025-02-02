@@ -10,15 +10,12 @@ export default class Menu extends React.Component{
     static contextType = AppContext;
 
     componentDidMount(){
-        if(!this.context.ordersContext.order.order_started){
-            this.props.history.push("/order");
-        } else{
-            
-        }
     }
 
     componentDidUpdate(){
-        
+        if(!this.context.ordersContext.order.order_started){
+            this.props.history.push("/order");
+        };
     }
 
     render(){

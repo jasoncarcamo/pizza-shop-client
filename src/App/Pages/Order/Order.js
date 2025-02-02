@@ -14,12 +14,6 @@ export default class Order extends React.Component{
 
     static contextType = AppContext;
 
-    componentDidMount(){
-        if(this.context.ordersContext.order.order_started){
-            this.props.history.push("/menu/pizza")
-        }
-    }
-
     startOrder = (e)=>{
         
         this.setState({

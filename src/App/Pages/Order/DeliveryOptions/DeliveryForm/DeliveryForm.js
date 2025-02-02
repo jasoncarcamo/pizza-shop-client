@@ -91,7 +91,6 @@ export default class DeliveryForm extends React.Component{
     }
 
     render(){
-        console.log(this.context, this.state)
         return (
             <form id="delivery-form">
                 <fieldset id="delivery-fieldset">

@@ -4,11 +4,13 @@
     justify-content: space-between;
     position: absolute;
     width: 100%;
+    background-color: white;
 }
 
 #cart-options-section button{
     width: 100%;
-    margin: .15em .1em;
+    height: 3em;
+    margin: 0;
     background-color: black;
     border: none;
     color: white;
@@ -17,7 +19,7 @@
 }
 
 #cart-options-section button:hover{
-    background-color: transparent;
-    border: .05em solid black;
+    background-color: white;
     color: black;
+    transition: background-color 400ms ease-in-out;
 }

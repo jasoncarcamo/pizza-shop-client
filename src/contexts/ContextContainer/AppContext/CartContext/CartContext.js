@@ -58,7 +58,7 @@ export class CartContextProvider extends React.Component{
             cart[orderItemIndex] = orderItem;
         };
 
-        this.saveCart(cart)
+        this.saveCart(cart);
         
         this.setState({
             cart
@@ -81,6 +81,8 @@ export class CartContextProvider extends React.Component{
         const cart = this.state.cart;
 
         cart.splice(index, 1);
+
+        this.saveCart(cart);
 
         this.setState({
             cart

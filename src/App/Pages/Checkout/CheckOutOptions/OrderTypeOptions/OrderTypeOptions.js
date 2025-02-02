@@ -13,10 +13,6 @@ export default class OrderTypeOptions extends React.Component{
 
     static contextType = AppContext;
 
-    componentDidMount(){
-        console.log(this.props)
-    }
-
     handleOrderType = (e)=>{
         let order = this.props.order; 
         

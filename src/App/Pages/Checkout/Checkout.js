@@ -20,8 +20,13 @@ export default class Checkout extends React.Component{
     componentDidMount(){
         const cart = CartService.getCart();
         const order = OrderService.getOrder();
-        if(!cart){
+
+        if(!order){
             return this.props.history.push("/order");
+        };
+
+        if(!cart){
+            return this.props.history.push("/cart/edit");
         };  
 
         if(!order.subtotal){
@@ -42,7 +47,7 @@ export default class Checkout extends React.Component{
         const cart = this.context.cartContext.cart;
 
         if(cart.length === 0){
-            this.props.history.push("/order");
+            this.props.history.push("/cart/edit");
         };  
     }
 
