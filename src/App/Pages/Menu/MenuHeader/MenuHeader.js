@@ -1,7 +1,7 @@
 import React from "react";
 import AppContext from "../../../../contexts/ContextContainer/AppContext/AppContext";
 import Pluralize from "pluralize";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./MenuHeader.css";
 
 export default class MenuHeader extends React.Component{
@@ -25,7 +25,7 @@ export default class MenuHeader extends React.Component{
             
             return (
                 <li key={i} className="menu-header-list-item">
-                    <Link to={`/menu/${menuItem.toLowerCase()}`}>{Pluralize.plural(menuItem)}</Link>
+                    <NavLink activeClassName="active-menu-item" to={`/menu/${menuItem.toLowerCase()}`}>{Pluralize.plural(menuItem)}</NavLink>
                 </li>
             );
         });

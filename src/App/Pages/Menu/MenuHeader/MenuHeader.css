@@ -25,6 +25,13 @@
     align-self: center;
 }
 
+.active-menu-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-bottom: .15em solid black;
+}
+
 .menu-header-list-item *{
     margin: 0;
     padding: 0;
