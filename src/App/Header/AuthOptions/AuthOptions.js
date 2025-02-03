@@ -8,6 +8,14 @@ export default class AuthOptions extends React.Component{
 
     static contextType = AppContext;
 
+    setOrderDefault = ()=>{
+        this.context.ordersContext.setDefaultOrder();
+    }
+
+    setCartDefault = ()=>{
+        this.context.cartContext.setDefault();
+    }
+
     removeCustomerContext = ()=>{
         this.context.customerContext.deleteCustomer();
     }
@@ -17,8 +25,12 @@ export default class AuthOptions extends React.Component{
 
         this.removeCustomerContext();
 
+        this.setOrderDefault();
+        this.setCartDefault();
+
         this.toggleMobileMenu();
-        this.props.history.push("/");
+
+        this.props.history.push("/order");
     }
 
     toggleMobileMenu = ()=>{
