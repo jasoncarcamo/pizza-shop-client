@@ -4,15 +4,13 @@
 }
 
 .order-item-section > h3{
-    font-size: .95em;
+    font-weight: 900;
+    width: 9em;
+    border-bottom: .05em solid black;
 }
 
 .order-item-section > p{
-    font-size: .85em;
-}
-
-.order-item-strong{
-    color: orange;
+    font-size: 1em;
 }
 
 @media screen and (max-width: 1300px){

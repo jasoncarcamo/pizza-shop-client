@@ -6,7 +6,7 @@
 }
 
 .checkout-options > p strong{
-    color: red;
+    font-weight: bolder;
 }
 
 .checkout-options-container{

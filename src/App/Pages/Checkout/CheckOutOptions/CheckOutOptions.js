@@ -32,8 +32,14 @@ export default class CheckOutOptions extends React.Component{
         });
     }
 
-    handleCancel = ()=>{
+    renderRoundedTotal = ()=>{
+        const subtotal = this.props.order.subtotal;
 
+        if(!subtotal){
+            return "";
+        } else{
+            return subtotal.toFixed(2);
+        }
     }
 
     render(){
@@ -41,7 +47,7 @@ export default class CheckOutOptions extends React.Component{
            <section className="checkout-options">
 
                 <p><strong>Name: </strong>{this.props.order.customer_first_name} {this.props.order.customer_last_name}</p>
-                <p><strong>Price: </strong>${this.props.order.subtotal}</p>
+                <p><strong>Price: </strong>${this.renderRoundedTotal()}</p>
                 
                 <OrderTypeOptions order={this.props.order}/>
                

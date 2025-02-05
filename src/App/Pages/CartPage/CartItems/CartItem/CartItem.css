@@ -4,11 +4,7 @@
 }
 
 .order-item-section > h3{
-    font-size: 1.75em;
-}
-
-.order-item-strong{
-    color: orange
+    font-weight: 900;
 }
 
 @media screen and (max-width: 1300px){

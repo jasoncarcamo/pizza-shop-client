@@ -47,6 +47,8 @@
 
 .order-item-list-item{
     list-style: none;
+    border-bottom: .15em solid black;
+    border-radius: .15em;
 }
 
 @media screen and (max-width: 1300px){

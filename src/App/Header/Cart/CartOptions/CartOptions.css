@@ -23,3 +23,9 @@
     color: black;
     transition: background-color 400ms ease-in-out;
 }
+
+@media screen and (max-width: 1300px){
+    #cart-options-section{
+        flex-direction: row;
+    }
+}

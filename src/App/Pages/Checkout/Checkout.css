@@ -4,7 +4,6 @@
     min-height: 100vh;
     margin: 0;
     padding: 0 5em 4em 5em;
-    border: 1px solid red;
 }
 
 #checkout-info-container{
@@ -14,6 +13,8 @@
     column-gap: .5em;
     width: 90%;
     max-width: 900px;
+    height: 31em;
+    overflow: hidden;
     margin: 0 auto;
     border: 1px solid black;
 }

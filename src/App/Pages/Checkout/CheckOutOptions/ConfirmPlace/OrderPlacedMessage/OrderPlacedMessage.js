@@ -21,7 +21,7 @@ export default class OrderPlacedMessage extends React.Component{
             <section id="order-placed-section">
                 <p>Your order has been placed!</p>
 
-                <button onClick={this.setOrderDefault}>Ok thanks!</button>
+                <button onClick={this.setOrderDefault}>Yaye!</button>
             </section>
         );
     };

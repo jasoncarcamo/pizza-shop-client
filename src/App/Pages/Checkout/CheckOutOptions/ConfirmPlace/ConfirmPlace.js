@@ -63,7 +63,6 @@ export default class ConfirmPlace extends React.Component{
     }
 
     render(){
-        console.log(this.context)
         return (
             <section id="confirm-order-section">
                 <p>Place order?</p>
