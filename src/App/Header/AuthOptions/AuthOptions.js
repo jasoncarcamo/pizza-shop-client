@@ -41,7 +41,7 @@ export default class AuthOptions extends React.Component{
         return (
             <>
                 <li className="nav-link-list">
-                    <NavLink exact to="/customer/account" onClick={this.toggleMobileMenu} activeClassName="active-link">Account</NavLink>
+                    <NavLink exact to="/customer/account" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">Account</NavLink>
                 </li>
 
                 <li className="signout-link">
