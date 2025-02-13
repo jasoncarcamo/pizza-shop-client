@@ -16,14 +16,32 @@ export default class cart extends React.Component{
     }
 
     static contextType = AppContext;
+    
+    componentDidMount(){
+        window.addEventListener("resize",()=>{
+            console.log(window.innerWidth)
+            this.setState({
+                screenWidth: window.innerWidth
+            })
+        })
+    }
 
     openOptions = (e)=>{
+
+        if(this.state.screenWidth <=1300){
+            return;
+        };
+
         this.setState({
             openOptions: true
         });
     }
 
     closeOptions = ()=>{
+        if(this.state.screenWidth <=1300){
+            return;
+        };
+
         this.setState({
             openOptions: false
         });
@@ -42,9 +60,9 @@ export default class cart extends React.Component{
     render(){
         return (
             <section 
-                id="cart-container"
+                id="cart-container" onMouseLeave={this.closeOptions} 
             >
-                <FontAwesomeIcon onMouseEnter={this.openOptions}  onClick={this.toggleOptions} icon={faShoppingCart} className="cart-icon"/> {this.context.cartContext.cart.length || ""}
+                <FontAwesomeIcon onMouseEnter={this.openOptions} onClick={this.toggleOptions} icon={faShoppingCart} className="cart-icon"/> {this.context.cartContext.cart.length || ""}
                 {this.state.openOptions ? <CartOptions toggleMobileMenu={this.toggleMobileMenu} toggleOptions={this.toggleOptions} closeOptions={this.closeOptions} history={this.props.history}/> : ""}
             </section>
         );

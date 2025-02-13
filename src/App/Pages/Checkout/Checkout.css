@@ -3,17 +3,13 @@
     width: 100%;
     min-height: 100vh;
     margin: 0;
-    padding: 0 5em 4em 5em;
+    padding: 0 ;
 }
 
 #checkout-info-container{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr;
-    column-gap: .5em;
+    display: flex;
     width: 90%;
-    max-width: 900px;
-    height: 31em;
+    height: 40em;
     overflow: hidden;
     margin: 0 auto;
     border: 1px solid black;
@@ -34,7 +30,6 @@
     }
 
     #checkout-info-container{
-        grid-template-columns: 1fr;
-        grid-template-rows: 3fr 1fr;
+        flex-direction: column;
     }
 }

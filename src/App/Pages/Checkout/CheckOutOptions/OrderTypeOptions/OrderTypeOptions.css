@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+#checkout-order-type-section p{
+ margin: .5em 0;
+}
+
 #checkout-order-type-fieldset{
     display: flex;
     flex-direction: column;

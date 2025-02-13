@@ -1,8 +1,15 @@
 .checkout-options{
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
     border: 1px solid black;
     margin: 0 0 0 auto;
     padding: 0 .75em;
+}
+
+.checkout-options fieldset{
+    border: none;
+    border-bottom: .1em solid black;
 }
 
 .checkout-options > p strong{
@@ -13,18 +20,26 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-top: auto;
 }
 
 .checkout-options-container button{
     display: block;
     margin: .1em auto;
-    width: 100%;
+    width: 12em;
     height: 3em;
     background-color: black;
     border: none;
     color: white;
     padding: .5em 0;
     outline: none;
+    font-size: 1em;
+    transition: background-color, color ease-in-out .2s;
+}
+
+.checkout-options-container button:hover{
+    background-color: white;
+    color: black;
 }
 
 .checkout-options-place-order{
@@ -35,4 +50,10 @@
     color: white;
     border: .05em solid white;
     margin: .5em auto;
+}
+
+@media screen and (max-width: 1300px){
+    .checkout-options{
+        width: 100%;
+    }
 }

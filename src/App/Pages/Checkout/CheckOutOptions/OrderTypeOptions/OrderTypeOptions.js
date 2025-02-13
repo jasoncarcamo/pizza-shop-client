@@ -69,9 +69,9 @@ export default class OrderTypeOptions extends React.Component{
     render(){
         return (
             <section id="checkout-order-type-section">
-                <p><strong>Order type:</strong></p>
 
                 <form id="checkout-order-type-container">
+                    <p><strong>Order type:</strong></p>
                     <fieldset id="checkout-order-type-fieldset">
                         <div>
                             <input type="radio" name="order_type" value="Pick up" onChange={this.handleOrderType} checked={this.props.order.order_type === "Pick up"}/>
@@ -86,10 +86,11 @@ export default class OrderTypeOptions extends React.Component{
                 </form>
 
                 <form id="checkout-order-time-form">
+                    <p><strong>When?</strong></p>
                     <fieldset id="checkout-order-time-fieldset">
                         <div>
                             <input type="radio" name="time_placed" value="ASAP" onChange={this.handleOrderTimeType} checked={new Date(this.props.order.time_placed) <= new Date()}/>
-                            <label htmlFor="">ASAP</label>
+                            <label htmlFor="">ASAP!</label>
                         </div>
                         
                         <div>

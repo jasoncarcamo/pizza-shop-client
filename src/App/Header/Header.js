@@ -29,7 +29,7 @@ export default class Header extends React.Component{
         return (
             <header id="nav-header">
                 <nav id="nav-container">
-                    <h2 id="nav-logo" onClick={this.goHome}>Pizza Shop Logo</h2>
+                    <h2 id="nav-logo" onClick={this.goHome}>Pizza Shop</h2>
 
                     <MenuBurger toggleMobileMenu={this.toggleMobileMenu}/>
 
