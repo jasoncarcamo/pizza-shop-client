@@ -29,8 +29,6 @@ export default class Checkout extends React.Component{
             return this.props.history.push("/cart/edit");
         };  
 
-        console.log(order.subtotal)
-
         if(!order.subtotal){
             order.subtotal = 0;
         };

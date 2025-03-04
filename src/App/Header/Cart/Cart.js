@@ -19,11 +19,10 @@ export default class cart extends React.Component{
     
     componentDidMount(){
         window.addEventListener("resize",()=>{
-            console.log(window.innerWidth)
             this.setState({
                 screenWidth: window.innerWidth
-            })
-        })
+            });
+        });
     }
 
     openOptions = (e)=>{

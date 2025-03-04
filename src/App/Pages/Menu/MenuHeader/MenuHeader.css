@@ -23,6 +23,7 @@
     padding: 0;
     list-style: none;
     align-self: center;
+    font-size: .8em;
 }
 
 .active-menu-item{
