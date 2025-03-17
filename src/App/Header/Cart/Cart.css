@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 1300px){
     #cart-container{
-        top: 0;
+        top: 0em;
         right: 0;
         display: table-cell;
         vertical-align: middle;

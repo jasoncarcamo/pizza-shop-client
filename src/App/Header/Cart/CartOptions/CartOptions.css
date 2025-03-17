@@ -4,7 +4,7 @@
     justify-content: space-between;
     position: absolute;
     width: 100%;
-    right: 1em;
+    right: .5em;
     background-color: white;
 }
 
@@ -27,8 +27,8 @@
 
 @media screen and (max-width: 1300px){
     #cart-options-section{
-        width: 10em;
-        right: -3.5em;
+        width: 6.5em;
+        right: -2.15em;
         flex-direction: row;
         justify-content: space-evenly;
     }

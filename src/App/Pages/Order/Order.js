@@ -33,7 +33,6 @@ export default class Order extends React.Component{
                 
                 <section id="order-type-options">
                     <button name="Pick up" onClick={this.startOrder}>Pick up</button>
-                    <p>Or</p>
                     <button name="Delivery" onClick={this.startOrder}>Delivery</button>
                 </section>
 

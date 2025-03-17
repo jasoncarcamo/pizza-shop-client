@@ -140,6 +140,7 @@ export default class RegisterForm extends React.Component{
                     <label htmlFor="register-confirm-password" className="register-label">
                         Confirm password:
                     </label>
+                    
                     <input id="register-confirm-password" className="register-input" type="password" name="confirm_password" value={this.state.confirm_password} onChange={this.handleInput}/>
 
                     <p>{this.state.error ? this.state.error : ""}</p>

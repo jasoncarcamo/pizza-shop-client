@@ -4,11 +4,12 @@
     padding: 0;
     min-height: 100vh;
     background: linear-gradient(
-        rgba(0, 0, 0, 0.3), 
-        rgba(0, 0, 0, .1)
-    ), url("https://media.giphy.com/media/KcKgoGAmxmEAWad4Qy/giphy.gif");
+        rgba(0, 0, 0, 0.1), 
+        rgba(0, 0, 0, .3)
+    ), url("https://cdnb.artstation.com/p/assets/images/images/065/979/121/original/federico-brunetti-pizza-gif.gif");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
 }
 
 #order-type-options{
