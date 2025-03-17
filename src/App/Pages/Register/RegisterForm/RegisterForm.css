@@ -36,7 +36,7 @@
 .register-input{
     display: block;
     width: 18rem;
-    height: 2.5em;
+    height: 1.65em;
     margin: 0 auto 1.5em auto;
     border-top: none;
     border-right: none;
@@ -64,6 +64,22 @@
 
 #register-submit-btn:hover{
     background-color: rgb(139, 37, 0) !important;
+}
+
+.password-validate{
+    margin: -1em auto 1.5em auto;
+    padding: 0;
+    width: 18rem;
+    font-size: .9em;
+    list-style-type: none;
+    color: rgb(117, 117, 117); 
+}
+
+#password-confirm-indicator{
+    width: 18rem;
+    height: .25em;
+    margin: -1.15em auto 0 auto;
+    border-radius: 1em;
 }
 
 @media screen and (max-width: 1300px){

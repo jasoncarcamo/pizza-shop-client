@@ -103,13 +103,65 @@ export default class RegisterForm extends React.Component{
         };
     }
 
+    validatePassword = (password) => {
+        
+        const REGEX_UPPER_LOWER_NUMBER_SPECIAL = (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/);
+
+        const requirements = [ 
+            <li key={0} className="reg_error">Password must be longer than 8 characters</li>,
+            <li key={1} className="reg_error">Password must be less than 72 characters</li>,
+            <li key={2} className="reg_error">Password must not start or end with empty spaces</li>,
+            <li key={3} className="reg_error">Password must contain one upper case, lower case, number and special character</li>
+        ];
+
+        if(password.length > 1){
+            if (password.length > 8) {
+                requirements[0] = <li key={0} className="reg_error" style={{color: "transparent", transition: "color .8s ease-in"}}>Password must be longer than 8 characters</li>
+              } else{
+      
+              }
+      
+              if (password.length < 72) {
+                requirements[1] = <li key={1} className="reg_error" style={{ color: "transparent", transition: "color .8s ease-in"}}>Password must be less than 72 characters</li>
+              } else{
+      
+              };
+      
+              if (!password.startsWith(' ') || !password.endsWith(' ')) {
+                requirements[2] = <li key={2} className="reg_error" style={{color: "transparent", transition: "color .8s ease-in"}}>Password must not start or end with empty spaces</li>
+              } else{
+                
+              };
+      
+              if (!REGEX_UPPER_LOWER_NUMBER_SPECIAL.test(password)) {
+                  requirements[3] = <li key={3} className="reg_error" style={{color: 'gray'}}>Password must contain one upper case, lower case, number and special character</li>
+              } else{
+                  requirements[3] = <li key={3} className="reg_error" style={{color: "transparent", transition: "color .8s ease-in"}}>Password must contain one upper case, lower case, number and special character</li>
+              };
+        };
+
+        return requirements;
+    }
+
+    indicatorColor = ()=>{
+        if(!this.state.confirm_password){
+            return "lightgrey"
+        };
+
+        if(this.state.password === this.state.confirm_password){
+            return "green"
+        } else{
+            return "red";
+        }
+    }
+
     render(){
         return (
             <form id="register-form" onSubmit={this.handleRegister}>
                 <fieldset id="register-fieldset">
                     <legend id="register-legend">
                         <h2>Register</h2>
-                        <p>Already have an account? <Link to="/login">Log in</Link></p>
+                        <p>Already have an account? <Link to="/login">Log-in</Link></p>
                     </legend>
 
                     <label htmlFor="" className="register-label">
@@ -137,11 +189,16 @@ export default class RegisterForm extends React.Component{
                     </label>
                     <input id="register-password" className="register-input" type="password" name="password" value={this.state.password} onChange={this.handleInput}/>
 
+                    <ul className="password-validate">
+                        {this.validatePassword(this.state.password)}
+                    </ul>
+
                     <label htmlFor="register-confirm-password" className="register-label">
                         Confirm password:
                     </label>
                     
                     <input id="register-confirm-password" className="register-input" type="password" name="confirm_password" value={this.state.confirm_password} onChange={this.handleInput}/>
+                    <div id="password-confirm-indicator" style={{backgroundColor: this.indicatorColor()}}></div>
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 
