@@ -46,9 +46,12 @@
 }
 
 .order-item-list-item{
+    margin: 0 auto .75em auto;
+    padding: 0;
     list-style: none;
-    border-bottom: .15em solid black;
     border-radius: .15em;
+    background-color: white;
+    box-shadow: black .2em .2em .5em;
 }
 
 @media screen and (max-width: 1300px){

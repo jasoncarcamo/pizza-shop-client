@@ -60,7 +60,6 @@ export default class OrderTypeOptions extends React.Component{
     renderDateTime = ()=>{
         return (
             <div>
-                <label htmlFor="">When?</label>
                 <input type="datetime-local" name="time_placed" value={this.props.order.time_placed} onChange={this.handleLaterTime} min={new Date().toISOString()}/>
             </div>
         );

@@ -29,9 +29,7 @@ export default class Checkout extends React.Component{
             return this.props.history.push("/cart/edit");
         };  
 
-        if(!order.subtotal){
-            order.subtotal = 0;
-        };
+        order.subtotal = 0;
 
         for(let i = 0; i < cart.length; i++){
             order.subtotal = Number(Number(order.subtotal).toFixed(2)) + Number(Number(cart[i].price).toFixed(2)) ;

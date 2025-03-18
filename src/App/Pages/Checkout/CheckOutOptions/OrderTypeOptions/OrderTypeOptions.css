@@ -1,10 +1,13 @@
 #checkout-order-type-container{
-    margin: 0;
-    padding: 0;
+    margin: .125em 0;
+    padding: .5em .25em;
+    border-radius: .5em;
+    background-color: #dddd;
+    height: 7em;
 }
 
 #checkout-order-type-section p{
- margin: .5em 0;
+    margin: 0 0 .25em 0;
 }
 
 #checkout-order-type-fieldset{
@@ -15,8 +18,15 @@
 }
 
 #checkout-order-time-form{
-    margin: 0;
-    padding: 0;
+    margin: .125em 0;
+    padding: .5em .25em;
+    border-radius: .5em;
+    background-color: #dddd;
+    height: 7em;
+}
+
+#checkout-order-time-form p{
+    margin: 0 0 .25em 0;
 }
 
 #checkout-order-time-fieldset{
@@ -25,4 +35,8 @@
     justify-content: space-between;
     padding: 0;
     margin: 0;
+}
+
+#checkout-order-time-fieldset div{
+    margin: .05em 0
 }

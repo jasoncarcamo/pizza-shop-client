@@ -66,6 +66,12 @@
     background-color: rgb(139, 37, 0) !important;
 }
 
+.css-1ol6pu0{
+    left: 50%;
+    top: 50%;
+    translate: (-100%, -50%);
+}
+
 @media screen and (max-width: 1300px){
     #log-in-form{
         width: 100%;

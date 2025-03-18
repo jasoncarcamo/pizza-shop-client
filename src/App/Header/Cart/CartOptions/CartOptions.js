@@ -1,5 +1,6 @@
 import React from "react";
 import "./CartOptions.css";
+import CartService from "../../../../services/CartService/CartService";
 
 export default class CartOptions extends React.Component{
 
@@ -27,11 +28,29 @@ export default class CartOptions extends React.Component{
         this.props.toggleMobileMenu();
     }
 
+    emptyCartMessage = ()=>{
+        const cart = CartService.getCart();
+
+        if(cart === null || cart.length === 0){
+            return (
+                <>
+                    <button onClick={()=>{this.props.history.push("/menu")}}>Start order</button>
+                </>
+            );
+        } else{
+            return (
+                <>
+                    <button onClick={this.editCart}>Edit</button>
+                    <button onClick={this.checkOutCart}>Checkout</button>
+                </>
+            );
+        };
+    }
+
     render(){
         return (
             <section id="cart-options-section" onMouseLeave={this.closeOptions}>
-                <button onClick={this.editCart}>Edit</button>
-                <button onClick={this.checkOutCart}>Checkout</button>
+                {this.emptyCartMessage()}
             </section>
         );
     };

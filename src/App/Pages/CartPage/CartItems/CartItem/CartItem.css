@@ -7,6 +7,10 @@
     font-weight: 900;
 }
 
+.order-item-section{
+    padding: .5em .75em;
+}
+
 @media screen and (max-width: 1300px){
     .order-item-section{
         width: 100%;

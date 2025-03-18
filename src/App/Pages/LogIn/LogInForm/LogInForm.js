@@ -90,18 +90,20 @@ export default class LogInForm extends React.Component{
         this.context.customerContext.setCustomer(customer);
     }
 
-    loadingHandler = ()=>{
-        if(this.state.loading){
-            return <BounceLoader loading={this.state.loading} color="red" size={60}/>
-        } else{
-            return <button id="log-in-submit-btn">Log In</button>;
-        }
+    displayLoading = ()=>{
+        const style = {
+            display: "block",
+            margin: "0 auto",
+            top: "50%",
+            left: "50%"
+        };
+
+        return <BounceLoader loading={this.state.loading} color="red" cssOverride={style} size={70}/>;
     }
 
-    render(){
+    displayForm = ()=>{
         return (
-            <form id="log-in-form" onSubmit={this.handleLogIn}>
-                <fieldset id="log-in-fieldset">
+            <fieldset id="log-in-fieldset">
                     <legend id="log-in-legend">
                         <h2>Log In</h2>
                         <p>New to pizza shop? <Link to="/register">Register</Link></p>
@@ -119,8 +121,15 @@ export default class LogInForm extends React.Component{
 
                     <p>{this.state.error ? this.state.error : ""}</p>
 
-                    {this.loadingHandler()}
+                    <button id="log-in-submit-btn">Log In</button>
                 </fieldset>
+        )
+    }
+
+    render(){
+        return (
+            <form id="log-in-form" onSubmit={this.handleLogIn}>
+                {!this.state.loading ? this.displayForm() : this.displayLoading()}
             </form>
         );
     };

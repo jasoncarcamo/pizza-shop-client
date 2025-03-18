@@ -1,6 +1,6 @@
 #confirm-cancel-order-section{
     position: absolute;
-    bottom: 0;
+    bottom: 1.25em;
     left: 50%;
     transform: translate(-50%, 0);
     width: 320px;
