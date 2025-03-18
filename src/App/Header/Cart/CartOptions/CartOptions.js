@@ -28,13 +28,18 @@ export default class CartOptions extends React.Component{
         this.props.toggleMobileMenu();
     }
 
+    GoOrder = ()=>{
+        this.toggleMobileMenu();
+        this.props.history.push("/menu")
+    }
+
     emptyCartMessage = ()=>{
         const cart = CartService.getCart();
 
         if(cart === null || cart.length === 0){
             return (
                 <>
-                    <button onClick={()=>{this.props.history.push("/menu")}}>Start order</button>
+                    <button onClick={this.GoOrder}>Start order</button>
                 </>
             );
         } else{
