@@ -12,6 +12,7 @@ import CartPage from './Pages/CartPage/CartPage';
 import CheckOut from "./Pages/Checkout/Checkout";
 import About from "./Pages/About/About";
 import Profile from './Pages/Profile/Profile';
+import WelcomeScreen from './WelcomeScreen/WelcomeScreen';
 
 export default class App extends React.Component{
 
@@ -19,6 +20,8 @@ export default class App extends React.Component{
         return (
             <>
                 <Route path="/" component={Header}></Route>
+
+                <Route path="/" component={WelcomeScreen}></Route>
 
                 <main>
                     <Route exact path="/" component={LandingPage}></Route>
