@@ -116,31 +116,35 @@ export default class RegisterForm extends React.Component{
 
         if(password.length > 1){
             if (password.length > 8) {
-                requirements[0] = <li key={0} className="reg_error" style={{color: "transparent", transition: "color .8s ease-in"}}>Password must be longer than 8 characters</li>
+                requirements[0] = <li key={0} className="reg_error" style={{display: "none", transition: "display .8s ease-in"}}>Password must be longer than 8 characters</li>
               } else{
       
               }
       
               if (password.length < 72) {
-                requirements[1] = <li key={1} className="reg_error" style={{ color: "transparent", transition: "color .8s ease-in"}}>Password must be less than 72 characters</li>
+                requirements[1] = <li key={1} className="reg_error" style={{ display: "none", transition: "display .8s ease-in"}}>Password must be less than 72 characters</li>
               } else{
       
               };
       
               if (!password.startsWith(' ') || !password.endsWith(' ')) {
-                requirements[2] = <li key={2} className="reg_error" style={{color: "transparent", transition: "color .8s ease-in"}}>Password must not start or end with empty spaces</li>
+                requirements[2] = <li key={2} className="reg_error" style={{display: "none", transition: "display .8s ease-in"}}>Password must not start or end with empty spaces</li>
               } else{
                 
               };
       
               if (!REGEX_UPPER_LOWER_NUMBER_SPECIAL.test(password)) {
-                  requirements[3] = <li key={3} className="reg_error" style={{color: 'gray'}}>Password must contain one upper case, lower case, number and special character</li>
+                  requirements[3] = <li key={3} className="reg_error" style={{display: 'gray'}}>Password must contain one upper case, lower case, number and special character</li>
               } else{
-                  requirements[3] = <li key={3} className="reg_error" style={{color: "transparent", transition: "color .8s ease-in"}}>Password must contain one upper case, lower case, number and special character</li>
+                  requirements[3] = <li key={3} className="reg_error" style={{display: "none", transition: "display .8s ease-in"}}>Password must contain one upper case, lower case, number and special character</li>
               };
         };
 
-        return requirements;
+        return (
+            <ul className="password-validate">
+                {requirements}
+            </ul>
+        );
     }
 
     indicatorColor = ()=>{
@@ -155,55 +159,72 @@ export default class RegisterForm extends React.Component{
         }
     }
 
+    displayLoading = ()=>{
+        const style = {
+            display: "block",
+            position: "absolute",
+            margin: "0 auto",
+            top: "50%",
+            left: "50%"
+        };
+
+        return <BounceLoader loading={this.state.loading} color="red" cssOverride={style} size={70}/>;
+    }
+
+    displayForm = ()=>{
+        return (
+            <fieldset id="register-fieldset">
+                <legend id="register-legend">
+                    <h2>Register</h2>
+                    <p>Already have an account? <Link to="/login">Log-in</Link></p>
+                </legend>
+
+                <label htmlFor="" className="register-label">
+                    First name:
+                </label>
+                <input id="register-first-name" className="register-input" type="text" name="first_name" value={this.state.first_name} onChange={this.handleInput}/>
+
+                <label htmlFor="register-last-name" className="register-label">
+                    Last name:
+                </label>
+                <input id="register-last-name" className="register-input" type="text" name="last_name" value={this.state.last_name} onChange={this.handleInput}/>
+
+                <label htmlFor="register-mobile-number" className="register-label">
+                    Mobile number:
+                </label>
+                <input id="register-mobile-number" className="register-input" type="text" name="mobile_number" value={this.state.mobile_number} onChange={this.handleInput}/>
+
+                <label htmlFor="register-email" className="register-label">
+                    Email:
+                </label>
+                <input id="register-email" className="register-input" type="email" name="email" value={this.state.email} onChange={this.handleInput}/>
+
+                <label htmlFor="register-password" className="register-label">
+                    Password:
+                </label>
+                <input id="register-password" className="register-input" type="password" name="password" value={this.state.password} onChange={this.handleInput}/>
+
+                
+                {this.validatePassword(this.state.password)}
+
+                <label htmlFor="register-confirm-password" className="register-label">
+                    Confirm password:
+                </label>
+                
+                <input id="register-confirm-password" className="register-input" type="password" name="confirm_password" value={this.state.confirm_password} onChange={this.handleInput}/>
+                <div id="password-confirm-indicator" style={{backgroundColor: this.indicatorColor()}}></div>
+
+                <p>{this.state.error ? this.state.error : ""}</p>
+
+                {this.loadingHandler()}
+            </fieldset>
+        )
+    }
+
     render(){
         return (
             <form id="register-form" onSubmit={this.handleRegister}>
-                <fieldset id="register-fieldset">
-                    <legend id="register-legend">
-                        <h2>Register</h2>
-                        <p>Already have an account? <Link to="/login">Log-in</Link></p>
-                    </legend>
-
-                    <label htmlFor="" className="register-label">
-                        First name:
-                    </label>
-                    <input id="register-first-name" className="register-input" type="text" name="first_name" value={this.state.first_name} onChange={this.handleInput}/>
-
-                    <label htmlFor="register-last-name" className="register-label">
-                        Last name:
-                    </label>
-                    <input id="register-last-name" className="register-input" type="text" name="last_name" value={this.state.last_name} onChange={this.handleInput}/>
-
-                    <label htmlFor="register-mobile-number" className="register-label">
-                        Mobile number:
-                    </label>
-                    <input id="register-mobile-number" className="register-input" type="text" name="mobile_number" value={this.state.mobile_number} onChange={this.handleInput}/>
-
-                    <label htmlFor="register-email" className="register-label">
-                        Email:
-                    </label>
-                    <input id="register-email" className="register-input" type="email" name="email" value={this.state.email} onChange={this.handleInput}/>
-
-                    <label htmlFor="register-password" className="register-label">
-                        Password:
-                    </label>
-                    <input id="register-password" className="register-input" type="password" name="password" value={this.state.password} onChange={this.handleInput}/>
-
-                    <ul className="password-validate">
-                        {this.validatePassword(this.state.password)}
-                    </ul>
-
-                    <label htmlFor="register-confirm-password" className="register-label">
-                        Confirm password:
-                    </label>
-                    
-                    <input id="register-confirm-password" className="register-input" type="password" name="confirm_password" value={this.state.confirm_password} onChange={this.handleInput}/>
-                    <div id="password-confirm-indicator" style={{backgroundColor: this.indicatorColor()}}></div>
-
-                    <p>{this.state.error ? this.state.error : ""}</p>
-
-                    {this.loadingHandler()}
-                </fieldset>
+                {!this.state.loading ? this.displayForm() : this.displayLoading()}
             </form>
         );
     };

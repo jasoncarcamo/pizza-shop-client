@@ -70,9 +70,11 @@
     margin: -1em auto 1.5em auto;
     padding: 0;
     width: 18rem;
+    height: auto;
+    overflow: hidden;
     font-size: .9em;
     list-style-type: none;
-    color: rgb(117, 117, 117); 
+    color: rgb(98, 97, 97); 
 }
 
 #password-confirm-indicator{
@@ -80,6 +82,10 @@
     height: .25em;
     margin: -1.15em auto 0 auto;
     border-radius: 1em;
+}
+
+.css-1ol6pu0{
+    position: absolute !important;
 }
 
 @media screen and (max-width: 1300px){

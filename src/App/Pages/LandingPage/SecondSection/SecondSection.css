@@ -43,8 +43,11 @@
     margin: 0 auto;
 }
 
-#second-section-p{
+.second-section-p{
+    display: inline-block;
     width: 31.83em;
+    min-height: 8em;
+    overflow: hidden;
     margin: 0 auto;
     text-align: center;
 }

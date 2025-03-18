@@ -93,6 +93,7 @@ export default class LogInForm extends React.Component{
     displayLoading = ()=>{
         const style = {
             display: "block",
+            position: "absolute",
             margin: "0 auto",
             top: "50%",
             left: "50%"

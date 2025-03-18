@@ -1,0 +1,19 @@
+#profile-section{
+    width: 100%;
+}
+
+.profile-header{
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+    margin: 2em 0 -3em 0;
+    z-index: 2;
+}
+
+.under-construct{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}

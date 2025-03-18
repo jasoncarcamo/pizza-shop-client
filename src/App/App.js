@@ -11,6 +11,7 @@ import Order from "./Pages/Order/Order";
 import CartPage from './Pages/CartPage/CartPage';
 import CheckOut from "./Pages/Checkout/Checkout";
 import About from "./Pages/About/About";
+import Profile from './Pages/Profile/Profile';
 
 export default class App extends React.Component{
 
@@ -25,6 +26,7 @@ export default class App extends React.Component{
                     <Route exact path="/login" component={LogIn}></Route>
                     <Route path="/menu" component={Menu}></Route>
                     <Route exact path="/order" component={Order}></Route>
+                    <Route exact path="/profile" component={Profile}></Route>
                     <Route exact path="/cart/edit" component={CartPage}/>
                     <Route exact path="/cart/checkout" component={CheckOut}/>
                     <Route exact path="/about" component={About}></Route>
