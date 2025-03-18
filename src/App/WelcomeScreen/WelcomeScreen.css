@@ -39,7 +39,7 @@
 
 #welcome-enter-btn{
     position: absolute;
-    bottom: 25%;
+    bottom: 20%;
     left: 50%;
     width: 8em;
     height: 2.5em;
@@ -58,6 +58,10 @@
     color: white;
     background-color: transparent;
     backdrop-filter: blur(.5em);
+}
+
+.close-welcome{
+    display: none !important;
 }
 
 @media screen and (max-height: 740px){

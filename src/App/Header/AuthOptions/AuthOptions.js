@@ -44,8 +44,8 @@ export default class AuthOptions extends React.Component{
                     <NavLink exact to="/profile" onClick={this.toggleMobileMenu} activeClassName="active-link" className="nav-link">Account</NavLink>
                 </li>
 
-                <li className="signout-link">
-                    <button className="signout-btn" type="button" onClick={this.handleSignOut}>Sign Out</button>
+                <li className="signout-link signout-btn" onClick={this.handleSignOut}>
+                    Sign out
                 </li>
             </>
         );

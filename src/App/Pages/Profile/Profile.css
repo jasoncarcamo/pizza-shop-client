@@ -17,3 +17,9 @@
     width: 100%;
     margin: 0 auto;
 }
+
+@media screen and (max-height: 720px){
+    .profile-header{
+        margin-bottom: 0;
+    }
+}

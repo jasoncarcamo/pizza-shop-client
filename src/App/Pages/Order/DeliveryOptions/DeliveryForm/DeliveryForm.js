@@ -82,7 +82,6 @@ export default class DeliveryForm extends React.Component{
 
         for(const key of Object.keys(state)){
             if(!state[key]){
-                console.log(key)
                 error = `Missing ${key.split("_").shift().join(" ")}`;
 
                 return error;
