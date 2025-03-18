@@ -12,10 +12,15 @@ export default class WelcomeScreen extends React.Component{
     }
 
     componentDidMount(){
+
+        document.body.style.overflow = "hidden";
+
         window.addEventListener("load", ()=>{
             this.setState({
                 loaded: true
             });
+
+
         });
     }
 
@@ -29,6 +34,7 @@ export default class WelcomeScreen extends React.Component{
     }
 
     closebtn = ()=>{
+        document.body.style.overflow = "visible";
         this.setState({
             close: true
         });
