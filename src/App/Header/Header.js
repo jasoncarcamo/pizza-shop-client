@@ -53,6 +53,10 @@ export default class Header extends React.Component{
                         <AuthOptions toggleMobileMenu={this.toggleMobileMenu} history={this.props.history}/>
 
                         <li className="nav-link-list">
+                            <a className="call-btn" href="tel:9999999999">Call us</a>
+                        </li>
+
+                        <li className="nav-link-list">
                             <Cart history={this.props.history} toggleMobileMenu={this.toggleMobileMenu}/>
                         </li>
                     </ul>

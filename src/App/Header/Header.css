@@ -65,6 +65,37 @@
     transition: font-size ease-in-out .3s;
 }
 
+.call-btn{
+    text-decoration: none;
+    border: .15em solid black;
+    padding: .05em .5em;
+    border-radius: .2em;
+    color: black;
+    border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;	
+	animation: 10s rotate linear infinite;
+}
+
+.call-btn:visited{
+    color: black;
+}
+
+.call-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 @media screen and (max-width: 1300px){
     #nav-links-container{
         justify-content: center;

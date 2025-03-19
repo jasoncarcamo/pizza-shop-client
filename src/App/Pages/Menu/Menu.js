@@ -9,15 +9,6 @@ export default class Menu extends React.Component{
 
     static contextType = AppContext;
 
-    componentDidMount(){
-    }
-
-    componentDidUpdate(){
-        if(!this.context.ordersContext.order.order_started){
-            this.props.history.push("/order");
-        };
-    }
-
     render(){
         return (
             <section id="menu-section">
@@ -26,4 +17,4 @@ export default class Menu extends React.Component{
             </section>
         );
     };
-}
+};
