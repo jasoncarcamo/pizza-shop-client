@@ -10,7 +10,7 @@ export default class FirstSection extends React.Component{
         return (
             <section id="first-section">
                 <div>
-                    <h2>Pizza Shop</h2>
+                    <h2>The Pizza Spot</h2>
 
                     <button onClick={this.goToMenu}>View menu</button>
                 </div>

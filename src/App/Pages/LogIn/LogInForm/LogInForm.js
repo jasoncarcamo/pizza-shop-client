@@ -107,7 +107,7 @@ export default class LogInForm extends React.Component{
             <fieldset id="log-in-fieldset">
                     <legend id="log-in-legend">
                         <h2>Log In</h2>
-                        <p>New to pizza shop? <Link to="/register">Register</Link></p>
+                        <p>New to The Pizza Spot? <Link to="/register">Register</Link></p>
                     </legend>
 
                     <label htmlFor="log-in-email" className="log-in-label">

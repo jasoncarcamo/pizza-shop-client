@@ -52,7 +52,7 @@ export default class WelcomeScreen extends React.Component{
         return (
             <section id="welcome-screen-section" className={this.closeWelcomeHandler()}>
 
-                <h1 id={`${this.animationHandler()}`} className="welcome-msg-header">Welcome to Pizza Shop</h1>
+                <h1 id={`${this.animationHandler()}`} className="welcome-msg-header">Welcome to The Pizza Spot</h1>
 
                 <button id="welcome-enter-btn" onClick={this.closebtn}>Enter</button>
             </section>

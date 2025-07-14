@@ -7,9 +7,9 @@ export default class About extends React.Component{
             <section id="about-page-section">
                 <h1>About us</h1>
 
-                <p id="about-page-paragraph">At Pizza Shop, we believe that the secret to great pizza is in the quality of ingredients and the passion behind every pie we create. Established in 2021, our family-owned pizzeria has been serving the community with fresh, hand-crafted pizzas made from only the finest, locally-sourced ingredients. From our signature dough to our delicious, savory toppings, we pride ourselves on delivering an unforgettable dining experience with every bite.
+                <p id="about-page-paragraph">At The Pizza Spot, we believe that the secret to great pizza is in the quality of ingredients and the passion behind every pie we create. Established in 2021, our family-owned pizzeria has been serving the community with fresh, hand-crafted pizzas made from only the finest, locally-sourced ingredients. From our signature dough to our delicious, savory toppings, we pride ourselves on delivering an unforgettable dining experience with every bite.
                 Whether you're enjoying a classic Margherita or one of our specialty pizzas, we're committed to providing a warm, welcoming atmosphere where customers feel like part of the family. Our mission is simple: to bring people together over delicious food, great company, and the timeless tradition of pizza.
-                We invite you to taste the difference that passion and quality make at Pizza Shop.</p>
+                We invite you to taste the difference that passion and quality make at The Pizza Spot.</p>
 
                 <div src="white-pizza.jpg" id="white-pizza-img"></div>
 

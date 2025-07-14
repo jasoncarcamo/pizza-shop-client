@@ -5,7 +5,7 @@ export default class Footer extends React.Component{
     render(){
         return (
             <footer id="footer-container">
-                Pizza Shop 	&#169; 2021
+                The Pizza Spot 	&#169; 2021
             </footer>
         );
     };
