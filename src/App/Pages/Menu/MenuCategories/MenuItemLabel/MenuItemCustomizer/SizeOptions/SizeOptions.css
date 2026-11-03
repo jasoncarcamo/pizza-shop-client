@@ -1,16 +1,156 @@
-.size-option-section{
-    margin: 1em 0;
-}
 
-.size-option-section-list{
-    padding: 0;
+.size-option-section {
+    width: 100%;
+    min-width: 0;
     margin: 0;
+    padding: 0;
+    border: none;
 }
 
-.size-option-section-list-item{
-    list-style: none;
+.size-option-title {
+    margin: 0;
+    padding: 0;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
-.size-option-section-list-item:hover{
-    color: skyblue;
+.size-option-description {
+    margin: 8px 0 20px;
+    color: #6d645d;
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+.size-option-section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.size-option-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 72px;
+    padding: 15px 18px;
+    border: 1px solid #e8e0d7;
+    border-radius: 5px;
+    background: #ffffff;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.size-option-card:hover {
+    border-color: #c9954e;
+    background: #fffaf3;
+}
+
+.size-option-card--selected {
+    border-color: #c9954e;
+    background: #fff6e9;
+    box-shadow: 0 0 0 1px rgba(201, 149, 78, 0.15);
+}
+
+/* ACCESSIBLE RADIO INPUT */
+
+.size-option-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.size-option-radio {
+    position: relative;
+    display: block;
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b8aea3;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.size-option-card--selected .size-option-radio {
+    border-color: #a7773c;
+}
+
+.size-option-card--selected .size-option-radio::after {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: #a7773c;
+    content: "";
+}
+
+.size-option-card:focus-within {
+    outline: 3px solid rgba(167, 119, 60, 0.5);
+    outline-offset: 2px;
+}
+
+/* SIZE INFORMATION */
+
+.size-option-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.size-option-name {
+    color: #29211d;
+    font-size: 0.88rem;
+    font-weight: 800;
+}
+
+.size-option-details {
+    color: #81766d;
+    font-size: 0.76rem;
+    line-height: 1.5;
+}
+
+.size-option-price {
+    flex-shrink: 0;
+    margin-left: auto;
+    color: #8c602d;
+    font-size: 0.95rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .size-option-title {
+        font-size: 1.15rem;
+    }
+
+    .size-option-card {
+        gap: 12px;
+        min-height: 65px;
+        padding: 13px;
+    }
+
+    .size-option-price {
+        font-size: 0.88rem;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .size-option-card {
+        transition: none;
+    }
 }

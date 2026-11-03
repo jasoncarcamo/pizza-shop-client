@@ -1,20 +1,355 @@
-#order-placed-section{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 320px;
-    background-color: white;
-}
 
-#order-placed-section > p{
-    font-size: 2em;
+/* =========================================
+   THE PIZZA SPOT - ORDER PLACED
+========================================= */
+
+#order-placed-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 620px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 48px 36px;
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e8e0d7);
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft, 0 12px 35px rgba(35, 24, 18, 0.07));
+    box-sizing: border-box;
     text-align: center;
+    animation: order-placed-enter 0.4s ease both;
 }
 
-#order-placed-section button{
+#order-placed-section *,
+#order-placed-section *::before,
+#order-placed-section *::after {
+    box-sizing: border-box;
+}
+
+/* =========================================
+   SUCCESS ICON
+========================================= */
+
+.order-placed-success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    margin-bottom: 24px;
+    background: linear-gradient(145deg, #fff8eb, #f3dfbf);
+    border: 1px solid #ead2a9;
+    border-radius: 50%;
+    color: #a67838;
+    box-shadow: 0 12px 32px rgba(169, 120, 56, 0.12);
+}
+
+.order-placed-success-icon svg {
+    width: 42px;
+    height: 42px;
+    animation: order-placed-check 0.4s ease 0.15s both;
+}
+
+/* =========================================
+   BRAND EYEBROW
+========================================= */
+
+.order-placed-eyebrow {
     display: block;
-    width: 10em;
-    height: 2.8em;
-    margin: .5em auto;
+    margin-bottom: 12px;
+    color: #a4773f;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+#order-placed-title {
+    margin: 0 0 16px;
+    color: var(--color-dark, #1b1512);
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.order-placed-description {
+    max-width: 430px;
+    margin: 0;
+    color: var(--color-text-muted, #6d645d);
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.85;
+}
+
+/* =========================================
+   THANK YOU MESSAGE
+========================================= */
+
+.order-placed-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin: 28px 0;
+    padding: 20px;
+    background: #faf7f2;
+    border: 1px solid #eee5db;
+    border-radius: 10px;
+}
+
+.order-placed-message > span {
+    flex-shrink: 0;
+    color: #c9954e;
+    font-size: 1rem;
+}
+
+.order-placed-message p {
+    margin: 0;
+    color: #685346;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* =========================================
+   BACK TO MENU BUTTON
+========================================= */
+
+.order-placed-continue {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 320px;
+    min-height: 54px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 14px 24px;
+    background: var(--color-dark, #1b1512);
+    border: 1px solid var(--color-dark, #1b1512);
+    border-radius: 9px;
+    color: var(--color-cream, #fff6e9);
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.4;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.order-placed-continue svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.order-placed-continue:hover {
+    background: #39291e;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(27, 21, 18, 0.15);
+}
+
+.order-placed-continue:hover svg {
+    transform: translateX(4px);
+}
+
+.order-placed-continue:active {
+    transform: translateY(0);
+}
+
+.order-placed-continue:focus-visible {
+    outline: 3px solid var(--color-primary, #e9b76c);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.order-placed-footer {
+    margin: 20px 0 0;
+    color: #9b8a7e;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes order-placed-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes order-placed-check {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media screen and (max-width: 768px) {
+    #order-placed-section {
+        max-width: 560px;
+        padding: 40px 28px;
+        border-radius: 15px;
+    }
+
+    .order-placed-success-icon {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 20px;
+    }
+
+    .order-placed-success-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    #order-placed-title {
+        font-size: 2.2rem;
+    }
+
+    .order-placed-message {
+        margin: 24px 0;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 600px) {
+    #order-placed-section {
+        width: 100%;
+        padding: 32px 20px;
+        border-radius: 12px;
+    }
+
+    .order-placed-success-icon {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 18px;
+    }
+
+    .order-placed-success-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .order-placed-eyebrow {
+        margin-bottom: 10px;
+        font-size: 0.62rem;
+    }
+
+    #order-placed-title {
+        margin-bottom: 13px;
+        font-size: 1.95rem;
+    }
+
+    .order-placed-description {
+        font-size: 0.86rem;
+        line-height: 1.7;
+    }
+
+    .order-placed-message {
+        gap: 10px;
+        margin: 22px 0;
+        padding: 16px 12px;
+    }
+
+    .order-placed-message p {
+        font-size: 0.9rem;
+    }
+
+    .order-placed-continue {
+        max-width: none;
+        min-height: 50px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
+
+    .order-placed-footer {
+        margin-top: 17px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media screen and (max-width: 380px) {
+    #order-placed-section {
+        padding: 28px 15px;
+    }
+
+    #order-placed-title {
+        font-size: 1.8rem;
+    }
+
+    .order-placed-message > span {
+        display: none;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    #order-placed-section,
+    .order-placed-success-icon svg {
+        animation: none;
+    }
+
+    .order-placed-continue,
+    .order-placed-continue svg {
+        transition: none;
+    }
+
+    .order-placed-continue:hover,
+    .order-placed-continue:hover svg {
+        transform: none;
+    }
 }

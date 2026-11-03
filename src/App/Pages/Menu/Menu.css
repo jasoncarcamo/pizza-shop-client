@@ -1,5 +1,28 @@
-#menu-section{
+
+#menu-section {
     width: 100%;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 0 0 100px;
+    background: #faf7f2;
+    color: #29211d;
+}
+
+#menu-section *,
+#menu-section *::before,
+#menu-section *::after {
+    box-sizing: border-box;
+}
+
+#menu-section .menu-page-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    #menu-section {
+        padding-bottom: 65px;
+    }
 }

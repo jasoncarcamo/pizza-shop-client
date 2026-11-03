@@ -1,46 +1,183 @@
-#menu-header-section{
-    position: fixed;
-    z-index: 1;
-    top: 3.33em;
+
+#menu-header-section {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    height: 2em;
-    box-shadow: 0 0 0.8125rem 0 rgb(0 0 0 / 75%);
-    background-color: white;
+    padding: 65px 24px 0;
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(233, 183, 108, 0.1),
+            transparent 35%
+        ),
+        #faf7f2;
 }
 
-#menu-header-list{
+#menu-header-section *,
+#menu-header-section *::before,
+#menu-header-section *::after {
+    box-sizing: border-box;
+}
+
+/* CONTAINER */
+
+#menu-header-section .menu-header-container {
+    width: min(100%, 1440px);
+    margin: 0 auto;
+}
+
+/* INTRO */
+
+#menu-header-section .menu-header-intro {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+#menu-header-section .menu-header-eyebrow {
+    display: block;
+    margin-bottom: 18px;
+    color: #a7773c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+#menu-header-section .menu-header-intro h1 {
+    margin: 0 0 18px;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+}
+
+#menu-header-section .menu-header-intro h1 em {
+    color: #a7773c;
+    font-weight: 400;
+}
+
+#menu-header-section .menu-header-intro p {
+    max-width: 510px;
+    margin: 0 auto;
+    color: #6d645d;
+    font-size: 0.95rem;
+    line-height: 1.85;
+}
+
+/* CATEGORY NAVIGATION */
+
+#menu-header-section .menu-header-navigation {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-bottom: 1px solid #e8e0d7;
+    scrollbar-width: thin;
+    scrollbar-color: #c7b8a6 transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+#menu-header-section #menu-header-list {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    gap: 8px;
+    width: max-content;
+    min-width: 100%;
+    height: auto;
     margin: 0;
-    padding: 0;
+    padding: 0 0 18px;
+    list-style: none;
 }
 
-.menu-header-list-item{
-    margin: 0 1.5em;
+#menu-header-section .menu-header-list-item {
+    flex: 0 0 auto;
+    margin: 0;
     padding: 0;
     list-style: none;
-    align-self: center;
-    font-size: 1em;
 }
 
-.active-menu-item{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-bottom: .15em solid black;
-}
-
-.menu-header-list-item *{
-    margin: 0;
-    padding: 0;
+#menu-header-section .menu-header-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: #6d645d;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.86rem;
+    font-weight: 700;
     text-decoration: none;
-    color: black;
+    white-space: nowrap;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
 }
 
-.active-list-item{
-    font-size: 1.15em;
-    font-weight: bold;
+#menu-header-section .menu-header-link:hover {
+    border-color: #e8e0d7;
+    background: #ffffff;
+    color: #29211d;
+}
+
+#menu-header-section .menu-header-link.active-menu-item {
+    border-color: #1b1512;
+    background: #1b1512;
+    color: #e9b76c;
+}
+
+#menu-header-section .menu-header-link:focus-visible {
+    outline: 3px solid #a7773c;
+    outline-offset: 3px;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+    #menu-header-section #menu-header-list {
+        justify-content: flex-start;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    #menu-header-section {
+        padding: 45px 16px 0;
+    }
+
+    #menu-header-section .menu-header-intro {
+        margin-bottom: 35px;
+    }
+
+    #menu-header-section .menu-header-intro h1 {
+        font-size: clamp(2.6rem, 9vw, 3.5rem);
+    }
+
+    #menu-header-section .menu-header-intro p {
+        font-size: 0.88rem;
+    }
+
+    #menu-header-section #menu-header-list {
+        gap: 5px;
+        padding-bottom: 14px;
+    }
+
+    #menu-header-section .menu-header-link {
+        padding: 10px 15px;
+        font-size: 0.82rem;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    #menu-header-section .menu-header-link {
+        transition: none;
+    }
 }

@@ -1,0 +1,99 @@
+
+.add-item-cart-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 20px;
+    border: 1px solid #e9b76c;
+    border-radius: 5px;
+    background: #e9b76c;
+    color: #1b1512;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.4;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.add-item-cart-button:hover:not(:disabled) {
+    border-color: #f2c98b;
+    background: #f2c98b;
+    transform: translateY(-1px);
+}
+
+.add-item-cart-button:disabled {
+    cursor: default;
+    opacity: 0.85;
+}
+
+.add-item-cart-button:focus-visible {
+    outline: 3px solid #a7773c;
+    outline-offset: 3px;
+}
+
+.add-item-cart-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* FLYING ITEM */
+
+.add-item-flying-icon {
+    position: fixed;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 2px solid #e9b76c;
+    border-radius: 50%;
+    background: #fff6e9;
+    box-shadow: 0 8px 25px rgba(27, 21, 18, 0.2);
+    font-size: 1.5rem;
+    line-height: 1;
+    pointer-events: none;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition:
+        transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity 0.7s ease-in;
+    will-change: transform, opacity;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .add-item-cart-button {
+        min-height: 48px;
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .add-item-cart-button,
+    .add-item-flying-icon {
+        transition: none;
+    }
+
+    .add-item-cart-button:hover:not(:disabled) {
+        transform: none;
+    }
+}

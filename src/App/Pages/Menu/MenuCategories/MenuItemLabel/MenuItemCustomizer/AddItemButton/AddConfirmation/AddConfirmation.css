@@ -1,13 +1,213 @@
-.add-confirmed-section{
-    background-color: white;
-    position: absolute;
-    z-index: 2;
-    width: 30em;
-    height: 10em;
-    bottom: -.5em;
+
+/* CONFIRMATION SECTION */
+
+.add-confirmed-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 1000px;
+    width: 100%;
+    min-height: 320px;
+    padding: 45px 28px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-sizing: border-box;
     text-align: center;
+    animation: add-confirmed-enter 0.35s ease both;
 }
 
-.add-confirmed-section button{
-    margin: 0 auto !important;
+.add-confirmed-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 420px;
+}
+
+/* SUCCESS ICON */
+
+.add-confirmed-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 82px;
+    height: 82px;
+    margin-bottom: 22px;
+    background: linear-gradient(
+        145deg,
+        #fff8eb 0%,
+        #f6e4c6 100%
+    );
+    border: 1px solid #ead2a9;
+    border-radius: 50%;
+    color: #a67838;
+    box-shadow: 0 12px 30px rgba(169, 120, 56, 0.12);
+}
+
+.add-confirmed-icon svg {
+    animation: add-confirmed-check 0.4s ease 0.15s both;
+}
+
+/* TYPOGRAPHY */
+
+.add-confirmed-eyebrow {
+    margin-bottom: 12px;
+    color: #a4773f;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+#add-confirmed-title {
+    margin: 0 0 15px;
+    color: var(--color-dark, #1b1512);
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.add-confirmed-description {
+    max-width: 350px;
+    margin: 0;
+    color: var(--color-text-muted, #6d645d);
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.88rem;
+    line-height: 1.85;
+}
+
+/* DECORATIVE DIVIDER */
+
+.add-confirmed-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0;
+    color: #c9954e;
+}
+
+.add-confirmed-divider span {
+    width: 40px;
+    height: 1px;
+    background: #e5d8c6;
+}
+
+/* CONTINUE BUTTON */
+
+.add-confirmed-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    min-height: 54px;
+    padding: 14px 22px;
+    background: var(--color-dark, #1b1512);
+    border: 1px solid var(--color-dark, #1b1512);
+    border-radius: 10px;
+    color: var(--color-cream, #fff6e9);
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.87rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.add-confirmed-button svg {
+    transition: transform 0.2s ease;
+}
+
+.add-confirmed-button:hover {
+    background: #35271f;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(27, 21, 18, 0.15);
+}
+
+.add-confirmed-button:hover svg {
+    transform: translateX(4px);
+}
+
+.add-confirmed-button:focus-visible {
+    outline: 3px solid #e9b76c;
+    outline-offset: 4px;
+}
+
+/* ANIMATIONS */
+
+@keyframes add-confirmed-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes add-confirmed-check {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .add-confirmed-section {
+        min-height: 280px;
+        padding: 35px 20px;
+        border-radius: 14px;
+    }
+
+    .add-confirmed-icon {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 18px;
+    }
+
+    #add-confirmed-title {
+        font-size: 1.9rem;
+    }
+
+    .add-confirmed-description {
+        font-size: 0.84rem;
+    }
+
+    .add-confirmed-button {
+        max-width: none;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .add-confirmed-section,
+    .add-confirmed-icon svg {
+        animation: none;
+    }
+
+    .add-confirmed-button,
+    .add-confirmed-button svg {
+        transition: none;
+    }
+
+    .add-confirmed-button:hover,
+    .add-confirmed-button:hover svg {
+        transform: none;
+    }
 }

@@ -1,23 +1,231 @@
-.order-item-section{
+
+/* =========================================
+   ORDER ITEM
+========================================= */
+
+.order-item-section {
     width: 100%;
-    margin: .5em 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    box-sizing: border-box;
 }
 
-.order-item-section > h3{
-    font-weight: 900;
+/* MAIN LAYOUT */
+
+.order-item-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
     width: 100%;
-    border-bottom: .15em solid black;
-    border-radius: .05em;
+    min-width: 0;
 }
 
-.order-item-section > p{
-    font-size: 1em;
-    margin: .25em 0;
+/* QUANTITY */
+
+.order-item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    background: #fff6e9;
+    border: 1px solid #f0dfc5;
+    border-radius: 11px;
+    color: #926936;
+    font-family: var(--font-body, Arial, sans-serif);
 }
 
-@media screen and (max-width: 1300px){
-    .order-item-section{
-        width: 100%;
-        margin: .5em auto;
+.order-item-quantity span {
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.order-item-quantity small {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ITEM DETAILS */
+
+.order-item-details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.order-item-name {
+    margin: 0;
+    color: var(--color-dark, #1b1512);
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* META INFORMATION */
+
+.order-item-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+}
+
+.order-item-size {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    background: #f8f3eb;
+    border: 1px solid #ece2d4;
+    border-radius: 6px;
+    color: #77644f;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.order-item-size svg {
+    flex-shrink: 0;
+    color: #ad8755;
+}
+
+.order-item-unit-price {
+    color: var(--color-text-muted, #6d645d);
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+/* SPECIAL REQUESTS */
+
+.order-item-special-request {
+    width: 100%;
+    padding: 11px 13px;
+    background: #faf7f2;
+    border-left: 3px solid #e9b76c;
+    border-radius: 0 7px 7px 0;
+    box-sizing: border-box;
+}
+
+.order-item-special-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #9b713f;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.order-item-special-request p {
+    margin: 0;
+    color: #5e5147;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.79rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+/* TOTAL PRICE */
+
+.order-item-price {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-top: 2px;
+    color: var(--color-dark, #1b1512);
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.5;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+    .order-item-main {
+        gap: 12px;
+    }
+
+    .order-item-quantity {
+        min-width: 38px;
+        height: 38px;
+        border-radius: 9px;
+    }
+
+    .order-item-name {
+        font-size: 1rem;
+    }
+
+    .order-item-price {
+        font-size: 0.92rem;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+    .order-item-main {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: start;
+    }
+
+    .order-item-quantity {
+        min-width: 36px;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
+
+    .order-item-quantity span {
+        font-size: 0.85rem;
+    }
+
+    .order-item-details {
+        gap: 8px;
+    }
+
+    .order-item-name {
+        font-size: 0.94rem;
+        line-height: 1.4;
+    }
+
+    .order-item-meta {
+        gap: 6px 10px;
+    }
+
+    .order-item-size {
+        padding: 4px 7px;
+        font-size: 0.67rem;
+    }
+
+    .order-item-unit-price {
+        font-size: 0.7rem;
+    }
+
+    .order-item-price {
+        padding-top: 1px;
+        font-size: 0.85rem;
+    }
+
+    .order-item-special-request {
+        padding: 9px 10px;
     }
 }

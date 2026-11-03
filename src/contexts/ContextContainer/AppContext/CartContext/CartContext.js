@@ -1,95 +1,176 @@
+
 import React from "react";
 import CartService from "../../../../services/CartService/CartService";
 
 const CartContext = React.createContext({
     cart: [],
-    setDefault: ()=>{},
-    getCart: ()=>{},
-    setCart: ()=>{},
-    updateCart: ()=>{},
-    deleteCart: ()=>{}
+    setDefault: () => {},
+    getCart: () => {},
+    setCart: () => {},
+    updateCart: () => {},
+    deleteCart: () => {}
 });
 
 export default CartContext;
 
-export class CartContextProvider extends React.Component{
-    constructor(props){
+export class CartContextProvider extends React.Component {
+    constructor(props) {
         super(props);
+
         this.state = {
             cart: []
-        }
+        };
     }
 
-    componentDidMount(){
-        const cart = CartService.getCart();
-        
-        if(!cart){
+    componentDidMount() {
+        const savedCart = CartService.getCart();
+
+        if (!Array.isArray(savedCart)) {
             return;
-        };
+        }
 
         this.setState({
-            cart
+            cart: savedCart
         });
     }
 
-    saveCart = (cart)=>{
+    saveCart = (cart) => {
         CartService.setCart(cart);
-    }
+    };
 
-    setDefault = ()=>{
+    setDefault = () => {
         CartService.deleteCart();
 
         this.setState({
             cart: []
         });
-    }
-
-    getCart = ()=>{
-
     };
 
-    setCart = (orderItem, index)=>{
-        const cart = this.state.cart;
-        let orderItemIndex = cart.indexOf(orderItem);
+    getCart = () => {
+        return this.state.cart;
+    };
 
-        if(orderItemIndex === -1){
-            cart.push(orderItem);
-        } else{
-            cart[orderItemIndex] = orderItem;
-        };
+    hasSpecialRequest = (orderItem) => {
+        return Boolean(
+            orderItem.special_request &&
+            String(orderItem.special_request).trim()
+        );
+    };
 
-        this.saveCart(cart);
-        
-        this.setState({
-            cart
+    canMergeItems = (existingItem, newItem) => {
+        if (!existingItem || !newItem) {
+            return false;
+        }
+
+        const sameItem = existingItem.id === newItem.id;
+
+        const sameSize = (
+            existingItem.size || ""
+        ) === (
+            newItem.size || ""
+        );
+
+        const existingHasRequest = this.hasSpecialRequest(existingItem);
+        const newHasRequest = this.hasSpecialRequest(newItem);
+
+        return (
+            sameItem &&
+            sameSize &&
+            !existingHasRequest &&
+            !newHasRequest
+        );
+    };
+
+    setCart = (orderItem, index) => {
+        if (!orderItem) {
+            return;
+        }
+
+        this.setState((previousState) => {
+            const cart = [...previousState.cart];
+
+            const quantity = Math.max(
+                1,
+                Number(orderItem.quantity) || 1
+            );
+
+            const newItem = {
+                ...orderItem,
+                quantity
+            };
+
+            const existingIndex = cart.findIndex((item) => {
+                return this.canMergeItems(item, newItem);
+            });
+
+            if (existingIndex !== -1) {
+                const existingItem = cart[existingIndex];
+
+                cart[existingIndex] = {
+                    ...existingItem,
+                    quantity: (
+                        Number(existingItem.quantity) || 1
+                    ) + quantity
+                };
+            } else {
+                cart.push(newItem);
+            }
+
+            this.saveCart(cart);
+
+            return {
+                cart
+            };
         });
     };
 
-    updateCart = (orderItem, index)=>{
-        const cart = this.state.cart;
+    updateCart = (orderItem, index) => {
+        this.setState((previousState) => {
+            const cart = [...previousState.cart];
 
-        cart[index] = orderItem;
+            if (
+                !Number.isInteger(index) ||
+                index < 0 ||
+                index >= cart.length
+            ) {
+                return null;
+            }
 
-        this.saveCart(cart);
+            cart[index] = {
+                ...orderItem
+            };
 
-        this.setState({
-            cart
+            this.saveCart(cart);
+
+            return {
+                cart
+            };
         });
     };
 
-    deleteCart = (index)=>{
-        const cart = this.state.cart;
+    deleteCart = (index) => {
+        this.setState((previousState) => {
+            const cart = [...previousState.cart];
 
-        cart.splice(index, 1);
+            if (
+                !Number.isInteger(index) ||
+                index < 0 ||
+                index >= cart.length
+            ) {
+                return null;
+            }
 
-        this.saveCart(cart);
+            cart.splice(index, 1);
 
-        this.setState({
-            cart
+            this.saveCart(cart);
+
+            return {
+                cart
+            };
         });
-    }
-    
-    render(){
+    };
+
+    render() {
         const value = {
             cart: this.state.cart,
             setDefault: this.setDefault,
@@ -104,5 +185,5 @@ export class CartContextProvider extends React.Component{
                 {this.props.children}
             </CartContext.Provider>
         );
-    };
+    }
 }

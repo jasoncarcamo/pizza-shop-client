@@ -1,93 +1,210 @@
-#third-section{
+
+#third-section {
     position: relative;
-    width: 100vw;
-    min-height: 1138px;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.1), 
-        rgba(0, 0, 0, .1)
-    ), url("../thirdimage.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    transform: translate3d(0,0,0);;
-    -webkit-transform: translate3d(0,0,0);
+    width: 100%;
+    min-height: 750px;
+    padding: clamp(80px, 10vw, 130px) 24px;
+    background:
+        linear-gradient(
+            rgba(20, 14, 11, 0.9),
+            rgba(20, 14, 11, 0.92)
+        ),
+        url("../thirdimage.jpg") center / cover no-repeat;
+    color: #fff6e9;
     overflow: hidden;
 }
 
-#third-section-box-container{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
+#third-section *,
+#third-section *::before,
+#third-section *::after {
+    box-sizing: border-box;
 }
 
-.third-section-box{
-    width: 342px;
-    height: 342px;
-    margin: 0 .5em;
-    border: .5em solid white;
-    transform: rotateZ(45deg);
-    cursor: pointer;
-}
-
-.third-section-box:hover{
-    backdrop-filter: blur(1em);
-}
-
-.third-section-box:nth-child(1){
-    margin-top: 15em;
-}
-
-.third-section-box:nth-child(2){
-    margin-bottom: 15em;
-}
-
-.third-section-box div{
+#third-section .third-section-container {
     position: relative;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%) rotateZ(-45deg);
+    z-index: 2;
+    width: min(100%, 1240px);
+    margin: 0 auto;
+}
+
+/* HEADING */
+
+#third-section .third-section-heading {
+    max-width: 720px;
+    margin: 0 auto 55px;
     text-align: center;
-    color: white;
 }
 
-.third-section-box div h2{
-    font-size: 3em;
+#third-section .third-section-eyebrow {
+    display: block;
+    margin-bottom: 20px;
+    color: #e9b76c;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+#third-section .third-section-heading h2 {
+    margin: 0 0 22px;
+    color: #fff6e9;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+}
+
+#third-section .third-section-heading h2 em {
+    color: #e9b76c;
+    font-weight: 400;
+}
+
+#third-section .third-section-heading p {
+    color: rgba(255, 246, 233, 0.75);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* CARDS */
+
+#third-section #third-section-box-container {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    transform: none;
+}
+
+#third-section .third-section-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 380px;
+    height: auto;
     margin: 0;
-    padding: 0;
+    padding: clamp(25px, 4vw, 45px);
+    border: 1px solid rgba(233, 183, 108, 0.35);
+    border-radius: 3px;
+    background: rgba(255, 246, 233, 0.055);
+    color: #fff6e9;
+    text-decoration: none;
+    transform: none;
+    backdrop-filter: blur(6px);
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
 }
 
-.third-section-box div p{
-    font-size: 1.25em;
+#third-section .third-section-box:nth-child(1),
+#third-section .third-section-box:nth-child(2) {
+    margin: 0;
 }
 
-@media screen and (max-width: 900px){
-    #third-section{
-        min-height: 1000px;
+#third-section .third-section-box:hover {
+    transform: translateY(-6px);
+    border-color: #e9b76c;
+    background: rgba(255, 246, 233, 0.09);
+    backdrop-filter: blur(6px);
+}
+
+#third-section .third-section-card-number {
+    color: #e9b76c;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+#third-section .third-section-card-content {
+    position: static;
+    width: 100%;
+    transform: none;
+    text-align: left;
+}
+
+#third-section .third-section-card-eyebrow {
+    display: block;
+    margin-bottom: 15px;
+    color: #e9b76c;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+#third-section .third-section-card-content h3 {
+    margin: 0 0 14px;
+    color: #fff6e9;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2.2rem, 3.2vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+}
+
+#third-section .third-section-card-content p {
+    margin: 0 0 30px;
+    color: rgba(255, 246, 233, 0.75);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+#third-section .third-section-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e9b76c;
+    color: #e9b76c;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+#third-section .third-section-card-action span {
+    font-size: 1.2rem;
+}
+
+/* TABLET */
+
+@media (max-width: 800px) {
+    #third-section #third-section-box-container {
+        grid-template-columns: 1fr;
     }
 
-    #third-section-box-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
+    #third-section .third-section-box {
+        min-height: 320px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #third-section {
+        padding: 75px 20px;
     }
 
-    .third-section-box{
-        width: 215px;
-        height: 215px;
+    #third-section .third-section-heading {
+        margin-bottom: 40px;
     }
 
-    .third-section-box:nth-child(1){
-        margin: 4em auto; 
+    #third-section .third-section-heading h2 {
+        font-size: clamp(2.7rem, 10vw, 3.6rem);
     }
-    
-    .third-section-box:nth-child(2){
-        margin: 4em auto;
+
+    #third-section .third-section-box {
+        min-height: 290px;
+        padding: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #third-section .third-section-box {
+        transition: none;
+    }
+
+    #third-section .third-section-box:hover {
+        transform: none;
     }
 }

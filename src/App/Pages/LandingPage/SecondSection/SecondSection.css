@@ -1,74 +1,171 @@
-#second-section{
+
+#second-section {
+    width: 100%;
+    padding: clamp(80px, 10vw, 150px) 24px;
+    background: #faf7f2;
+    border: none;
+}
+
+#second-section *,
+#second-section *::before,
+#second-section *::after {
+    box-sizing: border-box;
+}
+
+#second-section .second-section-container {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 97px 116px 443px 168px;
-    width: 100vw;
-    background-color: white;
-    border-top: .38em solid black;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 7vw, 110px);
+    width: min(100%, 1240px);
+    margin: 0 auto;
 }
 
-#second-section > div{
+/* IMAGE */
+
+#second-section .second-section-image-wrap {
     position: relative;
-    top: -.025em;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 17.8em;
-    height: 2.5em;
-    padding: 0;
-    margin: 0;
-    background-color: black;
+    width: 100%;
 }
 
-#second-section > div p{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 1.1em;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-#second-section-header{
-    margin: 0;
-    padding: 0;;
-    text-align: center;
-    font-size: 3.22em;
-}
-
-#second-section-img{
+#second-section #second-section-img {
     display: block;
-    width: 33.33em;
-    margin: 0 auto;
+    width: 100%;
+    height: clamp(380px, 45vw, 600px);
+    margin: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3px;
 }
 
-.second-section-p{
-    display: inline-block;
-    width: 85%;
-    min-height: 8em;
-    overflow: hidden;
-    margin: 0 auto;
-    text-align: center;
+#second-section .second-section-image-label {
+    position: absolute;
+    right: -18px;
+    bottom: 25px;
+    padding: 16px 22px;
+    background: #1b1512;
+    color: #e9b76c;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
 }
 
-@media screen and (max-width: 600px){
-    #second-section{
-        grid-template-rows: min-content min-content min-content 1fr;
-        gap: 29px;
+/* CONTENT */
+
+#second-section .second-section-content {
+    max-width: 540px;
+}
+
+#second-section .second-section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+    color: #9b713a;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+#second-section .second-section-eyebrow span {
+    width: 32px;
+    height: 2px;
+    background: #c9954e;
+}
+
+#second-section #second-section-header {
+    margin: 0 0 28px;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2.8rem, 4.5vw, 5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+    text-align: left;
+}
+
+#second-section #second-section-header em {
+    color: #a7773c;
+    font-weight: 400;
+}
+
+#second-section .second-section-lead {
+    margin-bottom: 20px;
+    color: #29211d;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+#second-section .second-section-p {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0 18px;
+    overflow: visible;
+    color: #6d645d;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    text-align: left;
+}
+
+#second-section .second-section-signature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+    color: #9b713a;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+#second-section .second-section-signature-line {
+    width: 35px;
+    height: 1px;
+    background: #c9954e;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    #second-section .second-section-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 
-    #second-section-header{
-        font-size: 1.8em;
+    #second-section .second-section-content {
+        max-width: 700px;
     }
 
-    #second-section-img{
-        display: block;
-        width: 17.5em;
+    #second-section #second-section-img {
+        height: 450px;
     }
-    
-    #second-section-p{
-        width: 87.5%;
-        margin-bottom: 4.5em;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #second-section {
+        padding: 75px 20px;
+    }
+
+    #second-section .second-section-container {
+        gap: 40px;
+    }
+
+    #second-section #second-section-img {
+        height: 340px;
+    }
+
+    #second-section .second-section-image-label {
+        right: 0;
+        bottom: 18px;
+        padding: 12px 15px;
+        font-size: 0.6rem;
+    }
+
+    #second-section #second-section-header {
+        font-size: clamp(2.7rem, 10vw, 3.6rem);
     }
 }

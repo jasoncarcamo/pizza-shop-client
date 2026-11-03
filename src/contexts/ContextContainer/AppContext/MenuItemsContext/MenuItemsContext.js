@@ -1,90 +1,115 @@
+
 import React from "react";
-import MenuItemsRequest from "../../../../services/FetchRequests/MenuItemsRequest";
+import MenuItemsData from "./MenuItemsData";
+
+const organizeMenuItems = (items) => {
+    return items.reduce((categories, menuItem) => {
+        if (!categories[menuItem.category]) {
+            categories[menuItem.category] = {};
+        }
+
+        categories[menuItem.category][menuItem.id] = {
+            ...menuItem,
+            ingredients: [...menuItem.ingredients]
+        };
+
+        return categories;
+    }, {});
+};
 
 const MenuItemsContext = React.createContext({
     menuItems: {},
-    loading: false
+    loading: false,
+    error: "",
+    getMenuItems: () => {},
+    setMenuItem: () => {},
+    updateMenuItem: () => {},
+    deleteMenuItem: () => {}
 });
 
 export default MenuItemsContext;
 
-export class MenuItemsProvider extends React.Component{
-    constructor(props){
+export class MenuItemsProvider extends React.Component {
+    constructor(props) {
         super(props);
+
         this.state = {
-            menuItems: {},
-            loading: false
-        }
+            menuItems: organizeMenuItems(MenuItemsData),
+            loading: false,
+            error: ""
+        };
+    }
+
+    getMenuItems = () => {
+        this.setState({
+            menuItems: organizeMenuItems(MenuItemsData),
+            loading: false,
+            error: ""
+        });
     };
 
-    componentDidMount(){
-        this.getMenuItems();
-    }
+    setMenuItem = (menuItem) => {
+        this.setState((previousState) => {
+            const menuItems = {
+                ...previousState.menuItems
+            };
 
-    toggleLoading = ()=>{
-        this.setState({
-            loading: !this.state.loading
+            const categoryItems = {
+                ...(menuItems[menuItem.category] || {})
+            };
+
+            categoryItems[menuItem.id] = {
+                ...menuItem,
+                ingredients: Array.isArray(menuItem.ingredients)
+                    ? [...menuItem.ingredients]
+                    : []
+            };
+
+            menuItems[menuItem.category] = categoryItems;
+
+            return {
+                menuItems
+            };
         });
-    }
+    };
 
-    getMenuItems = ()=>{
-
-        this.toggleLoading();
-
-        MenuItemsRequest.getAllMenuItems()
-            .then( resData => {
-                if(resData.menuItems.length > 0){
-                    resData.menuItems.forEach( menuItem => {
-                        this.setMenuItem(menuItem);
-                    });
-                };
-
-                this.toggleLoading();
-            })
-            .catch( err => {
-                this.toggleLoading();
-
-                return this.setState({
-                    error: err.error
-                });
-            });
-    }
-
-    setMenuItem = (menuItem)=>{
-        const menuItems = this.state.menuItems;
-
-        //check if menu items has the category as a propert
-        if(!menuItems.hasOwnProperty(menuItem.category)){
-            //if not add property and assign empty object to avoid error
-            menuItems[menuItem.category] = {};
-        };
-
-        // menu items should have the category as a property, now we add id as category property
-        // and assign value
-        menuItems[menuItem.category][menuItem.id] = menuItem;
-
-        this.setState({
-            menuItems
-        });
-    }
-
-    updateMenuItem = (menuItem)=>{
+    updateMenuItem = (menuItem) => {
         this.setMenuItem(menuItem);
-    }
+    };
 
-    deleteMenuItem = (menuItem)=>{
-        const menuItems = this.state.menuItems;
+    deleteMenuItem = (menuItem) => {
+        this.setState((previousState) => {
+            const menuItems = {
+                ...previousState.menuItems
+            };
 
-        delete menuItems[menuItem.category][menuItem.id];
+            if (!menuItems[menuItem.category]) {
+                return null;
+            }
 
-        this.setState({
-            menuItems
+            const categoryItems = {
+                ...menuItems[menuItem.category]
+            };
+
+            delete categoryItems[menuItem.id];
+
+            menuItems[menuItem.category] = categoryItems;
+
+            return {
+                menuItems
+            };
         });
-    }
+    };
 
-    render(){
+    render() {
         const value = {
-            menuItems: this.state.menuItems
+            menuItems: this.state.menuItems,
+            loading: this.state.loading,
+            error: this.state.error,
+            getMenuItems: this.getMenuItems,
+            setMenuItem: this.setMenuItem,
+            updateMenuItem: this.updateMenuItem,
+            deleteMenuItem: this.deleteMenuItem
         };
 
         return (
@@ -92,5 +117,5 @@ export class MenuItemsProvider extends React.Component{
                 {this.props.children}
             </MenuItemsContext.Provider>
         );
-    };
+    }
 }

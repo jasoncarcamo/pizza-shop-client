@@ -1,30 +1,202 @@
-#confirm-cancel-order-section{
-    position: absolute;
-    bottom: 1.25em;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 320px;
-    background-color: white;
-}
 
-#confirm-cancel-order-section > p{
-    font-size: 2em;
-    text-align: center;
-}
+/* OVERLAY */
 
-#confirm-cancel-order-options{
+.confirm-cancel-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
     display: flex;
+    align-items: center;
     justify-content: center;
+    padding: 20px;
+    background: rgba(18, 13, 10, 0.72);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow-y: auto;
 }
 
-#confirm-cancel-order-options button{
-    display: block;
-    width: 10em;
-    height: 2.8em;
-    background-color: black;
-    border: none;
-    color: white;
-    padding: .5em 0;
-    outline: none;
-    margin: .5em;
+/* MODAL */
+
+#confirm-cancel-order-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 460px;
+    max-height: calc(100dvh - 40px);
+    margin: auto;
+    padding: 42px 34px 30px;
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #e8e0d7;
+    border-radius: 22px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#confirm-cancel-order-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 75px;
+    height: 4px;
+    background: #c9954e;
+    border-radius: 0 0 8px 8px;
+    transform: translateX(-50%);
+}
+
+/* WARNING ICON */
+
+.confirm-cancel-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 22px;
+    background: #fff0e8;
+    border: 1px solid #f0d2c3;
+    border-radius: 50%;
+    color: #b65e43;
+}
+
+/* TYPOGRAPHY */
+
+.confirm-cancel-eyebrow {
+    margin-bottom: 10px;
+    color: #a7773c;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+#confirm-cancel-title {
+    margin: 0 0 14px;
+    color: #1b1512;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(1.7rem, 4vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+#confirm-cancel-description {
+    max-width: 350px;
+    margin: 0 0 26px;
+    color: #6d645d;
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+/* BUTTONS */
+
+#confirm-cancel-order-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+#confirm-cancel-order-options button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 20px;
+    border-radius: 11px;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.87rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* KEEP ORDER */
+
+#confirm-cancel-order-options .confirm-cancel-keep {
+    background: #1b1512;
+    border: 1px solid #1b1512;
+    color: #fff6e9;
+}
+
+#confirm-cancel-order-options .confirm-cancel-keep:hover {
+    background: #35271f;
+    transform: translateY(-2px);
+}
+
+/* CANCEL ORDER */
+
+#confirm-cancel-order-options .confirm-cancel-confirm {
+    background: #fff5f1;
+    border: 1px solid #e8c8bb;
+    color: #a44f37;
+}
+
+#confirm-cancel-order-options .confirm-cancel-confirm:hover {
+    background: #fce8e1;
+    border-color: #dcae9d;
+}
+
+#confirm-cancel-order-options button:focus-visible {
+    outline: 3px solid #e9b76c;
+    outline-offset: 3px;
+}
+
+/* FOOTER */
+
+.confirm-cancel-note {
+    margin: 20px 0 0;
+    color: #94877c;
+    font-size: 0.72rem;
+    line-height: 1.6;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .confirm-cancel-overlay {
+        padding: 15px;
+    }
+
+    #confirm-cancel-order-section {
+        max-height: calc(100dvh - 30px);
+        padding: 34px 22px 25px;
+        border-radius: 17px;
+    }
+
+    .confirm-cancel-icon {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 18px;
+    }
+
+    #confirm-cancel-title {
+        font-size: 1.75rem;
+    }
+
+    #confirm-cancel-description {
+        font-size: 0.84rem;
+    }
+
+    #confirm-cancel-order-options button {
+        min-height: 50px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    #confirm-cancel-order-options button {
+        transition: none;
+    }
+
+    #confirm-cancel-order-options button:hover {
+        transform: none;
+    }
 }

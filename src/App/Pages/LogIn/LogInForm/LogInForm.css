@@ -1,79 +1,329 @@
-#log-in-form{
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
-#log-in-fieldset{
+#log-in-page {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    border: none;
+    min-height: calc(100vh - var(--header-height, 84px));
+    padding: 75px 24px;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(233, 183, 108, 0.1),
+            transparent 35%
+        ),
+        #faf7f2;
+    color: #29211d;
 }
 
-#log-in-legend{
+#log-in-page *,
+#log-in-page *::before,
+#log-in-page *::after {
+    box-sizing: border-box;
+}
+
+#log-in-page .log-in-page-container {
+    width: min(100%, 490px);
+    margin: 0 auto;
+}
+
+/* INTRO */
+
+#log-in-page .log-in-intro {
+    margin-bottom: 35px;
     text-align: center;
-    margin: 0 0 2em 0;
-    padding: 0;
 }
 
-#log-in-legend h2{
-    font-size: 2.25em;
-}
-
-.log-in-label{
+#log-in-page .log-in-eyebrow {
     display: block;
-    width: 18rem;
+    margin-bottom: 18px;
+    color: #a7773c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+#log-in-page .log-in-intro h1 {
+    margin: 0 0 18px;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+}
+
+#log-in-page .log-in-intro h1 em {
+    color: #a7773c;
+    font-weight: 400;
+}
+
+#log-in-page .log-in-intro p {
+    max-width: 340px;
     margin: 0 auto;
+    color: #6d645d;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* FORM CARD */
+
+#log-in-page #log-in-form {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin: 0;
+    padding: 35px;
+    border: 1px solid #e8e0d7;
+    border-radius: 8px;
+    transform: none;
+    background: #ffffff;
+    box-shadow: 0 18px 50px rgba(35, 24, 18, 0.07);
+}
+
+#log-in-page #log-in-fieldset {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
     padding: 0;
-    font-size: .9em;
-    color: rgb(117, 117, 117)
-}
-
-.log-in-input{
-    display: block;
-    width: 18rem;
-    height: 1.65em;
-    margin: 0 auto 1.5em auto;
-    border-top: none;
-    border-right: none;
-    border-bottom: .05em solid rgb(117, 117, 117)
-    ;
-    border-left: none;
-    outline: none;
-}
-
-.log-in-input:hover{
-    border-bottom: .05em solid rgb(166, 43, 0) !important;
-}
-
-#log-in-submit-btn{
-    display: block;
-    width: 18rem;
-    height: 2.3em;
-    margin: 0 auto;
-    background-color: rgb(166, 43, 0);
-    font-size: 1em;
     border: none;
-    color: white;
-    transition: background-color .3s linear;
 }
 
-#log-in-submit-btn:hover{
-    background-color: rgb(139, 37, 0) !important;
+#log-in-page .log-in-legend {
+    padding: 0;
+    color: #a7773c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
-.css-1ol6pu0{
-    left: 50%;
+/* FORM HEADER */
+
+#log-in-page .log-in-form-header {
+    margin: 15px 0 30px;
+}
+
+#log-in-page .log-in-form-header h2 {
+    margin: 0 0 10px;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+#log-in-page .log-in-form-header p {
+    margin: 0;
+    color: #6d645d;
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+#log-in-page .log-in-form-header a {
+    color: #8c602d;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* FIELDS */
+
+#log-in-page .log-in-form-group {
+    margin-bottom: 22px;
+}
+
+#log-in-page .log-in-label {
+    display: block;
+    width: 100%;
+    margin: 0 0 9px;
+    color: #332920;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+#log-in-page .log-in-input {
+    display: block;
+    width: 100%;
+    height: 52px;
+    margin: 0;
+    padding: 0 16px;
+    border: 1px solid #ddd3c8;
+    border-radius: 5px;
+    outline: none;
+    background: #ffffff;
+    color: #29211d;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.95rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#log-in-page .log-in-input::placeholder {
+    color: #9a9086;
+}
+
+#log-in-page .log-in-input:hover {
+    border-color: #bba48a;
+}
+
+#log-in-page .log-in-input:focus {
+    border-color: #a7773c;
+    box-shadow: 0 0 0 3px rgba(167, 119, 60, 0.12);
+}
+
+/* PASSWORD */
+
+#log-in-page .log-in-password-wrapper {
+    position: relative;
+}
+
+#log-in-page .log-in-password-wrapper .log-in-input {
+    padding-right: 75px;
+}
+
+#log-in-page .log-in-password-toggle {
+    position: absolute;
     top: 50%;
-    translate: (-100%, -50%);
+    right: 12px;
+    transform: translateY(-50%);
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: #8c602d;
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
 }
 
-@media screen and (max-width: 1300px){
-    #log-in-form{
-        width: 100%;
+#log-in-page .log-in-password-toggle:hover {
+    color: #1b1512;
+}
+
+/* ERROR */
+
+#log-in-page .log-in-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border: 1px solid #e8b7ac;
+    border-radius: 5px;
+    background: #fff3f0;
+    color: #9c3323;
+}
+
+#log-in-page .log-in-error > span {
+    display: grid;
+    flex: 0 0 22px;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+#log-in-page .log-in-error p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* SUBMIT */
+
+#log-in-page #log-in-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 52px;
+    height: auto;
+    margin: 30px 0 0;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #e9b76c;
+    color: #1b1512;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+#log-in-page #log-in-submit-btn:hover:not(:disabled) {
+    background: #f4cc90;
+    transform: translateY(-2px);
+}
+
+#log-in-page #log-in-submit-btn:disabled {
+    cursor: wait;
+    opacity: 0.8;
+}
+
+#log-in-page #log-in-submit-btn:focus-visible,
+#log-in-page .log-in-password-toggle:focus-visible {
+    outline: 3px solid #a7773c;
+    outline-offset: 3px;
+}
+
+/* FOOTER */
+
+#log-in-page .log-in-form-footer {
+    margin: 25px 0 0;
+    color: #81766d;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+#log-in-page .log-in-bottom-text {
+    margin: 30px 0 0;
+    color: #9b8b7c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #log-in-page {
+        padding: 55px 16px 65px;
+    }
+
+    #log-in-page #log-in-form {
+        padding: 28px 22px;
+    }
+
+    #log-in-page .log-in-intro h1 {
+        font-size: clamp(2.6rem, 10vw, 3.5rem);
+    }
+
+    #log-in-page .log-in-input {
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    #log-in-page .log-in-input,
+    #log-in-page #log-in-submit-btn {
+        transition: none;
+    }
+
+    #log-in-page #log-in-submit-btn:hover {
+        transform: none;
     }
 }

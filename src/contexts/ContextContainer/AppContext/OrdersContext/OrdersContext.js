@@ -1,111 +1,138 @@
+
 import React from "react";
 import OrderService from "../../../../services/OrderServce/OrderServce";
 
+const createDefaultOrder = () => ({
+    order_started: false,
+    order_type: "",
+    customer_first_name: "",
+    customer_last_name: "",
+    customer_mobile_number: "",
+    customer_address: "",
+    customer_city: "",
+    customer_state: "",
+    customer_zip_code: "",
+    subtotal: 0,
+    time_placed: "",
+    time_ready: "",
+    order_items: [],
+    customer_id: 0,
+    date_created: ""
+});
+
 const OrderContext = React.createContext({
-    order: {},
+    order: createDefaultOrder(),
     orders: {},
-    setDefaultOrder: ()=>{},
-    startOrder: ()=>{},
-    setOrder: ()=>{},
-    updateOrder: ()=>{},
-    deleteOrder: ()=>{},
-    cancelOrder: ()=>{}
+    setDefaultOrder: () => {},
+    startOrder: () => {},
+    setOrder: () => {},
+    updateOrder: () => {},
+    deleteOrder: () => {},
+    cancelOrder: () => {}
 });
 
 export default OrderContext;
 
-export class OrdersContextProvider extends React.Component{
-    constructor(props){
+export class OrdersContextProvider extends React.Component {
+    constructor(props) {
         super(props);
+
         this.state = {
-            order: {
-                order_started: false,
-                order_type: "",
-                customer_first_name: "",
-                customer_last_name: "",
-                customer_mobile_number: "",
-                customer_address: "",
-                customer_city: "",
-                customer_state: "",
-                customer_zip_code: "",
-                subtotal: "",
-                time_placed: "",
-                time_ready: "",
-                order_items: "",
-                customer_id: 0,
-                date_created: "",
-            },
+            order: createDefaultOrder(),
             orders: {}
         };
     }
 
-    componentDidMount(){
-        const order = OrderService.getOrder();
+    componentDidMount() {
+        const savedOrder = OrderService.getOrder();
 
-        if(order){
-            this.setOrder(order);
+        if (
+            savedOrder &&
+            typeof savedOrder === "object" &&
+            !Array.isArray(savedOrder)
+        ) {
+            this.setState((previousState) => ({
+                order: {
+                    ...previousState.order,
+                    ...savedOrder
+                }
+            }));
         }
     }
 
-    startOrder = (order_type)=>{
-        const order = this.state.order;
+    startOrder = (orderType) => {
 
-        order.order_started = true;
-        order.order_type = order_type;
+        this.setState({
+            order_started: true,
+            order_type: orderType
+        });
+    };
 
-        this.setOrder(order);
-    }
-
-    setDefaultOrder = ()=>{
-        const order = this.state.order;
-
-        order.order_started = false;
-        order.order_type = "default";
-        order.order_items =  [];
-
+    setDefaultOrder = () => {
         OrderService.deleteOrder();
 
         this.setState({
-            order
+            order: createDefaultOrder()
         });
-    }
+    };
 
-    getOrders = ()=>{
+    getOrders = () => {
+        return this.state.orders;
+    };
 
-    }
+    setOrder = (order) => {
+        if (
+            !order ||
+            typeof order !== "object" ||
+            Array.isArray(order)
+        ) {
+            return;
+        }
 
-    setOrder = (order)=>{
+        const updatedOrder = {
+            ...createDefaultOrder(),
+            ...order
+        };
 
-        OrderService.setOrder(order);
+        OrderService.setOrder(updatedOrder);
 
         this.setState({
-            order
+            order: updatedOrder
         });
-    }
+    };
 
-    updateOrder = (order)=>{
-        this.setOrder(order);
-    }
+    updateOrder = (updates) => {
+        if (
+            !updates ||
+            typeof updates !== "object" ||
+            Array.isArray(updates)
+        ) {
+            return;
+        }
+        
+        this.setState((previousState) => {
+            const updatedOrder = {
+                ...previousState.order,
+                ...updates
+            };
 
-    deleteOrder = ()=>{
-        OrderService.deleteOrder();
+            OrderService.setOrder(updatedOrder);
+
+            return {
+                order: updatedOrder
+            };
+        });
+    };
+
+    deleteOrder = () => {
         this.setDefaultOrder();
-    }
+    };
 
-    cancelOrder = ()=>{
-        const order = this.state.order;
+    cancelOrder = () => {
+        this.setDefaultOrder();
+    };
 
-        order.order_started = false;
-        order.order_type = "default";
-
-        OrderService.deleteOrder();
-
-        this.setState({
-            order
-        });
-    }
-
-    render(){
+    render() {
         const value = {
             order: this.state.order,
             orders: this.state.orders,
@@ -116,11 +143,11 @@ export class OrdersContextProvider extends React.Component{
             deleteOrder: this.deleteOrder,
             cancelOrder: this.cancelOrder
         };
-        
+
         return (
             <OrderContext.Provider value={value}>
                 {this.props.children}
             </OrderContext.Provider>
         );
-    };
+    }
 }

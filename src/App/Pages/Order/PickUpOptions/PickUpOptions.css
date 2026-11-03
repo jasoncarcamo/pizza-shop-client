@@ -1,18 +1,227 @@
-#pickup-options-section{
-    position: absolute;
-    left: 50%;
+
+#pickup-options-section {
+    --pickup-dark: #1b1512;
+    --pickup-gold: #e9b76c;
+    --pickup-cream: #fff6e9;
+    --pickup-border: #e8e0d7;
+    --pickup-muted: #6d645d;
+
+    position: relative;
     z-index: 2;
-    transform: translate(-50%, 0%);
+    left: auto;
     width: 100%;
-    background-color: white;
+    min-height: calc(100vh - var(--header-height, 84px));
     margin: 0;
     padding: 0;
+    transform: none;
+    background: #faf7f2;
+    color: #29211d;
 }
 
-#pickup-options-section h2{
+#pickup-options-section *,
+#pickup-options-section *::before,
+#pickup-options-section *::after {
+    box-sizing: border-box;
+}
+
+/* MAIN CONTAINER */
+
+#pickup-options-section .pickup-options-container {
+    width: min(100%, 850px);
+    margin: 0 auto;
+    padding: clamp(65px, 8vw, 100px) 24px 75px;
+}
+
+/* HEADING */
+
+#pickup-options-section .pickup-options-heading {
+    max-width: 650px;
+    margin: 0 auto 40px;
     text-align: center;
 }
 
-#pickup-options-section p{
+#pickup-options-section .pickup-options-eyebrow {
+    display: block;
+    margin-bottom: 20px;
+    color: #a7773c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+#pickup-options-section #pickup-options-title {
+    margin: 0 0 22px;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+}
+
+#pickup-options-section #pickup-options-title em {
+    color: #a7773c;
+    font-weight: 400;
+}
+
+#pickup-options-section .pickup-options-description {
+    max-width: 490px;
+    margin: 0 auto;
+    color: var(--pickup-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* FORM CARD */
+
+#pickup-options-section .pickup-options-card {
+    padding: clamp(25px, 4vw, 45px);
+    border: 1px solid var(--pickup-border);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 18px 50px rgba(35, 24, 18, 0.06);
+}
+
+#pickup-options-section .pickup-options-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--pickup-border);
+}
+
+#pickup-options-section .pickup-step-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #a7773c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+#pickup-options-section .pickup-options-card-header h2 {
+    margin: 0;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+}
+
+#pickup-options-section .pickup-type-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    border: 1px solid #ead7b9;
+    border-radius: 100px;
+    background: #fff8ed;
+    color: #8c602d;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* MEMBER MESSAGE */
+
+#pickup-options-section .pickup-member-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 30px;
+    padding: 16px 18px;
+    border: 1px solid #eadfcf;
+    border-radius: 6px;
+    background: #fcf8f1;
+}
+
+#pickup-options-section .pickup-member-icon {
+    display: grid;
+    flex: 0 0 25px;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f1e3cb;
+    color: #8c602d;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+#pickup-options-section .pickup-member-message p {
+    margin: 0;
+    color: #5d5146;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+#pickup-options-section .pickup-member-message a,
+#pickup-options-section .pickup-register-message a {
+    color: #8c602d;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* FORM WRAPPER */
+
+#pickup-options-section .pickup-form-container {
+    width: 100%;
+    min-width: 0;
+}
+
+/* REGISTER MESSAGE */
+
+#pickup-options-section .pickup-register-message {
+    margin: 30px 0 0;
+    padding-top: 25px;
+    border-top: 1px solid var(--pickup-border);
+    color: var(--pickup-muted);
+    font-size: 0.85rem;
     text-align: center;
+}
+
+/* FOOTER */
+
+#pickup-options-section .pickup-options-footer {
+    margin: 35px 0 0;
+    color: #9b8b7c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #pickup-options-section .pickup-options-container {
+        padding: 55px 16px 65px;
+    }
+
+    #pickup-options-section .pickup-options-heading {
+        margin-bottom: 32px;
+    }
+
+    #pickup-options-section #pickup-options-title {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    #pickup-options-section .pickup-options-card {
+        padding: 25px 20px;
+    }
+
+    #pickup-options-section .pickup-options-card-header {
+        align-items: flex-start;
+    }
+
+    #pickup-options-section .pickup-type-badge {
+        font-size: 0.7rem;
+        padding: 7px 12px;
+    }
+
+    #pickup-options-section .pickup-member-message {
+        padding: 14px;
+    }
 }

@@ -1,61 +1,105 @@
+
 import React from "react";
-import './WelcomeScreen.css';
+import "./WelcomeScreen.css";
 import WelcomeImg from "./pizza-welcome.jpeg";
 
-export default class WelcomeScreen extends React.Component{
-    constructor(props){
+export default class WelcomeScreen extends React.Component {
+    constructor(props) {
         super(props);
-        this.state ={
-            loaded: false,
+
+        this.state = {
             close: false
-        }
+        };
+
+        this.previousBodyOverflow = "";
     }
 
-    componentDidMount(){
-
+    componentDidMount() {
+        this.previousBodyOverflow = document.body.style.overflow;
         document.body.style.overflow = "hidden";
-
-        window.addEventListener("load", ()=>{
-            this.setState({
-                loaded: true
-            });
-
-
-        });
     }
 
-    animationHandler = ()=>{
-        if(this.state.loaded){
-            
-            return "animate-header";
-        } else{
-            return "";
-        }
+    componentWillUnmount() {
+        document.body.style.overflow = this.previousBodyOverflow;
     }
 
-    closebtn = ()=>{
-        document.body.style.overflow = "visible";
+    closeWelcome = () => {
+        document.body.style.overflow = this.previousBodyOverflow;
+
         this.setState({
             close: true
         });
-    }
+    };
 
-    closeWelcomeHandler = ()=>{
-        if(this.state.close){
-            return "close-welcome";
-        } else{
-            return "pending-close";
-        };
-    }
+    render() {
+        const { close } = this.state;
 
-    render(){
+        if (close) {
+            return null;
+        }
+
         return (
-            <section id="welcome-screen-section" className={this.closeWelcomeHandler()}>
+            <section
+                id="welcome-screen-section"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="welcome-title"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(
+                            90deg,
+                            rgba(17, 13, 11, 0.88) 0%,
+                            rgba(17, 13, 11, 0.62) 55%,
+                            rgba(17, 13, 11, 0.35) 100%
+                        ),
+                        url("${WelcomeImg}")
+                    `
+                }}
+            >
+                <div className="welcome-content">
+                    <div className="welcome-brand">
+                        <span className="welcome-brand-line"></span>
+                        <span>THE PIZZA SPOT</span>
+                    </div>
 
-                <h1 id={`${this.animationHandler()}`} className="welcome-msg-header">Welcome to The Pizza Spot</h1>
+                    <p className="welcome-eyebrow">
+                        FRESHLY MADE. ALWAYS DELICIOUS.
+                    </p>
 
-                <button id="welcome-enter-btn" onClick={this.closebtn}>Enter</button>
+                    <h1
+                        id="welcome-title"
+                        className="welcome-msg-header"
+                    >
+                        A little slice
+                        <span>of something special.</span>
+                    </h1>
+
+                    <p className="welcome-description">
+                        Welcome to The Pizza Spot, where great
+                        pizza and good company come together.
+                    </p>
+
+                    <button
+                        id="welcome-enter-btn"
+                        type="button"
+                        onClick={this.closeWelcome}
+                    >
+                        <span>Explore The Pizza Spot</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                    <p className="welcome-footer-note">
+                        MADE WITH PASSION. SERVED WITH LOVE.
+                    </p>
+                </div>
+
+                <div
+                    className="welcome-side-label"
+                    aria-hidden="true"
+                >
+                    GOOD FOOD. GOOD MOMENTS.
+                </div>
             </section>
-        )
+        );
     }
 }

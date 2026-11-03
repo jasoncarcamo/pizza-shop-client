@@ -1,16 +1,134 @@
-#nav-burger{
+
+/* =========================================
+   THE PIZZA SPOT - MOBILE MENU BURGER
+========================================= */
+
+#nav-burger.menu-burger {
     display: none;
-    outline: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(233, 183, 108, 0.3);
+    border-radius: 12px;
+    color: var(--color-primary, #e9b76c);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-@media screen and (max-width: 1300px){
-    #nav-burger{
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 1em;
-        margin: 0;
-        transform: translateY(-50%);
-        z-index: 5;
+#nav-burger.menu-burger:hover {
+    background: rgba(233, 183, 108, 0.1);
+    border-color: rgba(233, 183, 108, 0.6);
+}
+
+#nav-burger.menu-burger:active {
+    transform: scale(0.96);
+}
+
+#nav-burger.menu-burger:focus-visible {
+    outline: 3px solid var(--color-primary, #e9b76c);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   HAMBURGER LINES
+========================================= */
+
+.menu-burger-lines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 22px;
+    height: 20px;
+}
+
+.menu-burger-line {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 3px;
+    transform-origin: center;
+    transition:
+        top 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.2s ease;
+}
+
+.menu-burger-line:nth-child(1) {
+    top: 2px;
+}
+
+.menu-burger-line:nth-child(2) {
+    top: 9px;
+}
+
+.menu-burger-line:nth-child(3) {
+    top: 16px;
+}
+
+/* =========================================
+   OPEN STATE - ANIMATED X
+========================================= */
+
+.menu-burger--active .menu-burger-line:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+}
+
+.menu-burger--active .menu-burger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-burger--active .menu-burger-line:nth-child(3) {
+    top: 9px;
+    transform: rotate(-45deg);
+}
+
+#nav-burger.menu-burger--active {
+    background: rgba(233, 183, 108, 0.12);
+    border-color: var(--color-primary, #e9b76c);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 1300px) {
+    #nav-burger.menu-burger {
+        display: inline-flex;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #nav-burger.menu-burger {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    #nav-burger.menu-burger,
+    .menu-burger-line {
+        transition: none;
     }
 }

@@ -1,24 +1,100 @@
-#cart-container{
+
+#cart-container {
     position: relative;
-    right: .0;
-    width: 2.5em;
-    margin: 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 0;
     padding: 0;
-    text-align: center;
-    z-index: 2;
+    z-index: 50;
 }
 
-
-.cart-icon{
-    font-size: 1.5em;
-    margin: .15em 0 .15em 0;
+#cart-container *,
+#cart-container *::before,
+#cart-container *::after {
+    box-sizing: border-box;
 }
 
-@media screen and (max-width: 1300px){
-    #cart-container{
-        top: 0em;
-        right: 0;
-        display: table-cell;
-        vertical-align: middle;
+/* CART BUTTON */
+
+#cart-container .cart-trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(233, 183, 108, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 246, 233, 0.06);
+    color: #fff6e9;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+#cart-container .cart-trigger:hover,
+#cart-container .cart-trigger--active {
+    border-color: #e9b76c;
+    background: rgba(233, 183, 108, 0.12);
+    color: #e9b76c;
+}
+
+#cart-container .cart-trigger:focus-visible {
+    outline: 3px solid #e9b76c;
+    outline-offset: 3px;
+}
+
+#cart-container .cart-icon {
+    width: 19px;
+    height: 19px;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* COUNT BADGE */
+
+#cart-container .cart-count {
+    position: absolute;
+    top: -6px;
+    right: -7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border: 2px solid #1b1512;
+    border-radius: 999px;
+    background: #e9b76c;
+    color: #1b1512;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.65rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #cart-container .cart-trigger {
+        width: 40px;
+        height: 40px;
+    }
+
+    #cart-container .cart-icon {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #cart-container .cart-trigger {
+        transition: none;
     }
 }

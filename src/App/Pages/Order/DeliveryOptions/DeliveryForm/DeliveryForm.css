@@ -1,53 +1,276 @@
-#delivery-form{
+
+#delivery-form {
     width: 100%;
-    margin: 5em 0 0 0;
+    margin: 0;
     padding: 0;
+    color: #29211d;
 }
 
-#delivery-fieldset{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#delivery-form *,
+#delivery-form *::before,
+#delivery-form *::after {
+    box-sizing: border-box;
+}
+
+/* FIELDSET */
+
+#delivery-form #delivery-fieldset {
+    display: block;
     width: 100%;
+    min-width: 0;
     margin: 0;
     padding: 0;
     border: none;
 }
 
-.delivery-label{
+#delivery-form .delivery-fieldset-legend {
+    margin-bottom: 12px;
+    padding: 0;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+#delivery-form .delivery-form-intro {
+    margin: 0 0 30px;
+    color: #6d645d;
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+/* GRID */
+
+#delivery-form .delivery-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 20px;
+    width: 100%;
+}
+
+#delivery-form .delivery-form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+#delivery-form .delivery-form-group--full {
+    grid-column: 1 / -1;
+}
+
+/* LABELS */
+
+#delivery-form .delivery-label {
     display: block;
-    width: 18rem;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 0 9px;
+    color: #332920;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.5;
 }
 
-.delivery-input{
+#delivery-form .delivery-label span {
+    color: #a7773c;
+}
+
+/* INPUTS */
+
+#delivery-form .delivery-input {
     display: block;
-    width: 18rem;
-    height: 2.5em;
-    margin: 0 auto 1.5em auto;
-    border-top: none;
-    border-right: none;
-    border-bottom: .05em solid rgb(117, 117, 117)
-    ;
-    border-left: none;
+    width: 100%;
+    height: 52px;
+    margin: 0;
+    padding: 0 16px;
+    border: 1px solid #ddd3c8;
+    border-radius: 5px;
+    outline: none;
+    background: #ffffff;
+    color: #29211d;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.95rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.delivery-input:hover{
-    border-bottom: .05em solid rgb(166, 43, 0) !important;
+#delivery-form .delivery-input::placeholder {
+    color: #9a9086;
 }
 
-.delivery-btn{
-    display: block;
-    width: 18rem;
-    height: 2.3em;
-    margin: 0 auto .75em auto;
-    background-color: rgb(166, 43, 0);
-    font-size: 1em;
-    border: none;
-    color: white;
-    transition: background-color .3s linear;
+#delivery-form .delivery-input:hover {
+    border-color: #bba48a;
 }
 
-.delivery-btn:hover{
-    background-color: rgb(139, 37, 0) !important;
+#delivery-form .delivery-input:focus {
+    border-color: #a7773c;
+    box-shadow: 0 0 0 3px rgba(167, 119, 60, 0.12);
+}
+
+/* ADDRESS DIVIDER */
+
+#delivery-form .delivery-form-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 35px 0 28px;
+}
+
+#delivery-form .delivery-form-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e8e0d7;
+}
+
+#delivery-form .delivery-form-divider span {
+    color: #a7773c;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+/* ERROR */
+
+#delivery-form .delivery-form-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 14px 16px;
+    border: 1px solid #e8b7ac;
+    border-radius: 5px;
+    background: #fff3f0;
+    color: #9c3323;
+}
+
+#delivery-form .delivery-form-error > span {
+    display: grid;
+    flex: 0 0 22px;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+#delivery-form .delivery-form-error p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* BUTTONS */
+
+#delivery-form .delivery-form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+#delivery-form .delivery-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 52px;
+    height: auto;
+    margin: 0;
+    padding: 13px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#delivery-form .delivery-btn--primary {
+    background: #1b1512;
+    color: #fff6e9;
+}
+
+#delivery-form .delivery-btn--primary:hover {
+    background: #39291e !important;
+    transform: translateY(-2px);
+}
+
+#delivery-form .delivery-btn--primary span:last-child {
+    font-size: 1.2rem;
+}
+
+#delivery-form .delivery-btn--secondary {
+    border-color: #ddd3c8;
+    background: #ffffff;
+    color: #5d5146;
+}
+
+#delivery-form .delivery-btn--secondary:hover {
+    border-color: #a7773c;
+    background: #faf7f2 !important;
+    color: #29211d;
+}
+
+#delivery-form .delivery-btn:focus-visible {
+    outline: 3px solid #c9954e;
+    outline-offset: 3px;
+}
+
+/* FOOTER */
+
+#delivery-form .delivery-form-footer {
+    margin: 25px 0 0;
+    color: #81766d;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #delivery-form .delivery-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #delivery-form .delivery-form-group--full {
+        grid-column: auto;
+    }
+
+    #delivery-form .delivery-fieldset-legend {
+        font-size: 1.25rem;
+    }
+
+    #delivery-form .delivery-input {
+        height: 50px;
+        font-size: 16px;
+    }
+
+    #delivery-form .delivery-form-divider {
+        margin: 30px 0 25px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    #delivery-form .delivery-input,
+    #delivery-form .delivery-btn {
+        transition: none;
+    }
+
+    #delivery-form .delivery-btn--primary:hover {
+        transform: none;
+    }
 }

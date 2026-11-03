@@ -1,117 +1,243 @@
+
 import React from "react";
 import AppContext from "../../../../../contexts/ContextContainer/AppContext/AppContext";
 import "./PickUpForm.css";
 
-export default class PickUpForm extends React.Component{
-    constructor(props){
+export default class PickUpForm extends React.Component {
+    constructor(props) {
         super(props);
+
         this.state = {
             customer_first_name: "",
             customer_last_name: "",
             customer_mobile_number: "",
             error: ""
-        }
+        };
     }
 
     static contextType = AppContext;
 
-    componentDidMount(){
-        const order = this.context.ordersContext.order;
+    componentDidMount() {
+        const order = this.context.ordersContext.order || {};
 
         this.setState({
-            customer_first_name: order.customer_first_name,
-            customer_last_name: order.customer_last_name,
-            customer_mobile_number: order.customer_mobile_number
+            customer_first_name: order.customer_first_name || "",
+            customer_last_name: order.customer_last_name || "",
+            customer_mobile_number: order.customer_mobile_number || ""
         });
     }
 
-    handleInput = (e)=>{
+    handleInput = (event) => {
+        const { name, value } = event.target;
+
         this.setState({
-            [e.target.name]: e.target.value,
+            [name]: value,
             error: ""
         });
 
-        this.updateOrder(e);
-    }
+        this.updateOrder(name, value);
+    };
 
-    handleCancel = (e)=>{
+    updateOrder = (name, value) => {
+        const ordersContext = this.context.ordersContext;
+        const currentOrder = ordersContext.order || {};
 
-        this.context.ordersContext.deleteOrder();
+        const updatedOrder = {
+            ...currentOrder,
+            [name]: value
+        };
+        console.log(updatedOrder)
+        ordersContext.updateOrder(updatedOrder);
+    };
 
-        this.toggleDefaultOrderype();
-    }
+    checkRequirements = () => {
+        const {
+            customer_first_name,
+            customer_last_name,
+            customer_mobile_number
+        } = this.state;
 
-    updateOrder = (e)=>{
-        const order = this.context.ordersContext.order;
+        if (!customer_first_name.trim()) {
+            return "Please enter your first name.";
+        }
 
-        order[e.target.name] = e.target.value;
+        if (!customer_last_name.trim()) {
+            return "Please enter your last name.";
+        }
 
-        this.context.ordersContext.updateOrder(order);
-    }
+        if (!customer_mobile_number.trim()) {
+            return "Please enter your mobile number.";
+        }
 
-    handleStartOrdering = (e)=>{
+        const phoneDigits = customer_mobile_number.replace(/\D/g, "");
+
+        if (
+            phoneDigits.length !== 10 &&
+            !(phoneDigits.length === 11 && phoneDigits.startsWith("1"))
+        ) {
+            return "Please enter a valid 10-digit US mobile number.";
+        }
+
+        return "";
+    };
+
+    handleStartOrdering = (event) => {
+        event.preventDefault();
+
         const error = this.checkRequirements();
 
-        if(error){
+        if (error) {
             this.setState({
                 error
             });
 
             return;
-        };
+        }
 
-        this.context.ordersContext.startOrder(e.target.name);
+        this.context.ordersContext.startOrder("Pick up");
 
         this.props.history.push("/menu/pizza");
-    }
+    };
 
-    checkRequirements = ()=>{
-        const state = Object.assign({}, this.state);
-        let error;
-        
-        delete state.error;
+    handleCancel = () => {
+        this.context.ordersContext.deleteOrder();
 
-        for(const key of Object.keys(state)){
-            if(!state[key]){
-
-                error = `Missing ${key.split("_").join(" ")}`;
-
-                return error;
-            };
-        };
-    }
-
-    toggleDefaultOrderype = ()=>{
         this.props.setDefaultOrderType();
-    }
+    };
 
-    render(){
+    render() {
+        const {
+            customer_first_name,
+            customer_last_name,
+            customer_mobile_number,
+            error
+        } = this.state;
+
         return (
-            <form id="pickup-form">
+            <form
+                id="pickup-form"
+                onSubmit={this.handleStartOrdering}
+                noValidate
+            >
                 <fieldset id="pickup-fieldset">
+                    <legend className="pickup-fieldset-legend">
+                        Your contact information
+                    </legend>
 
-                    <label htmlFor="pickup-first-name" className="pickup-label">
-                        First name:
-                    </label>
-                    <input id="pickup-first-name" className="pickup-input" type="text" name="customer_first_name" value={this.state.customer_first_name} onChange={this.handleInput}/>
+                    <p className="pickup-form-intro">
+                        We'll use these details to identify your
+                        pickup order.
+                    </p>
 
-                    <label htmlFor="pickup-last-name" className="pickup-label">
-                        Last name:
-                    </label>
-                    <input id="pickup-last-name" className="pickup-input" type="text" name="customer_last_name" value={this.state.customer_last_name} onChange={this.handleInput}/>
+                    <div className="pickup-form-grid">
+                        <div className="pickup-form-group">
+                            <label
+                                htmlFor="pickup-first-name"
+                                className="pickup-label"
+                            >
+                                First Name
+                                <span aria-hidden="true"> *</span>
+                            </label>
 
-                    <label htmlFor="pickup-mobile-number" className="pickup-label">
-                        Mobile number:
-                    </label>
-                    <input id="pickup-mobile-number" className="pickup-input" type="text" name="customer_mobile_number" value={this.state.customer_mobile_number} onChange={this.handleInput}/>
+                            <input
+                                id="pickup-first-name"
+                                className="pickup-input"
+                                type="text"
+                                name="customer_first_name"
+                                value={customer_first_name}
+                                onChange={this.handleInput}
+                                placeholder="Enter your first name"
+                                autoComplete="given-name"
+                                maxLength={80}
+                                required
+                            />
+                        </div>
 
-                    <p>{this.state.error ? this.state.error : ""}</p>
+                        <div className="pickup-form-group">
+                            <label
+                                htmlFor="pickup-last-name"
+                                className="pickup-label"
+                            >
+                                Last Name
+                                <span aria-hidden="true"> *</span>
+                            </label>
 
-                    <button type="button" className="pickup-btn" name="Pick up" onClick={this.handleStartOrdering}>Start ordering</button>
+                            <input
+                                id="pickup-last-name"
+                                className="pickup-input"
+                                type="text"
+                                name="customer_last_name"
+                                value={customer_last_name}
+                                onChange={this.handleInput}
+                                placeholder="Enter your last name"
+                                autoComplete="family-name"
+                                maxLength={80}
+                                required
+                            />
+                        </div>
 
-                    <button className="pickup-btn"  type="button" name="default" onClick={this.handleCancel}>Cancel</button>
+                        <div className="pickup-form-group pickup-form-group--full">
+                            <label
+                                htmlFor="pickup-mobile-number"
+                                className="pickup-label"
+                            >
+                                Mobile Number
+                                <span aria-hidden="true"> *</span>
+                            </label>
+
+                            <input
+                                id="pickup-mobile-number"
+                                className="pickup-input"
+                                type="tel"
+                                name="customer_mobile_number"
+                                value={customer_mobile_number}
+                                onChange={this.handleInput}
+                                placeholder="(555) 123-4567"
+                                autoComplete="tel"
+                                inputMode="tel"
+                                maxLength={20}
+                                required
+                            />
+
+                            <span className="pickup-input-hint">
+                                Enter a US phone number with area code.
+                            </span>
+                        </div>
+                    </div>
+
+                    {error && (
+                        <div
+                            className="pickup-form-error"
+                            role="alert"
+                        >
+                            <span aria-hidden="true">!</span>
+                            <p>{error}</p>
+                        </div>
+                    )}
+
+                    <div className="pickup-form-actions">
+                        <button
+                            type="submit"
+                            className="pickup-btn pickup-btn--primary"
+                        >
+                            <span>Continue to Menu</span>
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            className="pickup-btn pickup-btn--secondary"
+                            onClick={this.handleCancel}
+                        >
+                            Back to Order Options
+                        </button>
+                    </div>
+
+                    <p className="pickup-form-footer">
+                        Required fields are marked with an asterisk (*).
+                    </p>
                 </fieldset>
             </form>
-        )
+        );
     }
 }

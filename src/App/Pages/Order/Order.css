@@ -1,45 +1,290 @@
-#order-type-section{
+
+#order-type-section {
+    --order-dark: #1b1512;
+    --order-gold: #e9b76c;
+    --order-cream: #fff6e9;
+    --order-muted: #bdb1a6;
+
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - var(--header-height, 84px));
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(233, 183, 108, 0.09),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #241b16 0%,
+            #17110e 100%
+        );
+    color: var(--order-cream);
+}
+
+#order-type-section *,
+#order-type-section *::before,
+#order-type-section *::after {
+    box-sizing: border-box;
+}
+
+/* SELECTION LAYOUT */
+
+#order-type-section .order-selection-container {
+    width: min(100%, 1180px);
+    margin: 0 auto;
+    padding: clamp(70px, 8vw, 115px) 24px 65px;
+}
+
+#order-type-section .order-selection-heading {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+#order-type-section .order-eyebrow {
+    display: block;
+    margin-bottom: 22px;
+    color: var(--order-gold);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+#order-type-section #order-page-title {
+    margin: 0 0 24px;
+    color: var(--order-cream);
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+}
+
+#order-type-section #order-page-title em {
+    color: var(--order-gold);
+    font-weight: 400;
+}
+
+#order-type-section .order-selection-heading p {
+    max-width: 530px;
+    margin: 0 auto;
+    color: var(--order-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ORDER CARDS */
+
+#order-type-section #order-type-options {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
     width: 100%;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.1), 
-        rgba(0, 0, 0, .3)
-    ), url("https://cdnb.artstation.com/p/assets/images/images/065/979/121/original/federico-brunetti-pizza-gif.gif");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    transform: none;
 }
 
-#order-type-options{
+#order-type-section .order-type-card {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 360px;
+    height: auto;
     margin: 0;
-    padding: 0;
-    width: 18em;
-    transition: background-color .3s linear;
+    padding: clamp(25px, 4vw, 42px);
+    border: 1px solid rgba(233, 183, 108, 0.25);
+    border-radius: 4px;
+    background: rgba(255, 246, 233, 0.045);
+    color: var(--order-cream);
+    font-family: var(--font-body, Arial, sans-serif);
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-#order-type-options button{
-    font-size: 1em;
-    width: 10em;
-    height: 2.3em;
-    background-color: rgb(166, 43, 0);
-    border: none;
-    color: white;
-    margin: 0 auto;
+#order-type-section .order-type-card:hover {
+    background: rgba(255, 246, 233, 0.075);
+    border-color: var(--order-gold);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
 }
 
-#order-type-options button:hover{
-    background-color: rgb(139, 37, 0) !important;
+#order-type-section .order-type-card:focus-visible {
+    outline: 3px solid var(--order-gold);
+    outline-offset: 5px;
 }
 
-#order-type-options p{
+/* CARD TOP */
+
+#order-type-section .order-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+#order-type-section .order-card-number {
+    color: var(--order-gold);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+}
+
+#order-type-section .order-card-arrow {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(233, 183, 108, 0.3);
+    border-radius: 50%;
+    color: var(--order-gold);
+    font-size: 1.2rem;
+}
+
+/* CARD ICON */
+
+#order-type-section .order-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 35px 0;
+    border-radius: 50%;
+    background: rgba(233, 183, 108, 0.08);
+    color: var(--order-gold);
+}
+
+/* CARD CONTENT */
+
+#order-type-section .order-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#order-type-section .order-card-content strong {
+    margin-bottom: 12px;
+    color: var(--order-cream);
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+#order-type-section .order-card-description {
+    max-width: 350px;
+    min-height: 50px;
+    margin-bottom: 28px;
+    color: var(--order-muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+#order-type-section .order-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--order-gold);
+    color: var(--order-gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+#order-type-section .order-card-action span {
+    font-size: 1.2rem;
+}
+
+/* FOOTER */
+
+#order-type-section .order-selection-footer {
+    margin: 55px 0 0;
+    color: rgba(255, 246, 233, 0.45);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     text-align: center;
+}
+
+/* ACTIVE ORDER FLOW */
+
+#order-type-section.order-type-section--active {
+    min-height: calc(100vh - var(--header-height, 84px));
+}
+
+/* TABLET */
+
+@media (max-width: 800px) {
+    #order-type-section #order-type-options {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    #order-type-section .order-type-card {
+        min-height: 300px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    #order-type-section .order-selection-container {
+        padding: 65px 20px 55px;
+    }
+
+    #order-type-section .order-selection-heading {
+        margin-bottom: 40px;
+    }
+
+    #order-type-section #order-page-title {
+        font-size: clamp(2.8rem, 10vw, 3.8rem);
+    }
+
+    #order-type-section .order-type-card {
+        min-height: 280px;
+        padding: 28px;
+    }
+
+    #order-type-section .order-card-icon {
+        width: 75px;
+        height: 75px;
+        margin: 25px 0;
+    }
+
+    #order-type-section .order-card-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    #order-type-section .order-selection-footer {
+        margin-top: 40px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    #order-type-section .order-type-card {
+        transition: none;
+    }
+
+    #order-type-section .order-type-card:hover {
+        transform: none;
+    }
 }

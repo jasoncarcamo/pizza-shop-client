@@ -1,20 +1,130 @@
-.quatity-option-section{
-    margin: 1em 0;
+
+.quatity-option-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.quatity-options-container{
+.quatity-option-heading {
     display: flex;
-    flex-direction: row;
-    font-size: 1em;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.quatity-options-container p{
-    font-size: 1.1em;
+.quatity-option-title {
+    margin: 0 0 8px;
+    color: #29211d;
+    font-family: var(--font-heading, Georgia, serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
-.quatity-options-container button{
-    width: 2em;
-    height: 2em;
-    align-self: center;
-    margin: 0 1em;
+.quatity-option-description {
+    margin: 0;
+    color: #6d645d;
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+.quatity-option-limit {
+    flex-shrink: 0;
+    margin-top: 4px;
+    padding: 5px 9px;
+    border: 1px solid #e8e0d7;
+    border-radius: 3px;
+    background: #faf7f2;
+    color: #81766d;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+/* QUANTITY CONTROLS */
+
+.quatity-option-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid #e8e0d7;
+    border-radius: 5px;
+    background: #ffffff;
+}
+
+.quatity-option-button {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    background: #faf7f2;
+    color: #29211d;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.quatity-option-button:hover:not(:disabled) {
+    background: #e9b76c;
+    color: #1b1512;
+}
+
+.quatity-option-button:disabled {
+    color: #b8aea3;
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.quatity-option-button:focus-visible {
+    position: relative;
+    z-index: 1;
+    outline: 3px solid #a7773c;
+    outline-offset: -3px;
+}
+
+.quatity-option-value {
+    display: grid;
+    place-items: center;
+    min-width: 65px;
+    height: 48px;
+    padding: 0 15px;
+    border-right: 1px solid #e8e0d7;
+    border-left: 1px solid #e8e0d7;
+    color: #29211d;
+    font-size: 1.05rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .quatity-option-title {
+        font-size: 1.15rem;
+    }
+
+    .quatity-option-button {
+        width: 48px;
+        height: 46px;
+    }
+
+    .quatity-option-value {
+        min-width: 60px;
+        height: 46px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .quatity-option-button {
+        transition: none;
+    }
 }

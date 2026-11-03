@@ -1,74 +1,98 @@
+
 import React from "react";
 import "./QuatityOption.css";
 
-export default class QuatityOption extends React.Component{
-    constructor(props){
+export default class QuatityOption extends React.Component {
+    constructor(props) {
         super(props);
-        this.state = {
-            quantity: 1
-        };
+
+        this.minimumQuantity = 1;
+        this.maximumQuantity = 20;
     }
 
-    addQuantity = ()=>{
-        let quantity = this.state.quantity;
+    updateQuantity = (quantity) => {
+        const { orderItem, updateOrderItem } = this.props;
 
-        quantity++;
-
-        this.setState({
-            quantity
-        });
-
-        this.updateOrderItem(quantity);
-    }
-
-    decreaseQuantity = ()=>{
-        let quantity = this.state.quantity;
-
-        quantity = --quantity;
-
-        if(quantity === 0){
+        if (
+            quantity < this.minimumQuantity ||
+            quantity > this.maximumQuantity
+        ) {
             return;
         }
 
-        this.setState({
-            quantity: quantity
+        updateOrderItem({
+            ...orderItem,
+            quantity
         });
+    };
 
-        this.updateOrderItem(quantity);
-    }
+    addQuantity = () => {
+        const currentQuantity = Number(this.props.orderItem.quantity) || 1;
 
-    updateOrderItem = (quantity)=>{
-        const orderItem = this.props.orderItem;
-        const menuItem = this.props.menuItem;
-        let sizeType;
-        let priceType;
+        this.updateQuantity(currentQuantity + 1);
+    };
 
-        orderItem.quantity = quantity;
+    decreaseQuantity = () => {
+        const currentQuantity = Number(this.props.orderItem.quantity) || 1;
 
-        for(const key of Object.keys(menuItem)){
-            if(orderItem.size === key){
-                sizeType = key;
-            }
-        };
+        this.updateQuantity(currentQuantity - 1);
+    };
 
-        priceType = `price_${sizeType.split("_")[1]}`;
+    render() {
+        const { orderItem } = this.props;
+        const quantity = Number(orderItem.quantity) || 1;
 
-        orderItem.price = Math.round(Number((menuItem[priceType]) * quantity) * 100 + Number.EPSILON) / 100;
-        
-        this.props.updateOrderItem(orderItem);
-    }
-
-    render(){
         return (
-            <section className="quatity-option-section">
-                <p><strong>Quantity:</strong></p>
+            <section
+                className="quatity-option-section"
+                aria-label="Select quantity"
+            >
+                <div className="quatity-option-heading">
+                    <div>
+                        <h3 className="quatity-option-title">
+                            Quantity
+                        </h3>
 
-                <div className="quatity-options-container">
-                    <button onClick={this.decreaseQuantity}>-</button>
-                    <p><strong>{this.state.quantity}</strong></p>
-                    <button onClick={this.addQuantity}>+</button>
+                        <p className="quatity-option-description">
+                            How many would you like to order?
+                        </p>
+                    </div>
+
+                    <span className="quatity-option-limit">
+                        MAX {this.maximumQuantity}
+                    </span>
+                </div>
+
+                <div className="quatity-option-controls">
+                    <button
+                        type="button"
+                        className="quatity-option-button"
+                        onClick={this.decreaseQuantity}
+                        disabled={quantity <= this.minimumQuantity}
+                        aria-label="Decrease quantity"
+                    >
+                        <span aria-hidden="true">−</span>
+                    </button>
+
+                    <output
+                        className="quatity-option-value"
+                        aria-live="polite"
+                        aria-label={`Quantity: ${quantity}`}
+                    >
+                        {quantity}
+                    </output>
+
+                    <button
+                        type="button"
+                        className="quatity-option-button"
+                        onClick={this.addQuantity}
+                        disabled={quantity >= this.maximumQuantity}
+                        aria-label="Increase quantity"
+                    >
+                        <span aria-hidden="true">+</span>
+                    </button>
                 </div>
             </section>
         );
-    };
+    }
 }

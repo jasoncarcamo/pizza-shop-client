@@ -8,13 +8,13 @@ export default class LandingPage extends React.Component{
 
     render(){
         return (
-            <section id="landing-page-section">
+            <main id="landing-page-section">
                 <FirstSection history={this.props.history}/>
 
                 <SecondSection/>
 
                 <ThirdSection history={this.props.history}/>
-            </section>
+            </main>
         );
     };  
 }
